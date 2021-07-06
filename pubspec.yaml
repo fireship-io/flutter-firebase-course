@@ -1,0 +1,25 @@
+name: quizapp
+description: QuizApp Built with Flutter & Firebase.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  bloc: ^7.0.0
+  flutter_bloc: ^7.0.1
+  intl: ^0.17.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^2.1.2
+
+flutter:
+  uses-material-design: true
+  generate: true
