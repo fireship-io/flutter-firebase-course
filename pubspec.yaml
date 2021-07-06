@@ -11,6 +11,9 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+
+  data_sources:
+    path: packages/data_sources
   bloc: ^7.0.0
   flutter_bloc: ^7.0.1
   intl: ^0.17.0
