@@ -1,0 +1,16 @@
+name: data_sources
+description: An app package exporting all data sources.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cloud_firestore: ^2.3.0
+  firebase_auth: ^2.0.0
+  firebase_core: ^1.3.0
+
+dev_dependencies:
+  very_good_analysis: ^2.1.2
