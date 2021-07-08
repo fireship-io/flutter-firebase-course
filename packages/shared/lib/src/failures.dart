@@ -2,7 +2,7 @@ class AppFailure implements Exception {
   const AppFailure();
 
   factory AppFailure.fromAuth() => const AuthFailure();
-  factory AppFailure.fromLogOut() => const AuthFailure();
+  factory AppFailure.fromLogOut() => const LogOutFailure();
 
   static const none = NoFailure();
 
