@@ -11,16 +11,21 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-
   data_sources:
     path: packages/data_sources
-  bloc: ^7.0.0
+  shared:
+    path: packages/shared
+  user_repository:
+    path: packages/user_repository
+  equatable: ^2.0.3
+  flow_builder: ^0.0.3
   flutter_bloc: ^7.0.1
   intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  mocktail: ^0.1.4
   very_good_analysis: ^2.1.2
 
 flutter:

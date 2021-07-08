@@ -1,7 +1,19 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
+    "appTitle": "QuizApp",
+    "@appTitle": {
+        "description": "App title"
+    },
+    "authFailureMessage": "There's been an error, please log back in!",
+    "@authFailureMessage": {
+        "description": "`AuthFailure` message"
+    },
+    "logOutFailureMessage": "There's been an error while logging out, please try again!",
+    "@logOutFailureMessage": {
+        "description": "`LogOutFailure` message"
+    },
+    "unknownFailureMessage": "There's been an error, please try again!",
+    "@unknownFailureMessage": {
+        "description": "Unknown failure message"
     }
 }

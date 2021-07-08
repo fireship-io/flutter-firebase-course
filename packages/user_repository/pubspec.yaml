@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  shared:
+    path: ../shared
   data_sources:
     path: ../data_sources
 
