@@ -3,11 +3,9 @@ import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
 
-import 'package:quizapp/app/app.dart';
 import 'package:user_repository/user_repository.dart';
 
-import 'app/app_bootstrapper.dart';
-import 'app/app_environment.dart';
+import 'app/app.dart';
 
 void mainCommon(AppEnvironment environment) {
   runZonedGuarded(
