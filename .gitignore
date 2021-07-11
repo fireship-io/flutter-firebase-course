@@ -122,6 +122,7 @@ app.*.map.json
 !/dev/ci/**/Gemfile.lock
 !.vscode/extensions.json
 !.vscode/launch.json
+!.vscode/tasks.json
 !.idea/codeStyles/
 !.idea/dictionaries/
 !.idea/runConfigurations/
