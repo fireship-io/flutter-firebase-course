@@ -4,37 +4,21 @@ class FirebaseUserRepository implements UserRepository {
   FirebaseUserRepository({
     FirebaseAuth? firebaseAuth,
     FirebaseFirestore? firestore,
-  })  : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance,
-        _firestore = firestore ?? FirebaseFirestore.instance;
+  }) {
+    _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
+    _firestore = firestore ?? FirebaseFirestore.instance;
+    _user = _firebaseAuth.authUserChanges(_firestore);
+  }
 
-  final FirebaseAuth _firebaseAuth;
-  final FirebaseFirestore _firestore;
+  late final FirebaseAuth _firebaseAuth;
+  late final FirebaseFirestore _firestore;
+  late final ValueStream<User> _user;
 
   @override
-  Stream<User> get watchUser => _firebaseAuth
-      .authStateChanges()
-      .onErrorResumeWith((_, __) => null)
-      .switchMap<User>(
-        (firebaseUser) async* {
-          if (firebaseUser == null) {
-            yield User.none;
-            return;
-          }
+  Stream<User> get watchUser => _user.asBroadcastStream();
 
-          yield* _firestore
-              .userDoc(firebaseUser.uid)
-              .snapshots()
-              .map((snapshot) {
-            final data = snapshot.data();
-            if (data == null) {
-              return User.none;
-            }
-            return User.fromJson(data);
-          });
-        },
-      )
-      .handleError((_) => throw AppFailure.fromAuth())
-      .logOnEach('USER');
+  @override
+  User get user => _user.valueOrNull ?? User.none;
 
   @override
   Future<User> getOpeningUser() {
@@ -49,4 +33,31 @@ class FirebaseUserRepository implements UserRepository {
       throw AppFailure.fromLogOut();
     }
   }
+}
+
+extension _FirebaseAuthExtensions on FirebaseAuth {
+  ValueStream<User> authUserChanges(FirebaseFirestore firestore) =>
+      authStateChanges()
+          .onErrorResumeWith((_, __) => null)
+          .switchMap<User>(
+            (firebaseUser) async* {
+              if (firebaseUser == null) {
+                yield User.none;
+                return;
+              }
+
+              yield* firestore
+                  .userDoc(firebaseUser.uid)
+                  .snapshots()
+                  .map((snapshot) {
+                if (snapshot.exists) {
+                  return User.fromJson(snapshot.data()!);
+                }
+                return User.none;
+              });
+            },
+          )
+          .handleError((_) => throw AppFailure.fromAuth())
+          .logOnEach('USER')
+          .shareValue();
 }

@@ -9,12 +9,11 @@ part 'app_state.dart';
 
 class AppCubit extends Cubit<AppState> {
   AppCubit({
-    required User openingUser,
     required UserRepository userRepository,
   })  : _userRepository = userRepository,
-        super(openingUser.isNone
+        super(userRepository.user.isNone
             ? const AppState.unauthenticated()
-            : AppState.newlyAuthenticated(openingUser)) {
+            : AppState.newlyAuthenticated(userRepository.user)) {
     _watchUser();
   }
 
@@ -34,16 +33,14 @@ class AppCubit extends Cubit<AppState> {
     }
   }
 
-  void _onAuthChanged(User user) {
+  void _onUserChanged(User user) {
     if (user.isNone) {
       emit(const AppState.unauthenticated());
-      return;
-    }
-    if (state.isUnauthenticated) {
+    } else if (state.isUnauthenticated) {
       emit(AppState.newlyAuthenticated(user));
-      return;
+    } else {
+      emit(AppState.authenticated(user));
     }
-    emit(AppState.authenticated(user));
   }
 
   void _onAppFailed(AppFailure failure) {
@@ -56,14 +53,14 @@ class AppCubit extends Cubit<AppState> {
     }
   }
 
-  late StreamSubscription? _userSubscription;
+  late final StreamSubscription _userSubscription;
   void _watchUser() {
     _userSubscription = _userRepository.watchUser
         .handleFailure(_onAppFailed)
-        .listen(_onAuthChanged);
+        .listen(_onUserChanged);
   }
 
-  FutureOr<void> _unwatchUser() {
-    return _userSubscription?.cancel();
+  Future<void> _unwatchUser() {
+    return _userSubscription.cancel();
   }
 }

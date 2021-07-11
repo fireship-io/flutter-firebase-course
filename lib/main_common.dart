@@ -16,11 +16,8 @@ void mainCommon(AppEnvironment environment) {
       await bootstrapper.bootstrapApp();
 
       final userRepository = FirebaseUserRepository();
-      final openingUser = await userRepository.getOpeningUser();
-      runApp(App(
-        openingUser: openingUser,
-        userRepository: userRepository,
-      ));
+      await userRepository.getOpeningUser();
+      runApp(App(userRepository: userRepository));
     },
     (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
   );

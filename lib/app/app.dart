@@ -13,11 +13,9 @@ import 'cubit/app_cubit.dart';
 class App extends StatelessWidget {
   const App({
     Key? key,
-    required this.openingUser,
     required this.userRepository,
   }) : super(key: key);
 
-  final User openingUser;
   final UserRepository userRepository;
 
   @override
@@ -25,10 +23,7 @@ class App extends StatelessWidget {
     return RepositoryProvider<UserRepository>.value(
       value: userRepository,
       child: BlocProvider<AppCubit>(
-        create: (_) => AppCubit(
-          openingUser: openingUser,
-          userRepository: userRepository,
-        ),
+        create: (_) => AppCubit(userRepository: userRepository),
         child: const _AppView(),
       ),
     );

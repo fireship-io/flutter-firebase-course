@@ -6,8 +6,11 @@ import 'models/models.dart';
 part 'firebase_user_repository.dart';
 
 abstract class UserRepository {
-  /// Currently logged in user as a stream.
+  /// Current user as a stream.
   Stream<User> get watchUser;
+
+  /// Gets the current user synchronously.
+  User get user;
 
   /// Gets the initial `watchUser` emission.
   ///
