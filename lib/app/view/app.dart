@@ -8,6 +8,7 @@ import 'package:quizapp/l10n/l10n.dart';
 import 'package:shared/shared.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:quizapp/shared/shared.dart';
+import 'package:quizapp/theme/theme.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -36,6 +37,7 @@ class _AppView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       onGenerateTitle: (context) => context.l10n.appTitle,
+      theme: ThemeData.dark().withQuizTheme(),
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
