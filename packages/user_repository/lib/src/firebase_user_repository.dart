@@ -4,14 +4,14 @@ class FirebaseUserRepository implements UserRepository {
   FirebaseUserRepository({
     FirebaseAuth? firebaseAuth,
     FirebaseFirestore? firestore,
-  }) {
-    _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
-    _firestore = firestore ?? FirebaseFirestore.instance;
+  })  : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance,
+        _firestore = firestore ?? FirebaseFirestore.instance {
     _user = _firebaseAuth.authUserChanges(_firestore);
   }
 
-  late final FirebaseAuth _firebaseAuth;
-  late final FirebaseFirestore _firestore;
+  final FirebaseAuth _firebaseAuth;
+  final FirebaseFirestore _firestore;
+
   late final ValueStream<User> _user;
 
   @override
