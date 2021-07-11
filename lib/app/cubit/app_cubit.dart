@@ -56,14 +56,14 @@ class AppCubit extends Cubit<AppState> {
     }
   }
 
-  late StreamSubscription? _userSub;
+  late StreamSubscription? _userSubscription;
   void _watchUser() {
-    _userSub = _userRepository.watchUser
+    _userSubscription = _userRepository.watchUser
         .handleFailure(_onAppFailed)
         .listen(_onAuthChanged);
   }
 
   FutureOr<void> _unwatchUser() {
-    return _userSub?.cancel();
+    return _userSubscription?.cancel();
   }
 }
