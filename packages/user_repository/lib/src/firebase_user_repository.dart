@@ -48,13 +48,13 @@ class FirebaseUserRepository implements UserRepository {
       }
       final googleSignInAuth = await googleSignInAccount.authentication;
 
-      final credential = GoogleAuthProvider.credential(
+      final oauthCredential = GoogleAuthProvider.credential(
         accessToken: googleSignInAuth.accessToken,
         idToken: googleSignInAuth.idToken,
       );
 
       final userCredential =
-          await _firebaseAuth.signInWithCredential(credential);
+          await _firebaseAuth.signInWithCredential(oauthCredential);
       final firebaseUser = userCredential.user;
       unawaited(_updateUserData(firebaseUser));
     } on FirebaseAuthException {
@@ -63,11 +63,43 @@ class FirebaseUserRepository implements UserRepository {
   }
 
   @override
-  Future<void> signInWithApple() {
-    // TODO: implement signInWithApple
-    throw UnimplementedError();
-    // final firebaseUser = userCredential.user;
-    //   unawaited(_updateUserData(firebaseUser));
+  Future<void> signInWithApple() async {
+    try {
+      // To prevent replay attacks with the credential returned from Apple, we
+      // include a nonce in the credential request. When signing in with
+      // Firebase, the nonce in the id token returned by Apple, is expected to
+      // match the sha256 hash of `rawNonce`.
+      final rawNonce = CryptoUtils.generateNonce();
+      final nonce = CryptoUtils.sha256ofString(rawNonce);
+
+      // Request credential for the currently signed in Apple account.
+      final appleCredential = await SignInWithApple.getAppleIDCredential(
+        scopes: [
+          AppleIDAuthorizationScopes.email,
+          AppleIDAuthorizationScopes.fullName,
+        ],
+        nonce: nonce,
+      );
+
+      // Create an `OAuthCredential` from the credential returned by Apple.
+      final oauthCredential = OAuthProvider('apple.com').credential(
+        idToken: appleCredential.identityToken,
+        rawNonce: rawNonce,
+      );
+
+      // If the nonce we generated earlier does not match the nonce
+      // in `appleCredential.identityToken`, sign in will fail.
+      final userCredential =
+          await _firebaseAuth.signInWithCredential(oauthCredential);
+      final firebaseUser = userCredential.user;
+      unawaited(_updateUserData(firebaseUser));
+    } on SignInWithAppleNotSupportedException {
+      throw AppFailure.fromSignInWithAppleNotSupported();
+    } on SignInWithAppleException {
+      throw AppFailure.fromAppleSignIn();
+    } on FirebaseAuthException {
+      throw AppFailure.fromAppleSignIn();
+    }
   }
 
   @override

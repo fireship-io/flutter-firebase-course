@@ -6,6 +6,8 @@ class AppFailure implements Exception {
   factory AppFailure.fromAnonymousSignIn() => const AnonymousSignInFailure();
   factory AppFailure.fromGoogleSignIn() => const GoogleSignInFailure();
   factory AppFailure.fromAppleSignIn() => const AppleSignInFailure();
+  factory AppFailure.fromSignInWithAppleNotSupported() =>
+      const AppleSignInNotSupportedFailure();
 
   static const none = NoFailure();
 
@@ -36,4 +38,8 @@ class GoogleSignInFailure extends AppFailure {
 
 class AppleSignInFailure extends AppFailure {
   const AppleSignInFailure();
+}
+
+class AppleSignInNotSupportedFailure extends AppFailure {
+  const AppleSignInNotSupportedFailure();
 }
