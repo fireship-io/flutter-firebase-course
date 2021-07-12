@@ -116,7 +116,7 @@ class FirebaseUserRepository implements UserRepository {
       return;
     }
     final uid = firebaseUser.uid;
-    final user = User(uid: uid);
+    final user = User.fromFirebaseUser(firebaseUser);
     return _firestore.userDoc(uid).set(
           user.toJson(),
           SetOptions(merge: true),

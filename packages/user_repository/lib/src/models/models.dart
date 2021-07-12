@@ -1,3 +1,4 @@
+import 'package:data_sources/data_sources.dart' as firebase show User;
 import 'package:shared/shared.dart';
 
 part 'models.g.dart';
@@ -10,6 +11,9 @@ class User extends Equatable {
     required this.uid,
     this.lastSignInAt,
   });
+
+  factory User.fromFirebaseUser(firebase.User firebaseUser) =>
+      User(uid: firebaseUser.uid);
 
   final String uid;
   @timestamp
