@@ -9,7 +9,7 @@ part of 'models.dart';
 User _$UserFromJson(Map<String, dynamic> json) {
   return User(
     uid: json['uid'] as String,
-    lastActivityAt: timestamp.fromJson(json['lastActivityAt']),
+    lastSignInAt: timestamp.fromJson(json['lastSignInAt']),
   );
 }
 
@@ -24,6 +24,6 @@ Map<String, dynamic> _$UserToJson(User instance) {
     }
   }
 
-  writeNotNull('lastActivityAt', timestamp.toJson(instance.lastActivityAt));
+  writeNotNull('lastSignInAt', timestamp.toJson(instance.lastSignInAt));
   return val;
 }
