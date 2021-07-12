@@ -13,6 +13,6 @@ class _TimestampConverter implements JsonConverter<DateTime?, Object?> {
 
   @override
   Object? toJson(DateTime? _) {
-    return FieldValue.serverTimestamp();
+    return Timestamp.now();
   }
 }
