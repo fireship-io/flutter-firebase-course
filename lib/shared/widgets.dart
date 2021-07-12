@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import 'extensions.dart';
+
 class Loader extends StatelessWidget {
   const Loader({
     Key? key,
@@ -13,7 +15,7 @@ class Loader extends StatelessWidget {
   Widget build(BuildContext context) {
     return SpinKitThreeBounce(
       size: dotSize,
-      color: Colors.white,
+      color: context.theme.colorScheme.primary,
     );
   }
 }

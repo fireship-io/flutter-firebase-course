@@ -80,7 +80,7 @@ class _Preamble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       context.l10n.loginPreamble,
-      style: Theme.of(context).textTheme.headline5,
+      style: context.theme.textTheme.headline5,
       textAlign: TextAlign.center,
     );
   }
@@ -189,7 +189,7 @@ class _SignInButton extends StatelessWidget {
     if (icon != null) {
       return TextButton.icon(
         style: style,
-        icon: Icon(icon, color: Colors.white),
+        icon: Icon(icon),
         onPressed: onPressed,
         label: Expanded(child: child),
       );
