@@ -15,9 +15,7 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> signInAnonymously() async {
     try {
       emit(const LoginState.signingInAnonymously());
-      await Future.delayed(const Duration(seconds: 3));
       await _userRepository.signInAnonymously();
-      // throw AppFailure.fromAnonymousSignIn();
     } on AppFailure catch (failure) {
       _onLoginFailed(failure);
     }
