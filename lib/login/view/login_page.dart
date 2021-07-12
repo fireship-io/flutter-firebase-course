@@ -37,10 +37,8 @@ class _LoginContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
+      listenWhen: (_, current) => current.isFailure,
       listener: (context, state) {
-        if (state.isNotFailure) {
-          return;
-        }
         final l10n = context.l10n;
         final failure = state.failure;
         if (failure is AnonymousSignInFailure) {

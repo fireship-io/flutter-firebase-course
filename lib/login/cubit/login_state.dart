@@ -56,7 +56,7 @@ class LoginState extends Equatable {
 }
 
 extension LoginStateExtensions on LoginState {
-  bool get isNotFailure => status != LoginStatus.failure;
+  bool get isFailure => status == LoginStatus.failure;
 
   bool get isSigningInAnonymously =>
       status.isSigningIn && signInMethod.isAnonymous;
