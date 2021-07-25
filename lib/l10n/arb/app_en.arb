@@ -12,8 +12,44 @@
     "@logOutFailureMessage": {
         "description": "`LogOutFailure` message"
     },
+    "anonymousSignInFailureMessage": "You can't sign in as a guest at the moment, please try again later!",
+    "@anonymousSignInFailureMessage": {
+        "description": "`AnonymousSignInFailure` message"
+    },
+    "googleSignInFailureMessage": "There's been an error while signing in with google, please try again!",
+    "@googleSignInFailureMessage": {
+        "description": "`GoogleSignInFailure` message"
+    },
+    "appleSignInFailureMessage": "There's been an error while signing in with apple, please try again!",
+    "@appleSignInFailureMessage": {
+        "description": "`AppleSignInFailure` message"
+    },
+    "appleSignInNotSupportedFailureMessage": "Apple sign in is not supported on your device!",
+    "@appleSignInNotSupportedFailureMessage": {
+        "description": "`AppleSignInNotSupportedFailure` message"
+    },
     "unknownFailureMessage": "There's been an error, please try again!",
     "@unknownFailureMessage": {
         "description": "Unknown failure message"
+    },
+    "loginPreamble": "Login to Start",
+    "@loginPreamble": {
+        "description": "`LoginPage` preamble"
+    },
+    "loginTagline": "Test your app development knowledge with quick bite-sized quizzes from fireship.io",
+    "@loginTagline": {
+        "description": "`LoginPage` tagline"
+    },
+    "loginWithGoogleButtonLabel": "Login with Google",
+    "@loginPreamble": {
+        "description": "Sign in with google button label"
+    },
+    "loginWithAppleButtonLabel": "Login with Apple",
+    "@loginWithAppleButtonLabel": {
+        "description": "Sign in with apple button label"
+    },
+    "loginAsGuestButtonLabel": "Continue as Guest",
+    "@loginAsGuestButtonLabel": {
+        "description": "Sign in as guest button label"
     }
 }

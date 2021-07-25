@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quizapp/login/login.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'cubit/app_cubit.dart';
 
@@ -9,27 +12,36 @@ class AppPages {
     List<Page<dynamic>> pages,
   ) {
     if (status.isUnauthenticated) {
-      return [
-        MaterialPage(
-          child: Scaffold(
-            appBar: AppBar(
-              title: const Text('Login'),
-            ),
-          ),
-        )
-      ]; //LoginPage.page()
+      return [LoginPage.page()];
     }
     if (status.isNewlyAuthenticated) {
       return [
-        MaterialPage(
-          child: Scaffold(
-            appBar: AppBar(
-              title: const Text('Topics'),
-            ),
-          ),
+        const MaterialPage(
+          child: TopicsPage(),
         )
-      ]; //TopicsPage.page()
+      ];
     }
     return pages;
+  }
+}
+
+class TopicsPage extends StatelessWidget {
+  const TopicsPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Topics'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              context.read<AppCubit>().logOut();
+            },
+            icon: const Icon(FontAwesomeIcons.signOutAlt),
+          ),
+        ],
+      ),
+    );
   }
 }

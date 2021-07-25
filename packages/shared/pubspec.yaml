@@ -9,12 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  data_sources:
-    path: ../data_sources
+  data_providers:
+    path: ../data_providers
   bloc: ^7.0.0
+  crypto: ^3.0.1
   equatable: ^2.0.3
   json_annotation: ^4.0.1
   rxdart: ^0.27.1
 
 dev_dependencies:
+  pedantic: ^1.11.1
   very_good_analysis: ^2.1.2

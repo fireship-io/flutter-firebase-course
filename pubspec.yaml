@@ -11,8 +11,8 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  data_sources:
-    path: packages/data_sources
+  data_providers:
+    path: packages/data_providers
   shared:
     path: packages/shared
   user_repository:
@@ -20,6 +20,9 @@ dependencies:
   equatable: ^2.0.3
   flow_builder: ^0.0.3
   flutter_bloc: ^7.0.1
+  flutter_spinkit: ^5.0.0
+  font_awesome_flutter: ^9.1.0
+  google_fonts: ^2.1.0
   intl: ^0.17.0
 
 dev_dependencies:

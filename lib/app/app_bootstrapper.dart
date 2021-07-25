@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:data_sources/data_sources.dart';
+import 'package:data_providers/data_providers.dart';
 import 'package:flutter/material.dart';
 
 import 'app_bloc_observer.dart';

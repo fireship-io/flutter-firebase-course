@@ -1,5 +1,5 @@
-name: data_sources
-description: An app package exporting all data sources.
+name: data_providers
+description: An app package exporting all data providers.
 version: 1.0.0+1
 
 environment:
@@ -11,6 +11,8 @@ dependencies:
   cloud_firestore: ^2.3.0
   firebase_auth: ^2.0.0
   firebase_core: ^1.3.0
+  google_sign_in: ^5.0.4
+  sign_in_with_apple: ^3.0.0
 
 dev_dependencies:
   very_good_analysis: ^2.1.2

@@ -18,4 +18,6 @@ extension BuildContextExtensions on BuildContext {
         ),
       );
   }
+
+  ThemeData get theme => Theme.of(this);
 }
