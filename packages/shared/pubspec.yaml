@@ -9,8 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  data_sources:
-    path: ../data_sources
+  data_providers:
+    path: ../data_providers
   bloc: ^7.0.0
   crypto: ^3.0.1
   equatable: ^2.0.3

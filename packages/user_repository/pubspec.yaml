@@ -11,8 +11,8 @@ dependencies:
     sdk: flutter
   shared:
     path: ../shared
-  data_sources:
-    path: ../data_sources
+  data_providers:
+    path: ../data_providers
 
 dev_dependencies:
   build_runner: ^2.0.5

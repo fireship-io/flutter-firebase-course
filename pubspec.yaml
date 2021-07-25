@@ -11,8 +11,8 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  data_sources:
-    path: packages/data_sources
+  data_providers:
+    path: packages/data_providers
   shared:
     path: packages/shared
   user_repository:
