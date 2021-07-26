@@ -1,0 +1,11 @@
+targets:
+  $default:
+    sources: 
+    builders:
+      json_serializable:
+        options:
+          explicit_to_json: true
+          include_if_null: false
+        generate_for:
+          include:
+            - lib/src/models/**.dart
