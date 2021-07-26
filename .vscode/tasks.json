@@ -20,5 +20,22 @@
                 "clear": false
             }
         },
+        {
+            "type": "shell",
+            "command": "cd packages/topics_repository && dart pub get && dart run build_runner watch --delete-conflicting-outputs",
+            "label": "topics_repository: run build_runner watch",
+            "group": "build",
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
     ]
 }

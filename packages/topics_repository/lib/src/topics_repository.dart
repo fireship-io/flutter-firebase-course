@@ -5,4 +5,6 @@ import 'models/models.dart';
 
 part 'firebase_topics_repository.dart';
 
-abstract class TopicsRepository {}
+abstract class TopicsRepository {
+  Future<List<Topic>> getTopics();
+}

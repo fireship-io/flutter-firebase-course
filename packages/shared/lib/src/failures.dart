@@ -9,15 +9,15 @@ class AppFailure implements Exception {
   factory AppFailure.fromSignInWithAppleNotSupported() =>
       const AppleSignInNotSupportedFailure();
 
-  static const none = NoFailure();
+  static const none = NoAppFailure();
 
   bool get requiresReauthentication {
     return this is AuthFailure;
   }
 }
 
-class NoFailure extends AppFailure {
-  const NoFailure();
+class NoAppFailure extends AppFailure {
+  const NoAppFailure();
 }
 
 class AuthFailure extends AppFailure {
@@ -42,4 +42,20 @@ class AppleSignInFailure extends AppFailure {
 
 class AppleSignInNotSupportedFailure extends AppFailure {
   const AppleSignInNotSupportedFailure();
+}
+
+class TopicsFailure implements Exception {
+  const TopicsFailure();
+
+  factory TopicsFailure.fromGetTopics() => const GetTopicsFailure();
+
+  static const none = NoTopicsFailure();
+}
+
+class NoTopicsFailure extends AppFailure {
+  const NoTopicsFailure();
+}
+
+class GetTopicsFailure extends TopicsFailure {
+  const GetTopicsFailure();
 }
