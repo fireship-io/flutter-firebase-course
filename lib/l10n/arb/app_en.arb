@@ -51,5 +51,17 @@
     "loginAsGuestButtonLabel": "Continue as Guest",
     "@loginAsGuestButtonLabel": {
         "description": "Sign in as guest button label"
+    },
+    "topicsLabel": "Topics",
+    "@topicsLabel": {
+        "description": "Topics  label"
+    },
+    "aboutLabel": "About",
+    "@aboutLabel": {
+        "description": "About  label"
+    },
+    "profileLabel": "Profile",
+    "@profileLabel": {
+        "description": "Profile  label"
     }
 }
