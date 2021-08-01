@@ -14,16 +14,9 @@ import 'topics_flow.dart';
 class TopicPage extends StatelessWidget {
   const TopicPage._({Key? key}) : super(key: key);
 
-  static Page page({
-    required Topic topic,
-    required TopicsCubit topicsCubit,
-  }) =>
-      MaterialPage<void>(
-        child: MultiProvider(
-          providers: [
-            Provider.value(value: topic),
-            BlocProvider.value(value: topicsCubit)
-          ],
+  static Page page({required Topic topic}) => MaterialPage<void>(
+        child: Provider.value(
+          value: topic,
           child: const TopicPage._(),
         ),
       );

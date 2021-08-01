@@ -11,13 +11,11 @@ import 'topics_page.dart';
 
 List<Page> onGenerateTopicsPages(
   TopicsFlowState state,
-  List<Page<dynamic>> pages, {
-  required TopicsCubit topicsCubit,
-}) {
+  List<Page<dynamic>> pages,
+) {
   return [
     TopicsPage.page(),
-    if (state.hasTopicSelected)
-      TopicPage.page(topic: state.selectedTopic, topicsCubit: topicsCubit),
+    if (state.hasTopicSelected) TopicPage.page(topic: state.selectedTopic),
   ];
 }
 
@@ -82,11 +80,7 @@ class TopicsFlowBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlowBuilder<TopicsFlowState>(
       state: const TopicsFlowState.withTopicDeselected(),
-      onGeneratePages: (state, pages) => onGenerateTopicsPages(
-        state,
-        pages,
-        topicsCubit: context.read<TopicsCubit>(),
-      ),
+      onGeneratePages: onGenerateTopicsPages,
       observers: [HeroController()],
     );
   }
