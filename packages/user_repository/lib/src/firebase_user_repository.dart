@@ -119,7 +119,7 @@ class FirebaseUserRepository implements UserRepository {
     final user = User.fromFirebaseUser(firebaseUser);
     return _firestore.userDoc(uid).set(
           user.toJson(),
-          SetOptions(merge: true),
+          SetOptions(merge: true, mergeFields: ['uid', 'lastSignInAt']),
         );
   }
 }
