@@ -78,7 +78,7 @@ class _Preamble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       context.l10n.loginPreamble,
-      style: context.theme.textTheme.headline5,
+      style: context.textTheme.headline5,
       textAlign: TextAlign.center,
     );
   }

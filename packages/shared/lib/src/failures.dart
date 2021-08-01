@@ -1,5 +1,5 @@
 class AppFailure implements Exception {
-  const AppFailure();
+  const AppFailure._();
 
   factory AppFailure.fromAuth() => const AuthFailure();
   factory AppFailure.fromLogOut() => const LogOutFailure();
@@ -9,37 +9,53 @@ class AppFailure implements Exception {
   factory AppFailure.fromSignInWithAppleNotSupported() =>
       const AppleSignInNotSupportedFailure();
 
-  static const none = NoFailure();
+  static const none = AppNoFailure();
 
   bool get requiresReauthentication {
     return this is AuthFailure;
   }
 }
 
-class NoFailure extends AppFailure {
-  const NoFailure();
+class AppNoFailure extends AppFailure {
+  const AppNoFailure() : super._();
 }
 
 class AuthFailure extends AppFailure {
-  const AuthFailure();
+  const AuthFailure() : super._();
 }
 
 class LogOutFailure extends AppFailure {
-  const LogOutFailure();
+  const LogOutFailure() : super._();
 }
 
 class AnonymousSignInFailure extends AppFailure {
-  const AnonymousSignInFailure();
+  const AnonymousSignInFailure() : super._();
 }
 
 class GoogleSignInFailure extends AppFailure {
-  const GoogleSignInFailure();
+  const GoogleSignInFailure() : super._();
 }
 
 class AppleSignInFailure extends AppFailure {
-  const AppleSignInFailure();
+  const AppleSignInFailure() : super._();
 }
 
 class AppleSignInNotSupportedFailure extends AppFailure {
-  const AppleSignInNotSupportedFailure();
+  const AppleSignInNotSupportedFailure() : super._();
+}
+
+class TopicsFailure implements Exception {
+  const TopicsFailure._();
+
+  factory TopicsFailure.fromGetTopics() => const GetTopicsFailure();
+
+  static const none = TopicsNoFailure();
+}
+
+class TopicsNoFailure extends TopicsFailure {
+  const TopicsNoFailure() : super._();
+}
+
+class GetTopicsFailure extends TopicsFailure {
+  const GetTopicsFailure() : super._();
 }
