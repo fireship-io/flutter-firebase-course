@@ -53,3 +53,21 @@ class Topic extends Equatable {
 
   factory Topic.fromJson(Map<String, dynamic> json) => _$TopicFromJson(json);
 }
+
+extension TopicExtensions on Topic {
+  bool get isNone => this == Topic.none;
+  bool get isNotNone => !isNone;
+
+  int get totalQuizzes => quizzes.length;
+
+  double completedProgress(int completedQuizzes) {
+    if (totalQuizzes == 0) {
+      return 0;
+    }
+    return completedQuizzes / totalQuizzes;
+  }
+
+  String progress(int completedQuizzes) {
+    return '$completedQuizzes / $totalQuizzes';
+  }
+}
