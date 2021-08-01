@@ -63,5 +63,13 @@
     "profileLabel": "Profile",
     "@profileLabel": {
         "description": "Profile  label"
+    },
+    "getTopicsFailureMessage": "There's been an error getting the topics 🙄",
+    "@getTopicsFailureMessage": {
+        "description": "`GetTopicsFailure` message"
+    },
+    "noTopicsMessage": "There are no topics 😏",
+    "@noTopicsMessage": {
+        "description": "No topics message"
     }
 }
