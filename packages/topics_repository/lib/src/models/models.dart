@@ -28,18 +28,28 @@ class Topic extends Equatable {
     required this.id,
     required this.title,
     required this.description,
-    required this.img,
+    required this.imageName,
     required this.quizzes,
   });
 
   final String id;
   final String title;
+  @JsonKey(defaultValue: '')
   final String description;
-  final String img;
+  @JsonKey(name: 'img', defaultValue: kDefaultImageName)
+  final String imageName;
   final List<Quiz> quizzes;
 
+  static const none = Topic(
+    id: '',
+    title: '',
+    description: '',
+    imageName: '',
+    quizzes: [],
+  );
+
   @override
-  List<Object?> get props => [id, title, description, img, quizzes];
+  List<Object?> get props => [id, title, description, imageName, quizzes];
 
   factory Topic.fromJson(Map<String, dynamic> json) => _$TopicFromJson(json);
 }
