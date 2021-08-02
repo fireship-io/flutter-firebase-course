@@ -65,7 +65,7 @@ class QuizzesFailure implements Exception {
 
   factory QuizzesFailure.fromGetQuiz() => const GetQuizFailure();
 
-  static const none = TopicsNoFailure();
+  static const none = QuizzesNoFailure();
 }
 
 class QuizzesNoFailure extends QuizzesFailure {
