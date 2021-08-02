@@ -16,10 +16,10 @@ class Quiz extends Equatable {
   final String title;
   final String description;
 
-  factory Quiz.fromJson(Map<String, dynamic> json) => _$QuizFromJson(json);
-
   @override
   List<Object?> get props => [id, title, description];
+
+  factory Quiz.fromJson(Map<String, dynamic> json) => _$QuizFromJson(json);
 }
 
 @JsonSerializable(createToJson: false)
