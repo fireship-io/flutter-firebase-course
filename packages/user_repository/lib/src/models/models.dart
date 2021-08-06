@@ -51,6 +51,5 @@ extension UserExtensions on User {
     required String quizId,
     required String topicId,
   }) =>
-      completedQuizzes.containsKey(topicId) &&
-      completedQuizzes[topicId]!.contains(quizId);
+      completedQuizzes[topicId]?.contains(quizId) ?? false;
 }
