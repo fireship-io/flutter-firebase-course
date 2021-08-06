@@ -22,7 +22,7 @@ dependencies:
   user_repository:
     path: packages/user_repository
   equatable: ^2.0.3
-  flow_builder: ^0.0.3
+  flow_builder: ^0.0.4
   flutter_bloc: ^7.1.0
   flutter_spinkit: ^5.0.0
   font_awesome_flutter: ^9.1.0
