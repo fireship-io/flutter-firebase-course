@@ -31,4 +31,12 @@ abstract class UserRepository {
 
   /// Logs out the current user.
   Future<void> logOut();
+
+  /// Marks a quiz as completed.
+  ///
+  /// It also increments the total no of completed quizzes.
+  Future<void> markQuizCompleted({
+    required String quizId,
+    required String topicId,
+  });
 }

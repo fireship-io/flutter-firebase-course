@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 extension BuildContextExtensions on BuildContext {
-  Future<T?> push<T extends Object?>(
-    Route<T> route, {
-    bool rootNavigator = false,
-  }) {
-    return Navigator.of(this, rootNavigator: rootNavigator).push<T>(route);
-  }
+  ThemeData get theme => Theme.of(this);
+  TextTheme get textTheme => theme.textTheme;
+
+  void popUntil(RoutePredicate predicate) =>
+      Navigator.of(this).popUntil(predicate);
 
   void showSnackBar(String text) {
     ScaffoldMessenger.of(this)
@@ -19,6 +18,13 @@ extension BuildContextExtensions on BuildContext {
       );
   }
 
-  ThemeData get theme => Theme.of(this);
-  TextTheme get textTheme => theme.textTheme;
+  Future<T?> showScrollControlledBottomSheet<T>({
+    required WidgetBuilder builder,
+  }) {
+    return showModalBottomSheet(
+      context: this,
+      builder: builder,
+      isScrollControlled: true,
+    );
+  }
 }

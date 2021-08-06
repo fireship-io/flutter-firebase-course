@@ -59,3 +59,19 @@ class TopicsNoFailure extends TopicsFailure {
 class GetTopicsFailure extends TopicsFailure {
   const GetTopicsFailure() : super._();
 }
+
+class QuizzesFailure implements Exception {
+  const QuizzesFailure._();
+
+  factory QuizzesFailure.fromGetQuiz() => const GetQuizFailure();
+
+  static const none = QuizzesNoFailure();
+}
+
+class QuizzesNoFailure extends QuizzesFailure {
+  const QuizzesNoFailure() : super._();
+}
+
+class GetQuizFailure extends QuizzesFailure {
+  const GetQuizFailure() : super._();
+}

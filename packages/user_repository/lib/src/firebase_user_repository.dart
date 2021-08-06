@@ -111,6 +111,19 @@ class FirebaseUserRepository implements UserRepository {
     }
   }
 
+  @override
+  Future<void> markQuizCompleted({
+    required String quizId,
+    required String topicId,
+  }) {
+    return _firestore.userDoc(user.uid).set({
+      'total': FieldValue.increment(1),
+      'completedQuizzes': {
+        topicId: FieldValue.arrayUnion([quizId]),
+      }
+    }, SetOptions(merge: true));
+  }
+
   Future<void> _updateUserData(firebase.User? firebaseUser) async {
     if (firebaseUser == null) {
       return;
