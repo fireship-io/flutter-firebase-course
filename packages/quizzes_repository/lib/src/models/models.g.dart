@@ -9,8 +9,8 @@ part of 'models.dart';
 Option _$OptionFromJson(Map<String, dynamic> json) {
   return Option(
     value: json['value'] as String,
-    detail: json['detail'] as String,
-    correct: json['correct'] as bool,
+    detail: json['detail'] as String? ?? '',
+    correct: json['correct'] as bool?,
   );
 }
 

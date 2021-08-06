@@ -13,13 +13,20 @@ class Option extends Equatable {
   });
 
   final String value;
+  @JsonKey(defaultValue: '')
   final String detail;
-  final bool correct;
+  final bool? correct;
+
+  static const none = Option(value: '', detail: '', correct: null);
 
   @override
   List<Object?> get props => [value, detail, correct];
 
   factory Option.fromJson(Map<String, dynamic> json) => _$OptionFromJson(json);
+}
+
+extension OptionExtensions on Option {
+  bool get isNotNone => this != Option.none;
 }
 
 @JsonSerializable(createToJson: false)
@@ -32,6 +39,8 @@ class Question extends Equatable {
   final String text;
   @JsonKey(defaultValue: [])
   final List<Option> options;
+
+  static const none = Question(text: '', options: []);
 
   @override
   List<Object?> get props => [text, options];
@@ -80,4 +89,8 @@ class Quiz extends Equatable {
       ];
 
   factory Quiz.fromJson(Map<String, dynamic> json) => _$QuizFromJson(json);
+}
+
+extension QuizExtensions on Quiz {
+  bool get isNone => this == Quiz.none;
 }
