@@ -71,5 +71,46 @@
     "noTopicsMessage": "There are no topics 😏",
     "@noTopicsMessage": {
         "description": "No topics message"
+    },
+    "congratsMessage": "Congrats! You completed the {quizTitle} quiz",
+    "@congratsMessage": {
+        "description": "Congrats message",
+        "placeholders": {
+            "quizTitle": {
+                "type": "String"
+            }
+        }
+    },
+    "quizStartButtonLabel": "Start Quiz!",
+    "@quizStartButtonLabel": {
+        "description": "`QuizStartButton` label"
+    },
+    "markQuizCompletedButtonLabel": "Mark Complete!",
+    "@markQuizCompletedButtonLabel": {
+        "description": "`CompleteQuizButton` label"
+    },
+    "correctAnswerMessage": "Good Job!",
+    "@correctAnswerMessage": {
+        "description": "Message shown when correctly answering a quiz question"
+    },
+    "wrongAnswerMessage": "Wrong",
+    "@wrongAnswerMessage": {
+        "description": "Message shown when incorrectly answering a quiz question"
+    },
+    "correctQuizButtonLabel": "Onward!",
+    "@correctQuizButtonLabel": {
+        "description": "`QuizButton`'s label on a correct answer"
+    },
+    "wrongQuizButtonLabel": "Try Again",
+    "@wrongQuizButtonLabel": {
+        "description": "`QuizButton`'s label on an incorrect answer"
+    },
+    "noQuizDataMessage": "There's no quiz data 😏",
+    "@noQuizDataMessage": {
+        "description": "`QuizButton`'s label on an incorrect answer"
+    },
+    "getQuizFailureMessage": "There's been an error getting quiz data 🙄",
+    "@getQuizFailureMessage": {
+        "description": "`GetQuizFailure` message"
     }
 }
