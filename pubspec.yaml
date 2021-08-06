@@ -13,6 +13,8 @@ dependencies:
     sdk: flutter
   data_providers:
     path: packages/data_providers
+  quizzes_repository:
+    path: packages/quizzes_repository
   shared:
     path: packages/shared
   topics_repository:

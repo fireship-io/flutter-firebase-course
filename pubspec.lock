@@ -371,6 +371,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  quizzes_repository:
+    dependency: "direct main"
+    description:
+      path: "packages/quizzes_repository"
+      relative: true
+    source: path
+    version: "1.0.0"
   rxdart:
     dependency: transitive
     description:
