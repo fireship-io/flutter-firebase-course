@@ -8,8 +8,8 @@ import 'package:user_repository/user_repository.dart';
 import 'package:quizapp/shared/shared.dart';
 import 'package:flow_builder/flow_builder.dart';
 
-import 'topic_cover.dart';
-import 'topics_flow.dart';
+import 'package:quizapp/topics/view/topic_cover.dart';
+import 'package:quizapp/topics/view/topics_flow.dart';
 
 class TopicPage extends StatelessWidget {
   const TopicPage._({Key? key}) : super(key: key);
@@ -113,8 +113,7 @@ class QuizItem extends StatelessWidget {
       margin: const EdgeInsets.all(4),
       child: InkWell(
         onTap: () {
-          // todo - quiz flow
-          //  QuizFlow(quizId: quiz.id)
+          context.flow<TopicsFlowState>().selectQuiz(quiz.id);
         },
         child: ListTile(
           title: Text(

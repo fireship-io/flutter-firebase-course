@@ -7,8 +7,8 @@ import 'package:quizapp/l10n/l10n.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:user_repository/user_repository.dart';
 
-import 'topic_cover.dart';
-import 'topics_flow.dart';
+import 'package:quizapp/topics/view/topic_cover.dart';
+import 'package:quizapp/topics/view/topics_flow.dart';
 
 class TopicsPage extends StatelessWidget {
   const TopicsPage._({Key? key}) : super(key: key);

@@ -1,50 +1,78 @@
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quizapp/topics/cubit/topics_cubit.dart';
 import 'package:shared/shared.dart';
 import 'package:topics_repository/topics_repository.dart';
 import 'package:user_repository/user_repository.dart';
 
-import 'topic_page.dart';
-import 'topics_page.dart';
+import 'package:quizapp/quiz/quiz.dart';
+import 'package:quizapp/topics/cubit/topics_cubit.dart';
+import 'package:quizapp/topics/view/topic_page.dart';
+import 'package:quizapp/topics/view/topics_page.dart';
 
 List<Page> onGenerateTopicsPages(
   TopicsFlowState state,
-  List<Page<dynamic>> pages,
-) {
+  List<Page<dynamic>> pages, {
+  required VoidCallback onQuizCompleted,
+}) {
   return [
     TopicsPage.page(),
     if (state.hasTopicSelected) TopicPage.page(topic: state.selectedTopic),
+    if (state.hasQuizSelected)
+      QuizPage.page(
+        quizId: state.selectedQuizId,
+        onQuizCompleted: onQuizCompleted,
+      ),
   ];
 }
 
 class TopicsFlowState extends Equatable {
   const TopicsFlowState._({
-    required this.selectedTopic,
+    this.selectedTopic = Topic.none,
+    this.selectedQuizId = '',
   });
 
-  const TopicsFlowState.withTopicDeselected()
-      : this._(selectedTopic: Topic.none);
-
-  const TopicsFlowState.withTopicSelected(Topic selectedTopic)
-      : this._(selectedTopic: selectedTopic);
+  const TopicsFlowState.initial() : this._();
 
   final Topic selectedTopic;
-
-  @override
-  List<Object?> get props => [selectedTopic];
+  final String selectedQuizId;
 
   bool get hasTopicSelected => selectedTopic.isNotNone;
+  bool get hasQuizSelected => selectedQuizId.isNotEmpty;
+
+  @override
+  List<Object?> get props => [selectedTopic, selectedQuizId];
+
+  TopicsFlowState withTopicDeselected() => const TopicsFlowState.initial();
+
+  TopicsFlowState withTopicSelected(Topic selectedTopic) =>
+      copyWith(selectedTopic: selectedTopic);
+
+  TopicsFlowState withQuizSelected(String selectedQuizId) =>
+      copyWith(selectedQuizId: selectedQuizId);
+
+  TopicsFlowState copyWith({
+    Topic? selectedTopic,
+    String? selectedQuizId,
+  }) {
+    return TopicsFlowState._(
+      selectedTopic: selectedTopic ?? this.selectedTopic,
+      selectedQuizId: selectedQuizId ?? this.selectedQuizId,
+    );
+  }
 }
 
 extension TopicsFlowControllerExtensions on FlowController<TopicsFlowState> {
-  void selectTopic(Topic topic) => update(
-        (_) => TopicsFlowState.withTopicSelected(topic),
+  void deselectTopic() => update(
+        (state) => state.withTopicDeselected(),
       );
 
-  void deselectTopic() => update(
-        (_) => const TopicsFlowState.withTopicDeselected(),
+  void selectTopic(Topic topic) => update(
+        (state) => state.withTopicSelected(topic),
+      );
+
+  void selectQuiz(String quizId) => update(
+        (state) => state.withQuizSelected(quizId),
       );
 }
 
@@ -57,6 +85,20 @@ class TopicsFlow extends StatefulWidget {
 
 class _TopicsFlowState extends State<TopicsFlow>
     with AutomaticKeepAliveClientMixin {
+  late FlowController<TopicsFlowState> _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = FlowController(const TopicsFlowState.initial());
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -65,23 +107,18 @@ class _TopicsFlowState extends State<TopicsFlow>
         userRepository: context.read<UserRepository>(),
         topicsRepository: FirebaseTopicsRepository(),
       )..getTopics(),
-      child: const TopicsFlowBuilder(),
+      child: FlowBuilder<TopicsFlowState>(
+        controller: _controller,
+        onGeneratePages: (state, pages) => onGenerateTopicsPages(
+          state,
+          pages,
+          onQuizCompleted: _controller.deselectTopic,
+        ),
+        observers: [HeroController()],
+      ),
     );
   }
 
   @override
   bool get wantKeepAlive => true;
-}
-
-class TopicsFlowBuilder extends StatelessWidget {
-  const TopicsFlowBuilder({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return FlowBuilder<TopicsFlowState>(
-      state: const TopicsFlowState.withTopicDeselected(),
-      onGeneratePages: onGenerateTopicsPages,
-      observers: [HeroController()],
-    );
-  }
 }
