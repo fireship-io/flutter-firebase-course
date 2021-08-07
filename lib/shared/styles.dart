@@ -8,6 +8,7 @@ const kDeepPurple = Colors.deepPurple;
 const kPink = Color(0xFFF48FB1);
 const kRed = Colors.red;
 const kGreen = Colors.green;
+const kBlue = Colors.blue;
 
 const kMargin = 30.0;
 const kInsets = EdgeInsets.all(kMargin);
