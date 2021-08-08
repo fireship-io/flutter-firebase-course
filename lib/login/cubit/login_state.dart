@@ -1,6 +1,6 @@
 part of 'login_cubit.dart';
 
-enum LoginStatus { pure, signingIn, failure }
+enum LoginStatus { initial, signingIn, failure }
 
 extension LoginStatusExtensions on LoginStatus {
   bool get isSigningIn => this == LoginStatus.signingIn;
@@ -16,12 +16,12 @@ extension SignInMethodExtensions on SignInMethod {
 
 class LoginState extends Equatable {
   const LoginState._({
-    this.status = LoginStatus.pure,
+    this.status = LoginStatus.initial,
     this.signInMethod = SignInMethod.none,
     this.failure = AppFailure.none,
   });
 
-  const LoginState.pure() : this._();
+  const LoginState.initial() : this._();
 
   const LoginState.signingInAnonymously()
       : this._(
