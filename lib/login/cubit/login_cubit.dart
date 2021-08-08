@@ -25,6 +25,8 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       emit(const LoginState.signingInWithGoogle());
       await _userRepository.signInWithGoogle();
+    } on GoogleSignInCancelledFailure {
+      emit(const LoginState.initial());
     } on AppFailure catch (failure) {
       _onLoginFailed(failure);
     }
