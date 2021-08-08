@@ -44,7 +44,7 @@ class FirebaseUserRepository implements UserRepository {
     try {
       final googleSignInAccount = await _googleSignIn.signIn();
       if (googleSignInAccount == null) {
-        return;
+        throw AppFailure.fromGoogleSignInCancelled();
       }
       final googleSignInAuth = await googleSignInAccount.authentication;
 
@@ -103,11 +103,14 @@ class FirebaseUserRepository implements UserRepository {
   }
 
   @override
-  Future<void> logOut() async {
+  Future<void> signOut() async {
     try {
-      await _firebaseAuth.signOut();
-    } on FirebaseAuthException {
-      throw AppFailure.fromLogOut();
+      await Future.wait([
+        _googleSignIn.signOut(),
+        _firebaseAuth.signOut(),
+      ]);
+    } on Exception {
+      throw AppFailure.fromSignOut();
     }
   }
 
