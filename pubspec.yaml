@@ -7,6 +7,8 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
+  assets_repository:
+    path: packages/assets_repository
   data_providers:
     path: packages/data_providers
   equatable: ^2.0.3
