@@ -52,8 +52,8 @@ class _AppView extends StatelessWidget {
               context.showSnackBar(l10n.authFailureMessage);
               return;
             }
-            if (failure is LogOutFailure) {
-              context.showSnackBar(l10n.logOutFailureMessage);
+            if (failure is SignOutFailure) {
+              context.showSnackBar(l10n.signOutFailureMessage);
               return;
             }
             context.showSnackBar(l10n.unknownFailureMessage);
