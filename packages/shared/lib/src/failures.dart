@@ -2,9 +2,11 @@ class AppFailure implements Exception {
   const AppFailure._();
 
   factory AppFailure.fromAuth() => const AuthFailure();
-  factory AppFailure.fromLogOut() => const LogOutFailure();
+  factory AppFailure.fromSignOut() => const SignOutFailure();
   factory AppFailure.fromAnonymousSignIn() => const AnonymousSignInFailure();
   factory AppFailure.fromGoogleSignIn() => const GoogleSignInFailure();
+  factory AppFailure.fromGoogleSignInCancelled() =>
+      const GoogleSignInCancelledFailure();
   factory AppFailure.fromAppleSignIn() => const AppleSignInFailure();
   factory AppFailure.fromSignInWithAppleNotSupported() =>
       const AppleSignInNotSupportedFailure();
@@ -24,8 +26,8 @@ class AuthFailure extends AppFailure {
   const AuthFailure() : super._();
 }
 
-class LogOutFailure extends AppFailure {
-  const LogOutFailure() : super._();
+class SignOutFailure extends AppFailure {
+  const SignOutFailure() : super._();
 }
 
 class AnonymousSignInFailure extends AppFailure {
@@ -34,6 +36,10 @@ class AnonymousSignInFailure extends AppFailure {
 
 class GoogleSignInFailure extends AppFailure {
   const GoogleSignInFailure() : super._();
+}
+
+class GoogleSignInCancelledFailure extends AppFailure {
+  const GoogleSignInCancelledFailure() : super._();
 }
 
 class AppleSignInFailure extends AppFailure {
