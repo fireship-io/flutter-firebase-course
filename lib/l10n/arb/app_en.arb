@@ -8,8 +8,8 @@
     "@authFailureMessage": {
         "description": "`AuthFailure` message"
     },
-    "logOutFailureMessage": "There's been an error while logging out, please try again!",
-    "@logOutFailureMessage": {
+    "signOutFailureMessage": "There's been an error while logging out, please try again!",
+    "@signOutFailureMessage": {
         "description": "`LogOutFailure` message"
     },
     "anonymousSignInFailureMessage": "You can't sign in as a guest at the moment, please try again later!",

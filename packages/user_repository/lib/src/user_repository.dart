@@ -30,7 +30,7 @@ abstract class UserRepository {
   Future<void> signInWithApple();
 
   /// Logs out the current user.
-  Future<void> logOut();
+  Future<void> signOut();
 
   /// Marks a quiz as completed.
   ///
