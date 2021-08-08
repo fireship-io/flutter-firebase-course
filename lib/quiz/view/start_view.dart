@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quizapp/quiz/cubit/quiz_cubit.dart';
-import 'package:quizapp/quiz/view/widgets.dart';
 import 'package:quizapp/shared/shared.dart';
 import 'package:quizapp/l10n/l10n.dart';
 
@@ -66,7 +65,7 @@ class QuizStartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return QuizButton(
+    return ActionButton.icon(
       onPressed: context.read<QuizCubit>().incrementStep,
       icon: const Icon(Icons.poll),
       backgroundColor: kGreen,
