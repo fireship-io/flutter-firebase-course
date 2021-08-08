@@ -138,3 +138,55 @@ extension _NumExtensions on num {
     return Colors.deepOrange.withGreen(rbg).withRed(255 - rbg);
   }
 }
+
+class ActionButton extends StatelessWidget {
+  const ActionButton({
+    Key? key,
+    required this.label,
+    this.backgroundColor,
+    this.onPressed,
+  })  : _icon = null,
+        super(key: key);
+
+  const ActionButton.icon({
+    Key? key,
+    required this.label,
+    required Widget icon,
+    this.backgroundColor,
+    this.onPressed,
+  })  : _icon = icon,
+        super(key: key);
+
+  final Widget label;
+  final Color? backgroundColor;
+  final VoidCallback? onPressed;
+
+  final Widget? _icon;
+
+  @override
+  Widget build(BuildContext context) {
+    final style = TextButton.styleFrom(
+      backgroundColor: backgroundColor,
+      minimumSize: Size.zero,
+      padding: const EdgeInsets.all(10),
+    );
+    return ButtonBar(
+      alignment: MainAxisAlignment.center,
+      children: [
+        if (_icon != null)
+          TextButton.icon(
+            onPressed: onPressed,
+            label: label,
+            icon: const Icon(Icons.poll),
+            style: style,
+          )
+        else
+          TextButton(
+            onPressed: onPressed,
+            style: style,
+            child: label,
+          )
+      ],
+    );
+  }
+}

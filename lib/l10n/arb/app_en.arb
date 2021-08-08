@@ -112,5 +112,17 @@
     "getQuizFailureMessage": "There's been an error getting quiz data 🙄",
     "@getQuizFailureMessage": {
         "description": "`GetQuizFailure` message"
+    },
+    "guestProfileDisplayName": "Guest",
+    "@guestProfileDisplayName": {
+        "description": "Display name on guest profiles"
+    },
+    "totalCompletedQuizzesLabel": "Quizzes Completed",
+    "@totalCompletedQuizzesLabel": {
+        "description": "Total completed quizzes label"
+    },
+    "logOutButtonLabel": "Logout",
+    "@logOutButtonLabel": {
+        "description": "`LogOutButton`'s label on profile view"
     }
 }

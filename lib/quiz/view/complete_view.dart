@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quizapp/quiz/cubit/quiz_cubit.dart';
-import 'package:quizapp/quiz/view/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:quizapp/shared/shared.dart';
 import 'package:quizapp/l10n/l10n.dart';
@@ -56,7 +55,7 @@ class CompleteQuizButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return QuizButton(
+    return ActionButton.icon(
       label: Text(context.l10n.markQuizCompletedButtonLabel),
       icon: const Icon(FontAwesomeIcons.check),
       backgroundColor: Colors.green,
