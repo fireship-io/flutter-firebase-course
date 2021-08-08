@@ -9,15 +9,28 @@ part 'models.g.dart';
 class User extends Equatable {
   const User({
     required this.uid,
+    this.displayName = '',
+    this.photoURL = '',
+    this.email = '',
     this.completedQuizzes = const {},
     this.totalCompletedQuizzes = 0,
     this.lastSignInAt,
   });
 
-  factory User.fromFirebaseUser(firebase.User firebaseUser) =>
-      User(uid: firebaseUser.uid);
+  factory User.fromFirebaseUser(firebase.User firebaseUser) => User(
+        uid: firebaseUser.uid,
+        displayName: firebaseUser.displayName ?? '',
+        photoURL: firebaseUser.photoURL ?? '',
+        email: firebaseUser.email ?? '',
+      );
 
   final String uid;
+  @JsonKey(defaultValue: '')
+  final String displayName;
+  @JsonKey(defaultValue: '')
+  final String photoURL;
+  @JsonKey(defaultValue: '')
+  final String email;
   // ? Map<TopicID, List<QuizID>>
   @JsonKey(defaultValue: {})
   final Map<String, List<String>> completedQuizzes;
@@ -31,6 +44,9 @@ class User extends Equatable {
   @override
   List<Object?> get props => [
         uid,
+        displayName,
+        photoURL,
+        email,
         completedQuizzes,
         totalCompletedQuizzes,
         lastSignInAt,
