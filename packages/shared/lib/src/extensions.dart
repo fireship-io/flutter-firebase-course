@@ -33,7 +33,7 @@ extension StreamExtensions<T> on Stream<T> {
     );
   }
 
-  Stream<T> handleFailure(void Function(AppFailure failure)? onFailure) {
+  Stream<T> handleFailure([void Function(AppFailure failure)? onFailure]) {
     return handleError(
       (error) {
         if (error is AppFailure) {

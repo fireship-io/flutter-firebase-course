@@ -1,1 +1,0 @@
-enum AppEnvironment { development, production }
