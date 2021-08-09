@@ -49,7 +49,7 @@ class TopicsCubit extends Cubit<TopicsState> {
   void _watchUser() {
     _userSubscription = _userRepository.watchUser
         // user/auth failures are handled by the AppCubit
-        .handleFailure(null)
+        .handleFailure()
         .listen(_onUserChanged);
   }
 
