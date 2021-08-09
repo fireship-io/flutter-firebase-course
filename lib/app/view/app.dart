@@ -2,13 +2,27 @@ import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:quizapp/app/app_pages.dart';
 import 'package:quizapp/app/cubit/app_cubit.dart';
+import 'package:quizapp/home/home.dart';
 import 'package:quizapp/l10n/l10n.dart';
+import 'package:quizapp/login/login.dart';
 import 'package:shared/shared.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:quizapp/shared/shared.dart';
 import 'package:quizapp/theme/theme.dart';
+
+List<Page> onGenerateAppPages(
+  AppStatus status,
+  List<Page<dynamic>> pages,
+) {
+  if (status.isUnauthenticated) {
+    return [LoginPage.page()];
+  }
+  if (status.isNewlyAuthenticated) {
+    return [HomePage.page()];
+  }
+  return pages;
+}
 
 class App extends StatelessWidget {
   const App({
@@ -60,7 +74,7 @@ class _AppView extends StatelessWidget {
           }
         },
         child: FlowBuilder(
-          onGeneratePages: AppPages.onGenerateAppPages,
+          onGeneratePages: onGenerateAppPages,
           state: context.select<AppCubit, AppStatus>(
             (cubit) => cubit.state.status,
           ),
