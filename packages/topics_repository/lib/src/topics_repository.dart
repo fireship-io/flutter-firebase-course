@@ -1,7 +1,6 @@
 import 'package:data_providers/data_providers.dart';
 import 'package:shared/shared.dart';
-
-import 'models/models.dart';
+import 'package:topics_repository/src/models/models.dart';
 
 part 'firebase_topics_repository.dart';
 

@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:data_providers/data_providers.dart' hide User;
 import 'package:data_providers/data_providers.dart' as firebase show User;
 import 'package:shared/shared.dart';
-
-import 'models/models.dart';
+import 'package:user_repository/src/models/models.dart';
 
 part 'firebase_user_repository.dart';
 
