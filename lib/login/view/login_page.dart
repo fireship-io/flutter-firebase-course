@@ -54,7 +54,6 @@ class _LoginContent extends StatelessWidget {
         }
       },
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const FlutterLogo(size: 150),

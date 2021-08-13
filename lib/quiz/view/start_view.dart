@@ -17,7 +17,6 @@ class StartView extends StatelessWidget {
             padding: kInsets,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.max,
               children: const [
                 QuizTitle(),
                 Divider(),

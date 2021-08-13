@@ -132,12 +132,11 @@ class QuizAnswerDetails extends StatelessWidget {
           ? SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 16.0,
-                  vertical: 32.0,
+                  horizontal: 16,
+                  vertical: 32,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(correct
                         ? l10n.correctAnswerMessage

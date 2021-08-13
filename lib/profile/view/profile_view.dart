@@ -47,7 +47,6 @@ class Profile extends StatelessWidget {
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: const [
             SizedBox(height: 50),
             ProfilePhoto(),
