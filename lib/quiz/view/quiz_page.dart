@@ -10,8 +10,6 @@ import 'package:quizzes_repository/quizzes_repository.dart';
 import 'package:shared/shared.dart';
 import 'package:user_repository/user_repository.dart';
 
-const kQuizPageName = '/quizpage';
-
 class QuizPage extends StatelessWidget {
   const QuizPage._({
     Key? key,
@@ -19,13 +17,14 @@ class QuizPage extends StatelessWidget {
     required this.onQuizCompleted,
   }) : super(key: key);
 
+  static const name = '/quizpage';
   static Page page({
     required String quizId,
     required VoidCallback onQuizCompleted,
   }) =>
       MaterialPage<void>(
         fullscreenDialog: true,
-        name: kQuizPageName,
+        name: name,
         child: QuizPage._(quizId: quizId, onQuizCompleted: onQuizCompleted),
       );
 
@@ -122,7 +121,7 @@ class _QuizBodyState extends State<QuizBody> {
                 },
               ).whenComplete(() => context.read<QuizCubit>().unselectOption());
             } else {
-              context.popUntil((route) => route.settings.name == kQuizPageName);
+              context.popUntil((route) => route.settings.name == QuizPage.name);
             }
           },
         ),
