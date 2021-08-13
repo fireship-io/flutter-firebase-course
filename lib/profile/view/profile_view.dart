@@ -45,21 +45,19 @@ class Profile extends StatelessWidget {
           backgroundColor: kDeepOrange,
           title: const DisplayName(),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              SizedBox(height: 50),
-              ProfilePhoto(),
-              EmailAddress(),
-              Spacer(),
-              TotalCompletedQuizzes(),
-              Spacer(),
-              LogOutButton(),
-              Spacer(),
-            ],
-          ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            SizedBox(height: 50),
+            ProfilePhoto(),
+            EmailAddress(),
+            Spacer(),
+            TotalCompletedQuizzes(),
+            Spacer(),
+            LogOutButton(),
+            Spacer(),
+          ],
         ),
       ),
     );
