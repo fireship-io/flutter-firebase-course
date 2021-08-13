@@ -21,7 +21,7 @@ extension BuildContextExtensions on BuildContext {
   Future<T?> showScrollControlledBottomSheet<T>({
     required WidgetBuilder builder,
   }) {
-    return showModalBottomSheet(
+    return showModalBottomSheet<T>(
       context: this,
       builder: builder,
       isScrollControlled: true,

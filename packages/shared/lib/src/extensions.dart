@@ -34,7 +34,7 @@ extension StreamExtensions<T> on Stream<T> {
 
   Stream<T> handleFailure([void Function(AppFailure failure)? onFailure]) {
     return handleError(
-      (error) {
+      (Object error) {
         if (error is AppFailure) {
           onFailure?.call(error);
         }

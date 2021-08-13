@@ -25,7 +25,7 @@ class FirebaseUserRepository implements UserRepository {
 
   @override
   Future<User> getOpeningUser() {
-    return watchUser.first.catchError((_) => User.none);
+    return watchUser.first.catchError((Object _) => User.none);
   }
 
   @override
@@ -119,10 +119,10 @@ class FirebaseUserRepository implements UserRepository {
     required String quizId,
     required String topicId,
   }) {
-    return _firestore.userDoc(user.uid).set({
+    return _firestore.userDoc(user.uid).set(<String, dynamic>{
       'total': FieldValue.increment(1),
       'completedQuizzes': {
-        topicId: FieldValue.arrayUnion([quizId]),
+        topicId: FieldValue.arrayUnion(<String>[quizId]),
       }
     }, SetOptions(merge: true));
   }
@@ -168,7 +168,7 @@ extension _FirebaseAuthExtensions on FirebaseAuth {
               });
             },
           )
-          .handleError((_) => throw AppFailure.fromAuth())
+          .handleError((Object _) => throw AppFailure.fromAuth())
           .logOnEach('USER')
           .shareValue();
 }

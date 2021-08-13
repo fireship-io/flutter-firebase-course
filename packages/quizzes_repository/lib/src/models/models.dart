@@ -37,7 +37,7 @@ class Question extends Equatable {
   });
 
   final String text;
-  @JsonKey(defaultValue: [])
+  @JsonKey(defaultValue: <Option>[])
   final List<Option> options;
 
   static const none = Question(text: '', options: []);
@@ -66,7 +66,7 @@ class Quiz extends Equatable {
   final String topic;
   @JsonKey(defaultValue: '')
   final String video;
-  @JsonKey(defaultValue: [])
+  @JsonKey(defaultValue: <Question>[])
   final List<Question> questions;
 
   static const none = Quiz(

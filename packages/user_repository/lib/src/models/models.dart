@@ -32,7 +32,7 @@ class User extends Equatable {
   @JsonKey(defaultValue: '')
   final String email;
   // ? Map<TopicID, List<QuizID>>
-  @JsonKey(defaultValue: {})
+  @JsonKey(defaultValue: <String, List<String>>{})
   final Map<String, List<String>> completedQuizzes;
   @JsonKey(name: 'total', defaultValue: 0)
   final int totalCompletedQuizzes;
