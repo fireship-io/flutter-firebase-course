@@ -59,7 +59,7 @@ class _LoginContent extends StatelessWidget {
           const FlutterLogo(size: 150),
           const _Preamble(),
           const _Tagline(),
-          const _GoogleSignInButton(),
+          if (Platform.isAndroid) const _GoogleSignInButton(),
           // At the moment, the preferable solution on Android is blocked by
           // https://github.com/FirebaseExtended/flutterfire/issues/2691
           if (Platform.isIOS) const _AppleSignInButton(),
