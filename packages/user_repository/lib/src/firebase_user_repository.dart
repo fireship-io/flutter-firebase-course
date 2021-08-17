@@ -35,7 +35,7 @@ class FirebaseUserRepository implements UserRepository {
       final firebaseUser = userCredential.user;
       unawaited(_updateUserData(firebaseUser));
     } on FirebaseAuthException {
-      throw AppFailure.fromAnonymousSignIn();
+      throw UserFailure.fromAnonymousSignIn();
     }
   }
 
@@ -44,7 +44,7 @@ class FirebaseUserRepository implements UserRepository {
     try {
       final googleSignInAccount = await _googleSignIn.signIn();
       if (googleSignInAccount == null) {
-        throw AppFailure.fromGoogleSignInCancelled();
+        throw UserFailure.fromGoogleSignInCancelled();
       }
       final googleSignInAuth = await googleSignInAccount.authentication;
 
@@ -58,7 +58,7 @@ class FirebaseUserRepository implements UserRepository {
       final firebaseUser = userCredential.user;
       unawaited(_updateUserData(firebaseUser));
     } on FirebaseAuthException {
-      throw AppFailure.fromGoogleSignIn();
+      throw UserFailure.fromGoogleSignIn();
     }
   }
 
@@ -94,11 +94,11 @@ class FirebaseUserRepository implements UserRepository {
       final firebaseUser = userCredential.user;
       unawaited(_updateUserData(firebaseUser));
     } on SignInWithAppleNotSupportedException {
-      throw AppFailure.fromSignInWithAppleNotSupported();
+      throw UserFailure.fromSignInWithAppleNotSupported();
     } on SignInWithAppleException {
-      throw AppFailure.fromAppleSignIn();
+      throw UserFailure.fromAppleSignIn();
     } on FirebaseAuthException {
-      throw AppFailure.fromAppleSignIn();
+      throw UserFailure.fromAppleSignIn();
     }
   }
 
@@ -110,7 +110,7 @@ class FirebaseUserRepository implements UserRepository {
         _firebaseAuth.signOut(),
       ]);
     } on Exception {
-      throw AppFailure.fromSignOut();
+      throw UserFailure.fromSignOut();
     }
   }
 
@@ -168,7 +168,7 @@ extension _FirebaseAuthExtensions on FirebaseAuth {
               });
             },
           )
-          .handleError((Object _) => throw AppFailure.fromAuth())
+          .handleError((Object _) => throw UserFailure.fromAuthUserChanges())
           .logOnEach('USER')
           .shareValue();
 }

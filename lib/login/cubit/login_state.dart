@@ -18,7 +18,7 @@ class LoginState extends Equatable {
   const LoginState._({
     this.status = LoginStatus.initial,
     this.signInMethod = SignInMethod.none,
-    this.failure = AppFailure.none,
+    this.failure = UserFailure.none,
   });
 
   const LoginState.initial() : this._();
@@ -41,7 +41,7 @@ class LoginState extends Equatable {
           signInMethod: SignInMethod.apple,
         );
 
-  const LoginState.failure(AppFailure failure)
+  const LoginState.failure(UserFailure failure)
       : this._(
           status: LoginStatus.failure,
           failure: failure,
@@ -49,7 +49,7 @@ class LoginState extends Equatable {
 
   final LoginStatus status;
   final SignInMethod signInMethod;
-  final AppFailure failure;
+  final UserFailure failure;
 
   @override
   List<Object> get props => [status, signInMethod, failure];

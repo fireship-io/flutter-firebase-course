@@ -16,7 +16,7 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       emit(const LoginState.signingInAnonymously());
       await _userRepository.signInAnonymously();
-    } on AppFailure catch (failure) {
+    } on UserFailure catch (failure) {
       _onLoginFailed(failure);
     }
   }
@@ -27,7 +27,7 @@ class LoginCubit extends Cubit<LoginState> {
       await _userRepository.signInWithGoogle();
     } on GoogleSignInCancelledFailure {
       emit(const LoginState.initial());
-    } on AppFailure catch (failure) {
+    } on UserFailure catch (failure) {
       _onLoginFailed(failure);
     }
   }
@@ -36,12 +36,12 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       emit(const LoginState.signingInWithApple());
       await _userRepository.signInWithApple();
-    } on AppFailure catch (failure) {
+    } on UserFailure catch (failure) {
       _onLoginFailed(failure);
     }
   }
 
-  void _onLoginFailed(AppFailure failure) {
+  void _onLoginFailed(UserFailure failure) {
     emit(LoginState.failure(failure));
     emit(const LoginState.initial());
   }
