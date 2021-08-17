@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-extension ThemeDataExtensions on ThemeData {
-  ThemeData withQuizTheme() {
+class QuizTheme {
+  static ThemeData dark() => ThemeData.dark().applyQuizTheme();
+}
+
+extension _ThemeDataExtensions on ThemeData {
+  ThemeData applyQuizTheme() {
     return copyWith(
       colorScheme: const ColorScheme.dark(
         primary: Colors.white,
