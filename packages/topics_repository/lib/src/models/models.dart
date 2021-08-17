@@ -42,7 +42,7 @@ class Topic extends Equatable {
   final String title;
   @JsonKey(defaultValue: '')
   final String description;
-  @JsonKey(name: 'img', defaultValue: kDefaultImageName)
+  @JsonKey(name: 'img', defaultValue: 'default-cover.png')
   final String imageName;
   final List<Quiz> quizzes;
 

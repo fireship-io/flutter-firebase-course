@@ -19,5 +19,4 @@ dependencies:
   rxdart: ^0.27.1
 
 dev_dependencies:
-  pedantic: ^1.11.1
   very_good_analysis: ^2.3.0

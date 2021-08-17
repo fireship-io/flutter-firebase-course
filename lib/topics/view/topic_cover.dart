@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizapp/shared/shared.dart';
-import 'package:shared/shared.dart';
+import 'package:ui_toolkit/ui_toolkit.dart';
 
 class TopicCover extends StatelessWidget {
   const TopicCover(this.imageName, {Key? key}) : super(key: key);
@@ -9,7 +8,6 @@ class TopicCover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _imageName = imageName.isEmpty ? kDefaultImageName : imageName;
-    return Image.asset('$kCoversPath/$_imageName');
+    return Assets.covers.imageByName(imageName);
   }
 }

@@ -19,7 +19,7 @@ Topic _$TopicFromJson(Map<String, dynamic> json) {
     id: json['id'] as String,
     title: json['title'] as String,
     description: json['description'] as String? ?? '',
-    imageName: json['img'] as String? ?? 'default.png',
+    imageName: json['img'] as String? ?? 'default-cover.png',
     quizzes: (json['quizzes'] as List<dynamic>)
         .map((e) => Quiz.fromJson(e as Map<String, dynamic>))
         .toList(),

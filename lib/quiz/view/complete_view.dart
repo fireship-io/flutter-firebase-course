@@ -4,6 +4,7 @@ import 'package:quizapp/quiz/cubit/quiz_cubit.dart';
 import 'package:provider/provider.dart';
 import 'package:quizapp/shared/shared.dart';
 import 'package:quizapp/l10n/l10n.dart';
+import 'package:ui_toolkit/ui_toolkit.dart';
 
 class CompleteView extends StatelessWidget {
   const CompleteView({Key? key}) : super(key: key);
@@ -46,7 +47,7 @@ class CongratsGif extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset('$kAssetsPath/congrats.gif');
+    return Assets.congrats.image();
   }
 }
 

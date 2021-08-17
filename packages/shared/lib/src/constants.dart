@@ -1,1 +1,0 @@
-const kDefaultImageName = 'default.png';
