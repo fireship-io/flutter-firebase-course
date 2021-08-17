@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:rxdart/rxdart.dart';
-import 'package:shared/src/failures.dart';
+import 'package:shared/src/failure.dart';
 
 extension StreamExtensions<T> on Stream<T> {
   Stream<T> logOnEach([String prefix = '']) {
@@ -32,10 +32,12 @@ extension StreamExtensions<T> on Stream<T> {
     );
   }
 
-  Stream<T> handleFailure([void Function(AppFailure failure)? onFailure]) {
+  Stream<T> handleFailure<F extends Failure>([
+    void Function(F failure)? onFailure,
+  ]) {
     return handleError(
       (Object error) {
-        if (error is AppFailure) {
+        if (error is F) {
           onFailure?.call(error);
         }
       },
