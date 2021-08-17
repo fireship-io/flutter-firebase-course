@@ -30,7 +30,7 @@ class StartView extends StatelessWidget {
           return NoContent(context.l10n.noQuizDataMessage);
         }
         if (state.isFailure) {
-          return Failure(context.l10n.getQuizFailureMessage);
+          return FailureText(context.l10n.getQuizFailureMessage);
         }
         return const Loader();
       },
