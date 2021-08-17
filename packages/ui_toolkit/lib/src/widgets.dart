@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:quizapp/shared/shared.dart';
+import 'package:ui_toolkit/src/colors.dart';
+import 'package:ui_toolkit/src/constants.dart';
+import 'package:ui_toolkit/src/extensions.dart';
 
 class Loader extends StatelessWidget {
   const Loader({
@@ -43,7 +45,7 @@ class Failure extends StatelessWidget {
       child: Text(
         _message,
         style: const TextStyle(
-          color: kRed,
+          color: QuizColors.red,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -67,7 +69,7 @@ class NoContent extends StatelessWidget {
         _message,
         textAlign: TextAlign.center,
         style: const TextStyle(
-          color: kGrey,
+          color: QuizColors.grey,
           fontWeight: FontWeight.bold,
         ),
       ),

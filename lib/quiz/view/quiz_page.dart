@@ -5,9 +5,9 @@ import 'package:quizapp/quiz/cubit/quiz_cubit.dart';
 import 'package:quizapp/quiz/view/complete_view.dart';
 import 'package:quizapp/quiz/view/question_view.dart';
 import 'package:quizapp/quiz/view/start_view.dart';
-import 'package:quizapp/shared/shared.dart';
 import 'package:quizzes_repository/quizzes_repository.dart';
 import 'package:shared/shared.dart';
+import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
 class QuizPage extends StatelessWidget {

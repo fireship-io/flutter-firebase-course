@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quizapp/app/cubit/app_cubit.dart';
 import 'package:quizapp/profile/cubit/profile_cubit.dart';
-import 'package:quizapp/shared/shared.dart';
 import 'package:quizapp/l10n/l10n.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
 class ProfileView extends StatefulWidget {
@@ -42,7 +42,7 @@ class Profile extends StatelessWidget {
       listener: (_, __) => context.read<AppCubit>().logOut(),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: kDeepOrange,
+          backgroundColor: QuizColors.deepOrange,
           title: const DisplayName(),
         ),
         body: Column(
@@ -155,7 +155,7 @@ class LogOutButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ActionButton(
       onPressed: context.read<ProfileCubit>().logOut,
-      backgroundColor: kRed,
+      backgroundColor: QuizColors.red,
       label: Text(context.l10n.logOutButtonLabel),
     );
   }
