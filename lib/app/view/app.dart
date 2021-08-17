@@ -8,8 +8,7 @@ import 'package:quizapp/l10n/l10n.dart';
 import 'package:quizapp/login/login.dart';
 import 'package:shared/shared.dart';
 import 'package:user_repository/user_repository.dart';
-import 'package:quizapp/shared/shared.dart';
-import 'package:quizapp/theme/theme.dart';
+import 'package:ui_toolkit/ui_toolkit.dart';
 
 List<Page> onGenerateAppPages(
   AppStatus status,
@@ -51,7 +50,7 @@ class _AppView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       onGenerateTitle: (context) => context.l10n.appTitle,
-      theme: ThemeData.dark().withQuizTheme(),
+      theme: QuizTheme.dark(),
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

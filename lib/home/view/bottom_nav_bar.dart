@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quizapp/l10n/l10n.dart';
-import 'package:quizapp/shared/shared.dart';
 import 'package:shared/shared.dart';
+import 'package:ui_toolkit/ui_toolkit.dart';
 
 enum NavBarItem { topics, about, profile }
 
@@ -41,8 +41,8 @@ class BottomNavBar extends StatelessWidget {
     final l10n = context.l10n;
     return Theme(
       data: context.theme.copyWith(
-        highlightColor: Colors.transparent,
-        splashColor: Colors.transparent,
+        highlightColor: QuizColors.transparent,
+        splashColor: QuizColors.transparent,
       ),
       child: BottomNavigationBar(
         onTap: (index) {

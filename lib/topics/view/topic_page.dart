@@ -4,8 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quizapp/topics/cubit/topics_cubit.dart';
 import 'package:shared/shared.dart';
 import 'package:topics_repository/topics_repository.dart';
+import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
-import 'package:quizapp/shared/shared.dart';
 import 'package:flow_builder/flow_builder.dart';
 
 import 'package:quizapp/topics/view/topic_cover.dart';
@@ -30,7 +30,7 @@ class TopicPage extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: QuizColors.transparent,
           leading: BackButton(
             onPressed: () {
               context.flow<TopicsFlowState>().deselectTopic();

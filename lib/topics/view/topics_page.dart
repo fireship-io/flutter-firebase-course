@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quizapp/shared/shared.dart';
 import 'package:quizapp/topics/cubit/topics_cubit.dart';
 import 'package:topics_repository/topics_repository.dart';
 import 'package:quizapp/l10n/l10n.dart';
 import 'package:flow_builder/flow_builder.dart';
+import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
 import 'package:quizapp/topics/view/topic_cover.dart';
@@ -20,7 +20,7 @@ class TopicsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(context.l10n.topicsLabel),
-        backgroundColor: kDeepPurple,
+        backgroundColor: QuizColors.deepPurple,
       ),
       body: const TopicsGrid(),
     );
@@ -133,7 +133,7 @@ class TopicProgress extends StatelessWidget {
         const SizedBox(width: 8),
         Text(
           topic.progress(quizCount),
-          style: const TextStyle(fontSize: 10, color: kGrey),
+          style: const TextStyle(fontSize: 10, color: QuizColors.grey),
         ),
         Expanded(
           child: AnimatedProgressBar.mini(

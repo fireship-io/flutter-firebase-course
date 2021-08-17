@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quizapp/quiz/cubit/quiz_cubit.dart';
-import 'package:quizapp/shared/shared.dart';
 import 'package:quizapp/l10n/l10n.dart';
+import 'package:ui_toolkit/ui_toolkit.dart';
 
 class StartView extends StatelessWidget {
   const StartView({Key? key}) : super(key: key);
@@ -67,7 +67,7 @@ class QuizStartButton extends StatelessWidget {
     return ActionButton.icon(
       onPressed: context.read<QuizCubit>().incrementStep,
       icon: const Icon(Icons.poll),
-      backgroundColor: kGreen,
+      backgroundColor: QuizColors.green,
       label: Text(context.l10n.quizStartButtonLabel),
     );
   }
