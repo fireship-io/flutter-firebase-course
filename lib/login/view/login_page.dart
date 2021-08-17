@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quizapp/l10n/l10n.dart';
 import 'package:quizapp/login/cubit/login_cubit.dart';
-import 'package:shared/shared.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 

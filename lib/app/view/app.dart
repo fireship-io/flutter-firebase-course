@@ -6,7 +6,6 @@ import 'package:quizapp/app/cubit/app_cubit.dart';
 import 'package:quizapp/home/home.dart';
 import 'package:quizapp/l10n/l10n.dart';
 import 'package:quizapp/login/login.dart';
-import 'package:shared/shared.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 
