@@ -30,8 +30,8 @@ class Empty extends StatelessWidget {
   }
 }
 
-class Failure extends StatelessWidget {
-  const Failure(String message, {Key? key})
+class FailureText extends StatelessWidget {
+  const FailureText(String message, {Key? key})
       : _message = message,
         super(key: key);
 
@@ -44,6 +44,7 @@ class Failure extends StatelessWidget {
       padding: kInsets,
       child: Text(
         _message,
+        textAlign: TextAlign.center,
         style: const TextStyle(
           color: QuizColors.red,
           fontWeight: FontWeight.bold,

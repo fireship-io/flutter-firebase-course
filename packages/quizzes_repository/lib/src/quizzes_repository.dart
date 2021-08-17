@@ -1,5 +1,5 @@
 import 'package:data_providers/data_providers.dart';
-import 'package:shared/shared.dart';
+import 'package:quizzes_repository/src/failures.dart';
 
 import 'package:quizzes_repository/src/models/models.dart';
 

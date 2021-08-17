@@ -52,7 +52,7 @@ class TopicsGrid extends StatelessWidget {
           return NoContent(context.l10n.noTopicsMessage);
         }
         if (state.isFailure) {
-          return Failure(context.l10n.getTopicsFailureMessage);
+          return FailureText(context.l10n.getTopicsFailureMessage);
         }
         return const Loader();
       },

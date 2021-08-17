@@ -61,15 +61,13 @@ class _AppView extends StatelessWidget {
           if (state.isFailure) {
             final failure = state.failure;
             final l10n = context.l10n;
-            if (failure is AuthFailure) {
+            if (failure is AuthUserChangesFailure) {
               context.showSnackBar(l10n.authFailureMessage);
-              return;
-            }
-            if (failure is SignOutFailure) {
+            } else if (failure is SignOutFailure) {
               context.showSnackBar(l10n.signOutFailureMessage);
-              return;
+            } else {
+              context.showSnackBar(l10n.unknownFailureMessage);
             }
-            context.showSnackBar(l10n.unknownFailureMessage);
           }
         },
         child: FlowBuilder(

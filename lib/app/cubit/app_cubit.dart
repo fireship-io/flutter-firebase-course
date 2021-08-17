@@ -28,7 +28,7 @@ class AppCubit extends Cubit<AppState> {
   Future<void> logOut() async {
     try {
       await _userRepository.signOut();
-    } on AppFailure catch (failure) {
+    } on UserFailure catch (failure) {
       _onAppFailed(failure);
     }
   }
@@ -43,7 +43,7 @@ class AppCubit extends Cubit<AppState> {
     }
   }
 
-  void _onAppFailed(AppFailure failure) {
+  void _onAppFailed(UserFailure failure) {
     final _state = state;
     emit(AppState.failure(failure: failure, user: _state.user));
     if (failure.requiresReauthentication) {

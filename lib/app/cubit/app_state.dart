@@ -18,7 +18,7 @@ class AppState extends Equatable {
   const AppState._({
     required this.status,
     this.user = User.none,
-    this.failure = AppFailure.none,
+    this.failure = UserFailure.none,
   });
 
   const AppState.unauthenticated() : this._(status: AppStatus.unauthenticated);
@@ -36,7 +36,7 @@ class AppState extends Equatable {
         );
 
   const AppState.failure({
-    required AppFailure failure,
+    required UserFailure failure,
     required User user,
   }) : this._(
           status: AppStatus.failure,
@@ -46,7 +46,7 @@ class AppState extends Equatable {
 
   final AppStatus status;
   final User user;
-  final AppFailure failure;
+  final UserFailure failure;
 
   @override
   List<Object?> get props => [status, user, failure];
