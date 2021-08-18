@@ -6,9 +6,9 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
-  cloud_firestore: ^2.4.0
-  firebase_auth: ^3.0.1
-  firebase_core: ^1.4.0
+  cloud_firestore: ^2.5.0
+  firebase_auth: ^3.0.2
+  firebase_core: ^1.5.0
   flutter:
     sdk: flutter
   google_sign_in: ^5.0.7
