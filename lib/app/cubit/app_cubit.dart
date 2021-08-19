@@ -29,7 +29,7 @@ class AppCubit extends Cubit<AppState> {
     try {
       await _userRepository.signOut();
     } on UserFailure catch (failure) {
-      _onAppFailed(failure);
+      _onUserFailed(failure);
     }
   }
 
@@ -43,7 +43,7 @@ class AppCubit extends Cubit<AppState> {
     }
   }
 
-  void _onAppFailed(UserFailure failure) {
+  void _onUserFailed(UserFailure failure) {
     final _state = state;
     emit(AppState.failure(failure: failure, user: _state.user));
     if (failure.requiresReauthentication) {
@@ -56,7 +56,7 @@ class AppCubit extends Cubit<AppState> {
   late final StreamSubscription _userSubscription;
   void _watchUser() {
     _userSubscription = _userRepository.watchUser
-        .handleFailure(_onAppFailed)
+        .handleFailure(_onUserFailed)
         .listen(_onUserChanged);
   }
 
