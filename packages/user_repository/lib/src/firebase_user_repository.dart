@@ -157,15 +157,11 @@ extension _FirebaseAuthExtensions on FirebaseAuth {
                 return;
               }
 
-              yield* firestore
-                  .userDoc(firebaseUser.uid)
-                  .snapshots()
-                  .map((snapshot) {
-                if (snapshot.exists) {
-                  return User.fromJson(snapshot.data()!);
-                }
-                return User.none;
-              });
+              yield* firestore.userDoc(firebaseUser.uid).snapshots().map(
+                    (snapshot) => snapshot.exists
+                        ? User.fromJson(snapshot.data()!)
+                        : User.none,
+                  );
             },
           )
           .handleError((Object _) => throw UserFailure.fromAuthUserChanges())
