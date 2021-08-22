@@ -1,16 +1,13 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:shared/shared.dart';
 
-part 'profile_state.dart';
-
-class ProfileCubit extends Cubit<ProfileState> {
+class ProfileCubit extends Cubit<User> {
   ProfileCubit({required UserRepository userRepository})
       : _userRepository = userRepository,
-        super(const ProfileState.initial()) {
+        super(User.none) {
     _watchUser();
   }
 
@@ -22,13 +19,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     return super.close();
   }
 
-  void logOut() {
-    emit(state.copyWith(action: ProfileAction.logOut));
-  }
-
-  void _onUserChanged(User user) {
-    emit(state.copyWith(user: user));
-  }
+  void _onUserChanged(User user) => emit(user);
 
   late final StreamSubscription _userSubscription;
   void _watchUser() {

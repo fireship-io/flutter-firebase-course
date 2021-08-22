@@ -37,27 +37,23 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<ProfileCubit, ProfileState>(
-      listenWhen: (_, current) => current.action.isLogOut,
-      listener: (_, __) => context.read<AppCubit>().logOut(),
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: QuizColors.deepOrange,
-          title: const DisplayName(),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            SizedBox(height: 50),
-            ProfilePhoto(),
-            EmailAddress(),
-            Spacer(),
-            TotalCompletedQuizzes(),
-            Spacer(),
-            LogOutButton(),
-            Spacer(),
-          ],
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: QuizColors.deepOrange,
+        title: const DisplayName(),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: const [
+          SizedBox(height: 50),
+          ProfilePhoto(),
+          EmailAddress(),
+          Spacer(),
+          TotalCompletedQuizzes(),
+          Spacer(),
+          LogOutButton(),
+          Spacer(),
+        ],
       ),
     );
   }
@@ -69,7 +65,7 @@ class DisplayName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final displayName =
-        context.select((ProfileCubit cubit) => cubit.state.user.displayName);
+        context.select((ProfileCubit cubit) => cubit.state.displayName);
     return Text(displayName.isNotEmpty
         ? displayName
         : context.l10n.guestProfileDisplayName);
@@ -84,7 +80,7 @@ class ProfilePhoto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final photoURL =
-        context.select((ProfileCubit cubit) => cubit.state.user.photoURL);
+        context.select((ProfileCubit cubit) => cubit.state.photoURL);
     return photoURL.isNotEmpty
         ? Stack(
             alignment: AlignmentDirectional.center,
@@ -119,8 +115,7 @@ class EmailAddress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final email =
-        context.select((ProfileCubit cubit) => cubit.state.user.email);
+    final email = context.select((ProfileCubit cubit) => cubit.state.email);
     return Text(email, style: context.textTheme.headline5);
   }
 }
@@ -131,7 +126,7 @@ class TotalCompletedQuizzes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final totalCompletedQuizzes = context
-        .select((ProfileCubit cubit) => cubit.state.user.totalCompletedQuizzes);
+        .select((ProfileCubit cubit) => cubit.state.totalCompletedQuizzes);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -154,7 +149,7 @@ class LogOutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ActionButton(
-      onPressed: context.read<ProfileCubit>().logOut,
+      onPressed: context.read<AppCubit>().logOut,
       backgroundColor: QuizColors.red,
       label: Text(context.l10n.logOutButtonLabel),
     );
