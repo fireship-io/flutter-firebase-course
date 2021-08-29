@@ -68,7 +68,7 @@ class QuizBody extends StatefulWidget {
 }
 
 class _QuizBodyState extends State<QuizBody> {
-  late PageController _controller;
+  late final PageController _controller;
 
   @override
   void initState() {

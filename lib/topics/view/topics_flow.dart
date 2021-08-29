@@ -85,7 +85,7 @@ class TopicsFlow extends StatefulWidget {
 
 class _TopicsFlowState extends State<TopicsFlow>
     with AutomaticKeepAliveClientMixin {
-  late FlowController<TopicsFlowState> _controller;
+  late final FlowController<TopicsFlowState> _controller;
 
   @override
   void initState() {
