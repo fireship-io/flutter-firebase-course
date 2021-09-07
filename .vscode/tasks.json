@@ -5,7 +5,7 @@
     "tasks": [
         {
             "type": "shell",
-            "command": "cd packages/user_repository && dart pub get && dart run build_runner watch --delete-conflicting-outputs",
+            "command": "cd packages/user_repository;dart pub get;dart run build_runner watch --delete-conflicting-outputs",
             "label": "user_repository: run build_runner watch",
             "group": "build",
             "runOptions": {
@@ -22,7 +22,7 @@
         },
         {
             "type": "shell",
-            "command": "cd packages/topics_repository && dart pub get && dart run build_runner watch --delete-conflicting-outputs",
+            "command": "cd packages/topics_repository;dart pub get;dart run build_runner watch --delete-conflicting-outputs",
             "label": "topics_repository: run build_runner watch",
             "group": "build",
             "runOptions": {
@@ -39,7 +39,7 @@
         },
         {
             "type": "shell",
-            "command": "cd packages/quizzes_repository && dart pub get && dart run build_runner watch --delete-conflicting-outputs",
+            "command": "cd packages/quizzes_repository;dart pub get;dart run build_runner watch --delete-conflicting-outputs",
             "label": "quizzes_repository: run build_runner watch",
             "group": "build",
             "runOptions": {
