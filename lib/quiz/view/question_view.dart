@@ -137,9 +137,11 @@ class QuizAnswerDetails extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Text(correct
-                        ? l10n.correctAnswerMessage
-                        : l10n.wrongAnswerMessage),
+                    Text(
+                      correct
+                          ? l10n.correctAnswerMessage
+                          : l10n.wrongAnswerMessage,
+                    ),
                     Text(
                       option.detail,
                       style: const TextStyle(

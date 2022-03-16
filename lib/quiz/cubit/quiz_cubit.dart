@@ -56,10 +56,12 @@ class QuizCubit extends Cubit<QuizState> {
     final hasCompletedQuiz =
         _userRepository.user.hasCompletedQuiz(quizId: quizId, topicId: topicId);
     if (!hasCompletedQuiz) {
-      unawaited(_userRepository.markQuizCompleted(
-        quizId: quizId,
-        topicId: topicId,
-      ));
+      unawaited(
+        _userRepository.markQuizCompleted(
+          quizId: quizId,
+          topicId: topicId,
+        ),
+      );
     }
     emit(const QuizState.initial());
   }

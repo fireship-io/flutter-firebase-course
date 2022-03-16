@@ -9,9 +9,11 @@ class AppCubit extends Cubit<AppState> {
   AppCubit({
     required UserRepository userRepository,
   })  : _userRepository = userRepository,
-        super(userRepository.user.isNone
-            ? const AppState.unauthenticated()
-            : AppState.newlyAuthenticated(userRepository.user)) {
+        super(
+          userRepository.user.isNone
+              ? const AppState.unauthenticated()
+              : AppState.newlyAuthenticated(userRepository.user),
+        ) {
     _watchUser();
   }
 

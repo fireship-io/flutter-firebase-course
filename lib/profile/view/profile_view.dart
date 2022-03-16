@@ -64,9 +64,11 @@ class DisplayName extends StatelessWidget {
   Widget build(BuildContext context) {
     final displayName =
         context.select((ProfileCubit cubit) => cubit.state.displayName);
-    return Text(displayName.isNotEmpty
-        ? displayName
-        : context.l10n.guestProfileDisplayName);
+    return Text(
+      displayName.isNotEmpty
+          ? displayName
+          : context.l10n.guestProfileDisplayName,
+    );
   }
 }
 
