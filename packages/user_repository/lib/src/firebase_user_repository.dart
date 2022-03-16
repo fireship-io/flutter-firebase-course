@@ -119,12 +119,15 @@ class FirebaseUserRepository implements UserRepository {
     required String quizId,
     required String topicId,
   }) {
-    return _firestore.userDoc(user.uid).set(<String, dynamic>{
-      'total': FieldValue.increment(1),
-      'completedQuizzes': {
-        topicId: FieldValue.arrayUnion(<String>[quizId]),
-      }
-    }, SetOptions(merge: true));
+    return _firestore.userDoc(user.uid).set(
+      <String, dynamic>{
+        'total': FieldValue.increment(1),
+        'completedQuizzes': {
+          topicId: FieldValue.arrayUnion(<String>[quizId]),
+        }
+      },
+      SetOptions(merge: true),
+    );
   }
 
   Future<void> _updateUserData(firebase.User? firebaseUser) async {
@@ -135,13 +138,15 @@ class FirebaseUserRepository implements UserRepository {
     final user = User.fromFirebaseUser(firebaseUser);
     return _firestore.userDoc(uid).set(
           user.toJson(),
-          SetOptions(mergeFields: [
-            'uid',
-            'lastSignInAt',
-            'displayName',
-            'photoURL',
-            'email',
-          ]),
+          SetOptions(
+            mergeFields: [
+              'uid',
+              'lastSignInAt',
+              'displayName',
+              'photoURL',
+              'email',
+            ],
+          ),
         );
   }
 }

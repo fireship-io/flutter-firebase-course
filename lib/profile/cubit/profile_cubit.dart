@@ -1,8 +1,7 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
-import 'package:user_repository/user_repository.dart';
 import 'package:shared/shared.dart';
+import 'package:user_repository/user_repository.dart';
 
 class ProfileCubit extends Cubit<User> {
   ProfileCubit({required UserRepository userRepository})

@@ -1,14 +1,13 @@
+import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quizapp/topics/cubit/topics_cubit.dart';
-import 'package:topics_repository/topics_repository.dart';
 import 'package:quizapp/l10n/l10n.dart';
-import 'package:flow_builder/flow_builder.dart';
-import 'package:ui_toolkit/ui_toolkit.dart';
-import 'package:user_repository/user_repository.dart';
-
+import 'package:quizapp/topics/cubit/topics_cubit.dart';
 import 'package:quizapp/topics/view/topic_cover.dart';
 import 'package:quizapp/topics/view/topics_flow.dart';
+import 'package:topics_repository/topics_repository.dart';
+import 'package:ui_toolkit/ui_toolkit.dart';
+import 'package:user_repository/user_repository.dart';
 
 class TopicsPage extends StatelessWidget {
   const TopicsPage._({Key? key}) : super(key: key);

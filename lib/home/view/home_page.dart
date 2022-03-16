@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quizapp/about/about.dart';
 import 'package:quizapp/home/view/bottom_nav_bar.dart';
 import 'package:quizapp/profile/profile.dart';
-import 'package:provider/provider.dart';
 import 'package:quizapp/topics/topics.dart';
+import 'package:shared/shared.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage._({Key? key}) : super(key: key);

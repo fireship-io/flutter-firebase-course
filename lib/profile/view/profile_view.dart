@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quizapp/app/cubit/app_cubit.dart';
-import 'package:quizapp/profile/cubit/profile_cubit.dart';
 import 'package:quizapp/l10n/l10n.dart';
-import 'package:transparent_image/transparent_image.dart';
+import 'package:quizapp/profile/cubit/profile_cubit.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
@@ -12,7 +10,7 @@ class ProfileView extends StatefulWidget {
   const ProfileView({Key? key}) : super(key: key);
 
   @override
-  _ProfileViewState createState() => _ProfileViewState();
+  State<ProfileView> createState() => _ProfileViewState();
 }
 
 class _ProfileViewState extends State<ProfileView>
@@ -66,9 +64,11 @@ class DisplayName extends StatelessWidget {
   Widget build(BuildContext context) {
     final displayName =
         context.select((ProfileCubit cubit) => cubit.state.displayName);
-    return Text(displayName.isNotEmpty
-        ? displayName
-        : context.l10n.guestProfileDisplayName);
+    return Text(
+      displayName.isNotEmpty
+          ? displayName
+          : context.l10n.guestProfileDisplayName,
+    );
   }
 }
 

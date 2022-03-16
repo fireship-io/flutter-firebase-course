@@ -12,12 +12,14 @@ extension StreamExtensions<T> on Stream<T> {
         .doOnPause(() => log('PAUSED', name: prefix))
         .doOnResume(() => log('RESUMED', name: prefix))
         .doOnDone(() => log('DONE', name: prefix))
-        .doOnError((error, stackTrace) => log(
-              'ERROR',
-              error: error,
-              stackTrace: stackTrace,
-              name: prefix,
-            ));
+        .doOnError(
+          (error, stackTrace) => log(
+            'ERROR',
+            error: error,
+            stackTrace: stackTrace,
+            name: prefix,
+          ),
+        );
   }
 
   Stream<T> onErrorResumeWith(
