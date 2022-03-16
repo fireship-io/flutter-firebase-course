@@ -1,14 +1,13 @@
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared/shared.dart';
-import 'package:topics_repository/topics_repository.dart';
-import 'package:user_repository/user_repository.dart';
-
 import 'package:quizapp/quiz/quiz.dart';
 import 'package:quizapp/topics/cubit/topics_cubit.dart';
 import 'package:quizapp/topics/view/topic_page.dart';
 import 'package:quizapp/topics/view/topics_page.dart';
+import 'package:shared/shared.dart';
+import 'package:topics_repository/topics_repository.dart';
+import 'package:user_repository/user_repository.dart';
 
 List<Page> onGenerateTopicsPages(
   TopicsFlowState state,
@@ -80,7 +79,7 @@ class TopicsFlow extends StatefulWidget {
   const TopicsFlow({Key? key}) : super(key: key);
 
   @override
-  _TopicsFlowState createState() => _TopicsFlowState();
+  State<TopicsFlow> createState() => _TopicsFlowState();
 }
 
 class _TopicsFlowState extends State<TopicsFlow>

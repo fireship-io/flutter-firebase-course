@@ -1,7 +1,5 @@
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
-import 'package:shared/shared.dart';
 import 'package:quizzes_repository/quizzes_repository.dart';
+import 'package:shared/shared.dart';
 import 'package:user_repository/user_repository.dart';
 
 part 'quiz_state.dart';

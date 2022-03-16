@@ -344,7 +344,7 @@ packages:
     source: sdk
     version: "0.0.0"
   font_awesome_flutter:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: font_awesome_flutter
       url: "https://pub.dartlang.org"
@@ -741,7 +741,7 @@ packages:
     source: path
     version: "1.0.0"
   transparent_image:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: transparent_image
       url: "https://pub.dartlang.org"

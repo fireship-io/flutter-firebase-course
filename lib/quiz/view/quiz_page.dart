@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quizapp/quiz/cubit/quiz_cubit.dart';
@@ -64,7 +63,7 @@ class QuizBody extends StatefulWidget {
   const QuizBody({Key? key}) : super(key: key);
 
   @override
-  _QuizBodyState createState() => _QuizBodyState();
+  State<QuizBody> createState() => _QuizBodyState();
 }
 
 class _QuizBodyState extends State<QuizBody> {

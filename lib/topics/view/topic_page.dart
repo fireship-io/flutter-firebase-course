@@ -1,15 +1,12 @@
+import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quizapp/topics/cubit/topics_cubit.dart';
+import 'package:quizapp/topics/view/topic_cover.dart';
+import 'package:quizapp/topics/view/topics_flow.dart';
 import 'package:shared/shared.dart';
 import 'package:topics_repository/topics_repository.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
-import 'package:flow_builder/flow_builder.dart';
-
-import 'package:quizapp/topics/view/topic_cover.dart';
-import 'package:quizapp/topics/view/topics_flow.dart';
 
 class TopicPage extends StatelessWidget {
   const TopicPage._({Key? key}) : super(key: key);

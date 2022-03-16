@@ -16,7 +16,6 @@ dependencies:
   flutter_bloc: ^8.0.1
   flutter_localizations:
     sdk: flutter
-  font_awesome_flutter: ^9.2.0
   intl: ^0.17.0
   quizzes_repository:
     path: packages/quizzes_repository
@@ -24,7 +23,6 @@ dependencies:
     path: packages/shared
   topics_repository:
     path: packages/topics_repository
-  transparent_image: ^2.0.0
   ui_toolkit:
     path: packages/ui_toolkit
   user_repository:
