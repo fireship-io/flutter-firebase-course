@@ -4,19 +4,19 @@ version: 1.0.0
 publish_to: none
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.16.0 <3.0.0'
 
 dependencies:
-  bloc: ^7.0.0
+  bloc: ^8.0.3
   crypto: ^3.0.1
   data_providers:
     path: ../data_providers
   equatable: ^2.0.3
   flutter:
     sdk: flutter
-  json_annotation: ^4.0.1
-  provider: ^5.0.0
-  rxdart: ^0.27.1
+  json_annotation: ^4.4.0
+  provider: ^6.0.2
+  rxdart: ^0.27.3
 
 dev_dependencies:
-  very_good_analysis: ^2.3.0
+  very_good_analysis: ^2.4.0
