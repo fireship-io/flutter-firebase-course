@@ -7,32 +7,29 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 
-void bootstrap(
-  FutureOr<Widget> Function() appFn, {
+Future<void> bootstrap(
+  FutureOr<Widget> Function() appDelegate, {
   void Function(Object, StackTrace)? onZoneError,
   FlutterExceptionHandler? onFlutterError,
   BlocObserver? blocObserver,
   Future<FirebaseApp> Function()? firebaseApp,
-}) {
+}) async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  FlutterError.onError = onFlutterError ??
+      (details) {
+        log(details.exceptionAsString(), stackTrace: details.stack);
+      };
+
+  await (firebaseApp ?? Firebase.initializeApp)();
+
+  await Assets.covers.preload();
+
   return runZonedGuarded<void>(
-    () async {
-      WidgetsFlutterBinding.ensureInitialized();
-
-      FlutterError.onError = onFlutterError ??
-          (details) {
-            log(details.exceptionAsString(), stackTrace: details.stack);
-          };
-
-      if (blocObserver != null) {
-        Bloc.observer = blocObserver;
-      }
-
-      await (firebaseApp ?? Firebase.initializeApp)();
-
-      await Assets.covers.preload();
-
-      runApp(await appFn());
-    },
+    () => BlocOverrides.runZoned(
+      () async => runApp(await appDelegate()),
+      blocObserver: blocObserver,
+    ),
     onZoneError ??
         (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
   );
