@@ -24,7 +24,6 @@ extension _ThemeDataExtensions on ThemeData {
         ),
       ),
       primaryTextTheme: GoogleFonts.nunitoTextTheme(primaryTextTheme),
-      accentTextTheme: GoogleFonts.nunitoTextTheme(accentTextTheme),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           minimumSize: const Size(double.infinity, double.minPositive),
