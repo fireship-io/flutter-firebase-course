@@ -108,7 +108,7 @@ class OptionIcon extends StatelessWidget {
         context.select((QuizCubit cubit) => cubit.state.selectedOption);
     return Icon(
       selectedOption == option
-          ? FontAwesomeIcons.checkCircle
+          ? FontAwesomeIcons.circleUser
           : FontAwesomeIcons.circle,
       size: 30,
     );
