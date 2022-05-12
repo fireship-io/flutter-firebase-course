@@ -3,15 +3,15 @@ description: An app package exporting all data providers.
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.16.0 <3.0.0'
+  sdk: '>=2.17.0 <3.0.0'
 
 dependencies:
-  cloud_firestore: ^3.1.10
-  firebase_auth: ^3.3.11
-  firebase_core: ^1.13.1
+  cloud_firestore: ^3.1.14
+  firebase_auth: ^3.3.17
+  firebase_core: ^1.16.0
   flutter:
     sdk: flutter
-  google_sign_in: ^5.2.4
+  google_sign_in: ^5.3.1
   sign_in_with_apple: ^3.3.0
 
 dev_dependencies:

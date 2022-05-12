@@ -60,7 +60,7 @@ class BottomNavBar extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             label: l10n.profileLabel,
-            icon: const Icon(FontAwesomeIcons.userCircle),
+            icon: const Icon(FontAwesomeIcons.circleUser),
           ),
         ],
       ),
