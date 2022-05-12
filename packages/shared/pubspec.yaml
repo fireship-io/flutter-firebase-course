@@ -14,7 +14,7 @@ dependencies:
   equatable: ^2.0.3
   flutter:
     sdk: flutter
-  json_annotation: ^4.4.0
+  json_annotation: ^4.5.0
   provider: ^6.0.2
   rxdart: ^0.27.3
 
