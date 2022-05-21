@@ -97,7 +97,7 @@ class ProfilePhoto extends StatelessWidget {
                     return Container(
                       color: context.theme.canvasColor,
                       child: const Icon(
-                        FontAwesomeIcons.userCircle,
+                        FontAwesomeIcons.circleUser,
                         size: _kProfilePhotoSize,
                       ),
                     );
