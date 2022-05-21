@@ -7,7 +7,7 @@ import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
 class ProfileView extends StatefulWidget {
-  const ProfileView({Key? key}) : super(key: key);
+  const ProfileView({super.key});
 
   @override
   State<ProfileView> createState() => _ProfileViewState();
@@ -31,7 +31,7 @@ class _ProfileViewState extends State<ProfileView>
 }
 
 class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
+  const Profile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class Profile extends StatelessWidget {
 }
 
 class DisplayName extends StatelessWidget {
-  const DisplayName({Key? key}) : super(key: key);
+  const DisplayName({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +75,7 @@ class DisplayName extends StatelessWidget {
 const _kProfilePhotoSize = 100.0;
 
 class ProfilePhoto extends StatelessWidget {
-  const ProfilePhoto({Key? key}) : super(key: key);
+  const ProfilePhoto({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +111,7 @@ class ProfilePhoto extends StatelessWidget {
 }
 
 class EmailAddress extends StatelessWidget {
-  const EmailAddress({Key? key}) : super(key: key);
+  const EmailAddress({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +121,7 @@ class EmailAddress extends StatelessWidget {
 }
 
 class TotalCompletedQuizzes extends StatelessWidget {
-  const TotalCompletedQuizzes({Key? key}) : super(key: key);
+  const TotalCompletedQuizzes({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +144,7 @@ class TotalCompletedQuizzes extends StatelessWidget {
 }
 
 class LogOutButton extends StatelessWidget {
-  const LogOutButton({Key? key}) : super(key: key);
+  const LogOutButton({super.key});
 
   @override
   Widget build(BuildContext context) {

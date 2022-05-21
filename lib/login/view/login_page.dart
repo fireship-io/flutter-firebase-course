@@ -8,9 +8,12 @@ import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage._({Key? key}) : super(key: key);
+  const LoginPage._();
 
-  static Page page() => const MaterialPage<void>(child: LoginPage._());
+  static Page page() => const MaterialPage<void>(
+        key: ValueKey('login_page'),
+        child: LoginPage._(),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -21,15 +24,15 @@ class LoginPage extends StatelessWidget {
           create: (_) => LoginCubit(
             userRepository: context.read<UserRepository>(),
           ),
-          child: const _LoginContent(),
+          child: const LoginContent(),
         ),
       ),
     );
   }
 }
 
-class _LoginContent extends StatelessWidget {
-  const _LoginContent({Key? key}) : super(key: key);
+class LoginContent extends StatelessWidget {
+  const LoginContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -54,21 +57,21 @@ class _LoginContent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const FlutterLogo(size: 150),
-          const _Preamble(),
-          const _Tagline(),
-          if (Platform.isAndroid) const _GoogleSignInButton(),
+          const Preamble(),
+          const Tagline(),
+          if (Platform.isAndroid) const GoogleSignInButton(),
           // At the moment, the preferable solution on Android is blocked by
           // https://github.com/FirebaseExtended/flutterfire/issues/2691
-          if (Platform.isIOS) const _AppleSignInButton(),
-          const _AnonymousSignInButton(),
+          if (Platform.isIOS) const AppleSignInButton(),
+          const AnonymousSignInButton(),
         ],
       ),
     );
   }
 }
 
-class _Preamble extends StatelessWidget {
-  const _Preamble({Key? key}) : super(key: key);
+class Preamble extends StatelessWidget {
+  const Preamble({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -80,8 +83,8 @@ class _Preamble extends StatelessWidget {
   }
 }
 
-class _Tagline extends StatelessWidget {
-  const _Tagline({Key? key}) : super(key: key);
+class Tagline extends StatelessWidget {
+  const Tagline({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -92,15 +95,15 @@ class _Tagline extends StatelessWidget {
   }
 }
 
-class _GoogleSignInButton extends StatelessWidget {
-  const _GoogleSignInButton({Key? key}) : super(key: key);
+class GoogleSignInButton extends StatelessWidget {
+  const GoogleSignInButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     final isSigningInWithGoogle = context.select<LoginCubit, bool>(
       (cubit) => cubit.state.isSigningInWithGoogle,
     );
-    return _SignInButton(
+    return SignInButton(
       text: context.l10n.loginWithGoogleButtonLabel,
       icon: FontAwesomeIcons.google,
       color: Colors.black45,
@@ -112,15 +115,15 @@ class _GoogleSignInButton extends StatelessWidget {
   }
 }
 
-class _AppleSignInButton extends StatelessWidget {
-  const _AppleSignInButton({Key? key}) : super(key: key);
+class AppleSignInButton extends StatelessWidget {
+  const AppleSignInButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     final isSigningInWithApple = context.select<LoginCubit, bool>(
       (cubit) => cubit.state.isSigningInWithApple,
     );
-    return _SignInButton(
+    return SignInButton(
       text: context.l10n.loginWithAppleButtonLabel,
       color: Colors.black45,
       icon: FontAwesomeIcons.apple,
@@ -132,15 +135,15 @@ class _AppleSignInButton extends StatelessWidget {
   }
 }
 
-class _AnonymousSignInButton extends StatelessWidget {
-  const _AnonymousSignInButton({Key? key}) : super(key: key);
+class AnonymousSignInButton extends StatelessWidget {
+  const AnonymousSignInButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     final isSigningInAnonymously = context.select<LoginCubit, bool>(
       (cubit) => cubit.state.isSigningInAnonymously,
     );
-    return _SignInButton(
+    return SignInButton(
       text: context.l10n.loginAsGuestButtonLabel,
       processing: isSigningInAnonymously,
       onPressed: isSigningInAnonymously
@@ -150,15 +153,15 @@ class _AnonymousSignInButton extends StatelessWidget {
   }
 }
 
-class _SignInButton extends StatelessWidget {
-  const _SignInButton({
-    Key? key,
+class SignInButton extends StatelessWidget {
+  const SignInButton({
+    super.key,
     required this.text,
     this.icon,
     this.color,
     this.processing = false,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final String text;
   final IconData? icon;

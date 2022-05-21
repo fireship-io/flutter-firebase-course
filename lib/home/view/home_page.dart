@@ -6,9 +6,12 @@ import 'package:quizapp/topics/topics.dart';
 import 'package:shared/shared.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage._({Key? key}) : super(key: key);
+  const HomePage._();
 
-  static Page page() => const MaterialPage<void>(child: HomePage._());
+  static Page page() => const MaterialPage<void>(
+        key: ValueKey('home_page'),
+        child: HomePage._(),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,7 @@ class HomePage extends StatelessWidget {
 }
 
 class HomeBody extends StatelessWidget {
-  const HomeBody({Key? key}) : super(key: key);
+  const HomeBody({super.key});
 
   @override
   Widget build(BuildContext context) {

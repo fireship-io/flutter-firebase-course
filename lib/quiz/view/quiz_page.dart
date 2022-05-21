@@ -11,10 +11,9 @@ import 'package:user_repository/user_repository.dart';
 
 class QuizPage extends StatelessWidget {
   const QuizPage._({
-    Key? key,
     required this.quizId,
     required this.onQuizCompleted,
-  }) : super(key: key);
+  });
 
   static const name = '/quizpage';
   static Page page({
@@ -22,6 +21,7 @@ class QuizPage extends StatelessWidget {
     required VoidCallback onQuizCompleted,
   }) =>
       MaterialPage<void>(
+        key: const ValueKey('quiz_page'),
         fullscreenDialog: true,
         name: name,
         child: QuizPage._(quizId: quizId, onQuizCompleted: onQuizCompleted),
@@ -46,7 +46,7 @@ class QuizPage extends StatelessWidget {
 }
 
 class QuizView extends StatelessWidget {
-  const QuizView({Key? key}) : super(key: key);
+  const QuizView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class QuizView extends StatelessWidget {
 }
 
 class QuizBody extends StatefulWidget {
-  const QuizBody({Key? key}) : super(key: key);
+  const QuizBody({super.key});
 
   @override
   State<QuizBody> createState() => _QuizBodyState();
@@ -149,7 +149,7 @@ class _QuizBodyState extends State<QuizBody> {
 }
 
 class QuizProgressBar extends StatelessWidget {
-  const QuizProgressBar({Key? key}) : super(key: key);
+  const QuizProgressBar({super.key});
 
   @override
   Widget build(BuildContext context) {

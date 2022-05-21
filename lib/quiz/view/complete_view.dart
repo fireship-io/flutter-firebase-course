@@ -5,7 +5,7 @@ import 'package:shared/shared.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 
 class CompleteView extends StatelessWidget {
-  const CompleteView({Key? key}) : super(key: key);
+  const CompleteView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class CompleteView extends StatelessWidget {
 }
 
 class CongratsText extends StatelessWidget {
-  const CongratsText({Key? key}) : super(key: key);
+  const CongratsText({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class CongratsText extends StatelessWidget {
 }
 
 class CongratsGif extends StatelessWidget {
-  const CongratsGif({Key? key}) : super(key: key);
+  const CongratsGif({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class CongratsGif extends StatelessWidget {
 }
 
 class CompleteQuizButton extends StatelessWidget {
-  const CompleteQuizButton({Key? key}) : super(key: key);
+  const CompleteQuizButton({super.key});
 
   @override
   Widget build(BuildContext context) {
