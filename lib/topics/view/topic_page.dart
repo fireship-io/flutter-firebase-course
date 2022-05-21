@@ -9,9 +9,10 @@ import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
 class TopicPage extends StatelessWidget {
-  const TopicPage._({Key? key}) : super(key: key);
+  const TopicPage._();
 
   static Page page({required Topic topic}) => MaterialPage<void>(
+        key: const ValueKey('topic_page'),
         child: Provider.value(
           value: topic,
           child: const TopicPage._(),
@@ -47,7 +48,7 @@ class TopicPage extends StatelessWidget {
 }
 
 class TopicImage extends StatelessWidget {
-  const TopicImage({Key? key}) : super(key: key);
+  const TopicImage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +62,7 @@ class TopicImage extends StatelessWidget {
 }
 
 class TopicTitle extends StatelessWidget {
-  const TopicTitle({Key? key}) : super(key: key);
+  const TopicTitle({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +79,7 @@ class TopicTitle extends StatelessWidget {
 }
 
 class QuizList extends StatelessWidget {
-  const QuizList({Key? key}) : super(key: key);
+  const QuizList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -94,10 +95,10 @@ class QuizList extends StatelessWidget {
 
 class QuizItem extends StatelessWidget {
   const QuizItem({
-    Key? key,
+    super.key,
     required this.quiz,
     required this.topicId,
-  }) : super(key: key);
+  });
 
   final Quiz quiz;
   final String topicId;
@@ -131,10 +132,10 @@ class QuizItem extends StatelessWidget {
 
 class QuizBadge extends StatelessWidget {
   const QuizBadge({
-    Key? key,
+    super.key,
     required this.quizId,
     required this.topicId,
-  }) : super(key: key);
+  });
 
   final String quizId;
   final String topicId;

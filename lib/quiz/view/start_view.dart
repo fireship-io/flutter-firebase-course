@@ -5,7 +5,7 @@ import 'package:quizapp/quiz/cubit/quiz_cubit.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 
 class StartView extends StatelessWidget {
-  const StartView({Key? key}) : super(key: key);
+  const StartView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class StartView extends StatelessWidget {
 }
 
 class QuizTitle extends StatelessWidget {
-  const QuizTitle({Key? key}) : super(key: key);
+  const QuizTitle({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class QuizTitle extends StatelessWidget {
 }
 
 class QuizDescription extends StatelessWidget {
-  const QuizDescription({Key? key}) : super(key: key);
+  const QuizDescription({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class QuizDescription extends StatelessWidget {
 }
 
 class QuizStartButton extends StatelessWidget {
-  const QuizStartButton({Key? key}) : super(key: key);
+  const QuizStartButton({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -24,9 +24,9 @@ List<Page> onGenerateAppPages(
 
 class App extends StatelessWidget {
   const App({
-    Key? key,
+    super.key,
     required this.userRepository,
-  }) : super(key: key);
+  });
 
   final UserRepository userRepository;
 
@@ -36,14 +36,14 @@ class App extends StatelessWidget {
       value: userRepository,
       child: BlocProvider<AppCubit>(
         create: (_) => AppCubit(userRepository: userRepository),
-        child: const _AppView(),
+        child: const AppView(),
       ),
     );
   }
 }
 
-class _AppView extends StatelessWidget {
-  const _AppView({Key? key}) : super(key: key);
+class AppView extends StatelessWidget {
+  const AppView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -76,7 +76,7 @@ extension TopicsFlowControllerExtensions on FlowController<TopicsFlowState> {
 }
 
 class TopicsFlow extends StatefulWidget {
-  const TopicsFlow({Key? key}) : super(key: key);
+  const TopicsFlow({super.key});
 
   @override
   State<TopicsFlow> createState() => _TopicsFlowState();

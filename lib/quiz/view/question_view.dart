@@ -7,7 +7,7 @@ import 'package:quizzes_repository/quizzes_repository.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 
 class QuestionView extends StatelessWidget {
-  const QuestionView({Key? key, required this.step}) : super(key: key);
+  const QuestionView({super.key, required this.step});
 
   final int step;
 
@@ -27,7 +27,7 @@ class QuestionView extends StatelessWidget {
 }
 
 class QuestionText extends StatelessWidget {
-  const QuestionText({Key? key}) : super(key: key);
+  const QuestionText({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class QuestionText extends StatelessWidget {
 }
 
 class QuestionOptions extends StatelessWidget {
-  const QuestionOptions({Key? key}) : super(key: key);
+  const QuestionOptions({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class QuestionOptions extends StatelessWidget {
 }
 
 class OptionItem extends StatelessWidget {
-  const OptionItem({Key? key, required this.option}) : super(key: key);
+  const OptionItem({super.key, required this.option});
 
   final Option option;
 
@@ -98,7 +98,7 @@ class OptionItem extends StatelessWidget {
 }
 
 class OptionIcon extends StatelessWidget {
-  const OptionIcon({Key? key, required this.option}) : super(key: key);
+  const OptionIcon({super.key, required this.option});
 
   final Option option;
 
@@ -116,7 +116,7 @@ class OptionIcon extends StatelessWidget {
 }
 
 class QuizAnswerDetails extends StatelessWidget {
-  const QuizAnswerDetails({Key? key}) : super(key: key);
+  const QuizAnswerDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -169,7 +169,7 @@ class QuizAnswerDetails extends StatelessWidget {
                 ),
               ),
             )
-          : const Empty(),
+          : const SizedBox.shrink(),
     );
   }
 }

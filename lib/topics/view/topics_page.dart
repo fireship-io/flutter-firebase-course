@@ -10,9 +10,12 @@ import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
 class TopicsPage extends StatelessWidget {
-  const TopicsPage._({Key? key}) : super(key: key);
+  const TopicsPage._();
 
-  static Page page() => const MaterialPage<void>(child: TopicsPage._());
+  static Page page() => const MaterialPage<void>(
+        key: ValueKey('topics_page'),
+        child: TopicsPage._(),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,7 @@ class TopicsPage extends StatelessWidget {
 }
 
 class TopicsGrid extends StatelessWidget {
-  const TopicsGrid({Key? key}) : super(key: key);
+  const TopicsGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +63,7 @@ class TopicsGrid extends StatelessWidget {
 }
 
 class TopicItem extends StatelessWidget {
-  const TopicItem({Key? key, required this.topic}) : super(key: key);
+  const TopicItem({super.key, required this.topic});
 
   final Topic topic;
 
@@ -117,10 +120,10 @@ class TopicItem extends StatelessWidget {
 
 class TopicProgress extends StatelessWidget {
   const TopicProgress({
-    Key? key,
+    super.key,
     required this.topic,
     required this.quizCount,
-  }) : super(key: key);
+  });
 
   final Topic topic;
   final int quizCount;
