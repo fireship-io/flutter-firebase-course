@@ -169,7 +169,7 @@ class QuizAnswerDetails extends StatelessWidget {
                 ),
               ),
             )
-          : const Empty(),
+          : const SizedBox.shrink(),
     );
   }
 }

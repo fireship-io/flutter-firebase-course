@@ -94,7 +94,7 @@ class ProfilePhoto extends StatelessWidget {
                   height: _kProfilePhotoSize,
                   fit: BoxFit.cover,
                   imageErrorBuilder: (_, __, ___) {
-                    return Container(
+                    return ColoredBox(
                       color: context.theme.canvasColor,
                       child: const Icon(
                         FontAwesomeIcons.circleUser,
@@ -106,7 +106,7 @@ class ProfilePhoto extends StatelessWidget {
               ),
             ],
           )
-        : const Empty();
+        : const SizedBox.shrink();
   }
 }
 
