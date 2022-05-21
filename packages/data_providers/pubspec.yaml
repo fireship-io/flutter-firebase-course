@@ -6,13 +6,13 @@ environment:
   sdk: '>=2.17.0 <3.0.0'
 
 dependencies:
-  cloud_firestore: ^3.1.10
-  firebase_auth: ^3.3.11
-  firebase_core: ^1.13.1
+  cloud_firestore: ^3.1.15
+  firebase_auth: ^3.3.18
+  firebase_core: ^1.17.0
   flutter:
     sdk: flutter
-  google_sign_in: ^5.2.4
-  sign_in_with_apple: ^3.3.0
+  google_sign_in: ^5.3.1
+  sign_in_with_apple: ^4.0.0
 
 dev_dependencies:
-  very_good_analysis: ^2.4.0
+  very_good_analysis: ^3.0.0

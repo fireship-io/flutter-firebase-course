@@ -10,9 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_spinkit: ^5.1.0
-  font_awesome_flutter: ^9.2.0
-  google_fonts: ^2.3.1
+  font_awesome_flutter: ^10.1.0
+  google_fonts: ^3.0.0
   transparent_image: ^2.0.0
 
 dev_dependencies:
-  very_good_analysis: ^2.4.0
+  very_good_analysis: ^3.0.0
