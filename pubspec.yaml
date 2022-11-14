@@ -9,11 +9,11 @@ environment:
 dependencies:
   data_providers:
     path: packages/data_providers
-  equatable: ^2.0.3
-  flow_builder: ^0.0.8
+  equatable: ^2.0.5
+  flow_builder: ^0.0.9
   flutter:
     sdk: flutter
-  flutter_bloc: ^8.0.1
+  flutter_bloc: ^8.1.1
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
@@ -29,11 +29,11 @@ dependencies:
     path: packages/user_repository
 
 dev_dependencies:
-  build_runner: ^2.1.11
-  flutter_gen_runner: ^4.1.6
+  build_runner: ^2.3.2
+  flutter_gen_runner: ^5.1.0+1
   flutter_test:
     sdk: flutter
-  very_good_analysis: ^3.0.0
+  very_good_analysis: ^3.1.0
 
 flutter_gen:
   output: packages/ui_toolkit/lib/src/gen
