@@ -20,7 +20,7 @@ class ProfileCubit extends Cubit<User> {
 
   void _onUserChanged(User user) => emit(user);
 
-  late final StreamSubscription _userSubscription;
+  late final StreamSubscription<User> _userSubscription;
   void _watchUser() {
     _userSubscription = _userRepository.watchUser
         // user/auth failures are handled by the AppCubit

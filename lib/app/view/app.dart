@@ -9,9 +9,9 @@ import 'package:quizapp/login/login.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
-List<Page> onGenerateAppPages(
+List<Page<void>> onGenerateAppPages(
   AppStatus status,
-  List<Page<dynamic>> pages,
+  List<Page<void>> pages,
 ) {
   if (status.isUnauthenticated) {
     return [LoginPage.page()];

@@ -43,7 +43,7 @@ class TopicsCubit extends Cubit<TopicsState> {
     emit(state.fromUser(user));
   }
 
-  late final StreamSubscription _userSubscription;
+  late final StreamSubscription<User> _userSubscription;
   void _watchUser() {
     _userSubscription = _userRepository.watchUser
         // user/auth failures are handled by the AppCubit

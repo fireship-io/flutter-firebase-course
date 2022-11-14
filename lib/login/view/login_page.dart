@@ -10,7 +10,7 @@ import 'package:user_repository/user_repository.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage._();
 
-  static Page page() => const MaterialPage<void>(
+  static Page<void> page() => const MaterialPage<void>(
         key: ValueKey('login_page'),
         child: LoginPage._(),
       );

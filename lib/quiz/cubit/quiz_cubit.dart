@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:quizzes_repository/quizzes_repository.dart';
 import 'package:shared/shared.dart';
 import 'package:user_repository/user_repository.dart';

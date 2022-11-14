@@ -12,7 +12,7 @@ import 'package:user_repository/user_repository.dart';
 class TopicsPage extends StatelessWidget {
   const TopicsPage._();
 
-  static Page page() => const MaterialPage<void>(
+  static Page<void> page() => const MaterialPage<void>(
         key: ValueKey('topics_page'),
         child: TopicsPage._(),
       );
