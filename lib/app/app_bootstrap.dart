@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
 import 'package:data_providers/data_providers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shared/shared.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 
 Future<void> bootstrap(
@@ -25,11 +25,12 @@ Future<void> bootstrap(
 
   await Assets.covers.preload();
 
+  if (blocObserver != null) {
+    Bloc.observer = blocObserver;
+  }
+
   return runZonedGuarded<void>(
-    () => BlocOverrides.runZoned(
-      () async => runApp(await appDelegate()),
-      blocObserver: blocObserver,
-    ),
+    () async => runApp(await appDelegate()),
     onZoneError ??
         (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
   );

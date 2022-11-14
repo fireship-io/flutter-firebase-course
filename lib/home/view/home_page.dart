@@ -8,7 +8,7 @@ import 'package:shared/shared.dart';
 class HomePage extends StatelessWidget {
   const HomePage._();
 
-  static Page page() => const MaterialPage<void>(
+  static Page<void> page() => const MaterialPage<void>(
         key: ValueKey('home_page'),
         child: HomePage._(),
       );
