@@ -56,18 +56,16 @@ class AppView extends StatelessWidget {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       home: BlocListener<AppCubit, AppState>(
+        listenWhen: (_, current) => current.isFailure,
         listener: (context, state) {
-          if (state.isFailure) {
-            final failure = state.failure;
-            final l10n = context.l10n;
-            if (failure is AuthUserChangesFailure) {
-              context.showSnackBar(l10n.authFailureMessage);
-            } else if (failure is SignOutFailure) {
-              context.showSnackBar(l10n.signOutFailureMessage);
-            } else {
-              context.showSnackBar(l10n.unknownFailureMessage);
-            }
-          }
+          final l10n = context.l10n;
+          return switch (state.failure) {
+            AuthUserChangesFailure() =>
+              context.showSnackBar(l10n.authFailureMessage),
+            SignOutFailure() =>
+              context.showSnackBar(l10n.signOutFailureMessage),
+            _ => context.showSnackBar(l10n.unknownFailureMessage),
+          };
         },
         child: FlowBuilder(
           onGeneratePages: onGenerateAppPages,

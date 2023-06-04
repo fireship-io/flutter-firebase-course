@@ -14,7 +14,7 @@ extension SignInMethodExtensions on SignInMethod {
   bool get isApple => this == SignInMethod.apple;
 }
 
-class LoginState extends Equatable {
+final class LoginState extends Equatable {
   const LoginState._({
     this.status = LoginStatus.initial,
     this.signInMethod = SignInMethod.none,

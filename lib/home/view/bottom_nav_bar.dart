@@ -9,7 +9,7 @@ extension NavBarItemExtensions on NavBarItem {
   bool get isTopics => this == NavBarItem.topics;
 }
 
-class NavBarController extends PageController {
+final class NavBarController extends PageController {
   NavBarController({NavBarItem initialItem = NavBarItem.topics})
       : _notifier = ValueNotifier<NavBarItem>(initialItem),
         super(initialPage: initialItem.index) {

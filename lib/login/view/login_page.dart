@@ -40,18 +40,17 @@ class LoginContent extends StatelessWidget {
       listenWhen: (_, current) => current.isFailure,
       listener: (context, state) {
         final l10n = context.l10n;
-        final failure = state.failure;
-        if (failure is AnonymousSignInFailure) {
-          context.showSnackBar(l10n.anonymousSignInFailureMessage);
-        } else if (failure is GoogleSignInFailure) {
-          context.showSnackBar(l10n.googleSignInFailureMessage);
-        } else if (failure is AppleSignInFailure) {
-          context.showSnackBar(l10n.appleSignInFailureMessage);
-        } else if (failure is AppleSignInNotSupportedFailure) {
-          context.showSnackBar(l10n.appleSignInNotSupportedFailureMessage);
-        } else {
-          context.showSnackBar(l10n.unknownFailureMessage);
-        }
+        return switch (state.failure) {
+          AnonymousSignInFailure() =>
+            context.showSnackBar(l10n.anonymousSignInFailureMessage),
+          GoogleSignInFailure() =>
+            context.showSnackBar(l10n.googleSignInFailureMessage),
+          AppleSignInFailure() =>
+            context.showSnackBar(l10n.appleSignInFailureMessage),
+          AppleSignInNotSupportedFailure() =>
+            context.showSnackBar(l10n.appleSignInNotSupportedFailureMessage),
+          _ => context.showSnackBar(l10n.unknownFailureMessage),
+        };
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

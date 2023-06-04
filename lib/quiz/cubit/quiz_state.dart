@@ -2,7 +2,7 @@ part of 'quiz_cubit.dart';
 
 enum QuizStatus { initial, loading, empty, loaded, failure }
 
-class QuizState extends Equatable {
+final class QuizState extends Equatable {
   const QuizState._({
     this.status = QuizStatus.initial,
     this.quiz = Quiz.none,
