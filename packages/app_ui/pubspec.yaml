@@ -1,5 +1,5 @@
-name: ui_toolkit
-description: UI toolkit.
+name: app_ui
+description: App UI package.
 version: 1.0.0
 publish_to: none
 

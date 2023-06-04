@@ -1,5 +1,5 @@
-/// UI toolkit
-library ui_toolkit;
+/// App UI
+library app_ui;
 
 export 'package:flutter_spinkit/flutter_spinkit.dart';
 export 'package:font_awesome_flutter/font_awesome_flutter.dart';

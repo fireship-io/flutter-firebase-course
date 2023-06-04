@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:app_ui/src/gen/assets.gen.dart';
 import 'package:flutter/widgets.dart';
-import 'package:ui_toolkit/src/gen/assets.gen.dart';
 
 extension AssetGenImageExtensions on AssetImage {
   Future<void> preload() {

@@ -36,7 +36,7 @@ dev_dependencies:
   very_good_analysis: ^5.0.0+1
 
 flutter_gen:
-  output: packages/ui_toolkit/lib/src/gen
+  output: packages/app_ui/lib/src/gen
 
 flutter:
   uses-material-design: true

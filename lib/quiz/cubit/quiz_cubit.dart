@@ -1,5 +1,5 @@
-import 'package:quizzes_repository/quizzes_repository.dart';
 import 'package:app_core/app_core.dart';
+import 'package:quizzes_repository/quizzes_repository.dart';
 import 'package:user_repository/user_repository.dart';
 
 part 'quiz_state.dart';

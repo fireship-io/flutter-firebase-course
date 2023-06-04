@@ -1,4 +1,5 @@
 import 'package:app_core/app_core.dart';
+import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quizapp/quiz/cubit/quiz_cubit.dart';
@@ -6,7 +7,6 @@ import 'package:quizapp/quiz/view/complete_view.dart';
 import 'package:quizapp/quiz/view/question_view.dart';
 import 'package:quizapp/quiz/view/start_view.dart';
 import 'package:quizzes_repository/quizzes_repository.dart';
-import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
 class QuizPage extends StatelessWidget {

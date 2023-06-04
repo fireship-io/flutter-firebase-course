@@ -1,8 +1,8 @@
+import 'package:app_ui/src/colors.dart';
+import 'package:app_ui/src/constants.dart';
+import 'package:app_ui/src/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:ui_toolkit/src/colors.dart';
-import 'package:ui_toolkit/src/constants.dart';
-import 'package:ui_toolkit/src/extensions.dart';
 
 class Loader extends StatelessWidget {
   const Loader({
