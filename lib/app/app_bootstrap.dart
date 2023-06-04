@@ -1,35 +1,48 @@
 import 'dart:developer';
+import 'dart:isolate';
 
-import 'package:data_providers/data_providers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+import 'package:quizapp/app/app_bloc_observer.dart';
 import 'package:shared/shared.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 
-Future<void> bootstrap(
-  FutureOr<Widget> Function() appDelegate, {
-  void Function(Object, StackTrace)? onZoneError,
-  FlutterExceptionHandler? onFlutterError,
-  BlocObserver? blocObserver,
-  Future<FirebaseApp> Function()? firebaseApp,
+Future<void> bootstrap({
+  required FutureOr<Widget> Function() builder,
+  FutureOr<void> Function()? init,
 }) async {
-  WidgetsFlutterBinding.ensureInitialized();
+  await runZonedGuarded(
+    () async {
+      BindingBase.debugZoneErrorsAreFatal = true;
+      WidgetsFlutterBinding.ensureInitialized();
+      await init?.call();
 
-  FlutterError.onError = onFlutterError ??
-      (details) {
+      FlutterError.onError = (details) {
         log(details.exceptionAsString(), stackTrace: details.stack);
       };
+      PlatformDispatcher.instance.onError = (error, stackTrace) {
+        log(error.toString(), stackTrace: stackTrace);
+        return true;
+      };
+      Isolate.current.addErrorListener(
+        RawReceivePort((dynamic pair) async {
+          final errorAndStackTrace = pair as List<dynamic>;
+          final error = errorAndStackTrace.first;
+          final rawStackTrace = errorAndStackTrace.last;
+          final stackTrace = rawStackTrace is StackTrace
+              ? rawStackTrace
+              : StackTrace.fromString(rawStackTrace.toString());
+          log(error.toString(), stackTrace: stackTrace);
+        }).sendPort,
+      );
 
-  await (firebaseApp ?? Firebase.initializeApp)();
+      Bloc.observer = AppBlocObserver();
 
-  await Assets.covers.preload();
+      await Assets.covers.preload();
 
-  return runZonedGuarded<void>(
-    () => BlocOverrides.runZoned(
-      () async => runApp(await appDelegate()),
-      blocObserver: blocObserver,
-    ),
-    onZoneError ??
-        (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
+      final app = await builder();
+      runApp(app);
+    },
+    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
   );
 }
