@@ -2,9 +2,22 @@ import 'package:api_client/api_client.dart';
 import 'package:quizzes_repository/src/failures.dart';
 import 'package:quizzes_repository/src/models/models.dart';
 
-part 'firebase_quizzes_repository.dart';
+class QuizzesRepository {
+  QuizzesRepository({
+    FirebaseFirestore? firestore,
+  }) : _firestore = firestore ?? FirebaseFirestore.instance;
 
-// ignore: one_member_abstracts
-abstract class QuizzesRepository {
-  Future<Quiz> getQuiz(String quizId);
+  final FirebaseFirestore _firestore;
+
+  Future<Quiz> getQuiz(String quizId) async {
+    try {
+      final doc = await _firestore.quizDoc(quizId).get();
+      if (doc.exists) {
+        return Quiz.fromJson(doc.data()!);
+      }
+      return Quiz.none;
+    } on FirebaseException {
+      throw QuizzesFailure.fromGetQuiz();
+    }
+  }
 }

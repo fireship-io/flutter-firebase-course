@@ -7,7 +7,7 @@ Future<void> main() async {
     init: Firebase.initializeApp,
     builder: () async {
       // ? initialize production dependencies
-      final userRepository = FirebaseUserRepository();
+      final userRepository = UserRepository();
       await userRepository.getOpeningUser();
       return App(userRepository: userRepository);
     },

@@ -35,7 +35,7 @@ class QuizPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => QuizCubit(
         userRepository: context.read<UserRepository>(),
-        quizzesRepository: FirebaseQuizzesRepository(),
+        quizzesRepository: QuizzesRepository(),
       )..getQuiz(quizId),
       child: Provider.value(
         value: onQuizCompleted,

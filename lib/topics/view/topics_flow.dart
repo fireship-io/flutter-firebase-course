@@ -104,7 +104,7 @@ class _TopicsFlowState extends State<TopicsFlow>
     return BlocProvider(
       create: (_) => TopicsCubit(
         userRepository: context.read<UserRepository>(),
-        topicsRepository: FirebaseTopicsRepository(),
+        topicsRepository: TopicsRepository(),
       )..getTopics(),
       child: FlowBuilder<TopicsFlowState>(
         controller: _controller,

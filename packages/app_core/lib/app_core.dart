@@ -1,5 +1,5 @@
-/// Shared
-library shared;
+/// App core
+library app_core;
 
 export 'dart:async';
 
