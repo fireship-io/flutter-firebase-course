@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:typed_data';
+import 'dart:ui' as ui;
 
 import 'package:flutter/widgets.dart';
 import 'package:ui_toolkit/src/gen/assets.gen.dart';
@@ -6,9 +8,13 @@ import 'package:ui_toolkit/src/gen/assets.gen.dart';
 extension AssetGenImageExtensions on AssetImage {
   Future<void> preload() {
     final imageStream = resolve(ImageConfiguration.empty);
-    final completer = Completer<void>();
+    final completer = Completer<Uint8List>();
     final listener = ImageStreamListener(
-      (_, __) => completer.complete(),
+      (imageInfo, _) async {
+        final byteData =
+            await imageInfo.image.toByteData(format: ui.ImageByteFormat.png);
+        completer.complete(byteData?.buffer.asUint8List());
+      },
       onError: completer.completeError,
     );
     imageStream.addListener(listener);
