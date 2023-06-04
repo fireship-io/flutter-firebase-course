@@ -1,4 +1,4 @@
-import 'package:data_providers/data_providers.dart';
+import 'package:api_client/api_client.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 const timestamp = _TimestampConverter._();

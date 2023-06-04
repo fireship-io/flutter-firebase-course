@@ -1,5 +1,5 @@
-import 'package:data_providers/data_providers.dart' hide User;
-import 'package:data_providers/data_providers.dart' as firebase show User;
+import 'package:api_client/api_client.dart' hide User;
+import 'package:api_client/api_client.dart' as firebase show User;
 import 'package:shared/shared.dart';
 import 'package:user_repository/src/failures.dart';
 import 'package:user_repository/src/models/models.dart';

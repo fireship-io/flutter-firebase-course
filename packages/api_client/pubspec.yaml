@@ -1,5 +1,5 @@
-name: data_providers
-description: An app package exporting all data providers.
+name: api_client
+description: Firebase quizzes API client.
 version: 1.0.0+1
 
 environment:

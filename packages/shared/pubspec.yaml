@@ -7,10 +7,10 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
+  api_client:
+    path: ../api_client
   bloc: ^8.1.2
   crypto: ^3.0.3
-  data_providers:
-    path: ../data_providers
   equatable: ^2.0.5
   flutter:
     sdk: flutter

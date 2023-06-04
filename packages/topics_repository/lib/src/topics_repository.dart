@@ -1,4 +1,4 @@
-import 'package:data_providers/data_providers.dart';
+import 'package:api_client/api_client.dart';
 import 'package:topics_repository/src/failures.dart';
 import 'package:topics_repository/src/models/models.dart';
 

@@ -1,4 +1,4 @@
-import 'package:data_providers/data_providers.dart';
+import 'package:api_client/api_client.dart';
 import 'package:quizapp/app/app.dart';
 import 'package:user_repository/user_repository.dart';
 

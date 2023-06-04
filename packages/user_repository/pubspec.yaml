@@ -7,8 +7,8 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  data_providers:
-    path: ../data_providers
+  api_client:
+    path: ../api_client
   flutter:
     sdk: flutter
   shared:
