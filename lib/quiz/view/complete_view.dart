@@ -1,7 +1,7 @@
+import 'package:app_core/app_core.dart';
 import 'package:flutter/material.dart';
 import 'package:quizapp/l10n/l10n.dart';
 import 'package:quizapp/quiz/cubit/quiz_cubit.dart';
-import 'package:shared/shared.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 
 class CompleteView extends StatelessWidget {

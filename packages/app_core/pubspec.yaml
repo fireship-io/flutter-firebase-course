@@ -1,5 +1,5 @@
-name: shared
-description: Shared app package.
+name: app_core
+description: App core package.
 version: 1.0.0
 publish_to: none
 
@@ -7,8 +7,6 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  api_client:
-    path: ../api_client
   bloc: ^8.1.2
   crypto: ^3.0.3
   equatable: ^2.0.5

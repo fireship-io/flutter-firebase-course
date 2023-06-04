@@ -1,11 +1,14 @@
 name: api_client
 description: Firebase quizzes API client.
 version: 1.0.0+1
+publish_to: none
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
+  app_core:
+    path: ../app_core
   cloud_firestore: ^4.8.0
   firebase_auth: ^4.6.2
   firebase_core: ^2.13.1

@@ -1,10 +1,10 @@
 import 'dart:developer';
 import 'dart:isolate';
 
+import 'package:app_core/app_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:quizapp/app/app_bloc_observer.dart';
-import 'package:shared/shared.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 
 Future<void> bootstrap({

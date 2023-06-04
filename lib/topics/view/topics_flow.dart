@@ -1,3 +1,4 @@
+import 'package:app_core/app_core.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,7 +6,6 @@ import 'package:quizapp/quiz/quiz.dart';
 import 'package:quizapp/topics/cubit/topics_cubit.dart';
 import 'package:quizapp/topics/view/topic_page.dart';
 import 'package:quizapp/topics/view/topics_page.dart';
-import 'package:shared/shared.dart';
 import 'package:topics_repository/topics_repository.dart';
 import 'package:user_repository/user_repository.dart';
 

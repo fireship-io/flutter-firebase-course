@@ -9,6 +9,10 @@ environment:
 dependencies:
   api_client:
     path: packages/api_client
+  app_core:
+    path: packages/app_core
+  app_ui:
+    path: packages/app_ui
   equatable: ^2.0.5
   flow_builder: ^0.0.9
   flutter:
@@ -19,12 +23,8 @@ dependencies:
   intl: ^0.18.0
   quizzes_repository:
     path: packages/quizzes_repository
-  shared:
-    path: packages/shared
   topics_repository:
     path: packages/topics_repository
-  ui_toolkit:
-    path: packages/ui_toolkit
   user_repository:
     path: packages/user_repository
 

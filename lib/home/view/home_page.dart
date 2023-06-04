@@ -3,7 +3,7 @@ import 'package:quizapp/about/about.dart';
 import 'package:quizapp/home/view/bottom_nav_bar.dart';
 import 'package:quizapp/profile/profile.dart';
 import 'package:quizapp/topics/topics.dart';
-import 'package:shared/shared.dart';
+import 'package:app_core/app_core.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage._();

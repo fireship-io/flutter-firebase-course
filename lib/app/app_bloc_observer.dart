@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:shared/shared.dart';
+import 'package:app_core/app_core.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override

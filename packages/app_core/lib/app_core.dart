@@ -9,4 +9,4 @@ export 'package:json_annotation/json_annotation.dart';
 export 'package:provider/provider.dart';
 export 'package:rxdart/rxdart.dart';
 
-export 'src/shared.dart';
+export 'src/app_core.dart';

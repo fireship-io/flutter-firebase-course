@@ -9,10 +9,10 @@ environment:
 dependencies:
   api_client:
     path: ../api_client
+  app_core:
+    path: ../app_core
   flutter:
     sdk: flutter
-  shared:
-    path: ../shared
 
 dev_dependencies:
   build_runner: ^2.4.4

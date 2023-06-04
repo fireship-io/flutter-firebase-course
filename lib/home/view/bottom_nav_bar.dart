@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/l10n/l10n.dart';
-import 'package:shared/shared.dart';
+import 'package:app_core/app_core.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 
 enum NavBarItem { topics, about, profile }
