@@ -1,11 +1,13 @@
+import 'package:api_client/api_client.dart';
 import 'package:quizapp/app/app.dart';
 import 'package:user_repository/user_repository.dart';
 
-void main() {
-  bootstrap(
-    () async {
+Future<void> main() async {
+  await bootstrap(
+    init: Firebase.initializeApp,
+    builder: () async {
       // ? initialize production dependencies
-      final userRepository = FirebaseUserRepository();
+      final userRepository = UserRepository();
       await userRepository.getOpeningUser();
       return App(userRepository: userRepository);
     },

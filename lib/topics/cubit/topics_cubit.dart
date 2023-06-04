@@ -1,6 +1,4 @@
-import 'dart:async';
-
-import 'package:shared/shared.dart';
+import 'package:app_core/app_core.dart';
 import 'package:topics_repository/topics_repository.dart';
 import 'package:user_repository/user_repository.dart';
 

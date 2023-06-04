@@ -1,3 +1,4 @@
+import 'package:app_ui/app_ui.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,12 +7,11 @@ import 'package:quizapp/app/cubit/app_cubit.dart';
 import 'package:quizapp/home/home.dart';
 import 'package:quizapp/l10n/l10n.dart';
 import 'package:quizapp/login/login.dart';
-import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
-List<Page<void>> onGenerateAppPages(
+List<Page<dynamic>> onGenerateAppPages(
   AppStatus status,
-  List<Page<void>> pages,
+  List<Page<dynamic>> pages,
 ) {
   if (status.isUnauthenticated) {
     return [LoginPage.page()];
@@ -24,8 +24,8 @@ List<Page<void>> onGenerateAppPages(
 
 class App extends StatelessWidget {
   const App({
-    super.key,
     required this.userRepository,
+    super.key,
   });
 
   final UserRepository userRepository;
@@ -56,18 +56,16 @@ class AppView extends StatelessWidget {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       home: BlocListener<AppCubit, AppState>(
+        listenWhen: (_, current) => current.isFailure,
         listener: (context, state) {
-          if (state.isFailure) {
-            final failure = state.failure;
-            final l10n = context.l10n;
-            if (failure is AuthUserChangesFailure) {
-              context.showSnackBar(l10n.authFailureMessage);
-            } else if (failure is SignOutFailure) {
-              context.showSnackBar(l10n.signOutFailureMessage);
-            } else {
-              context.showSnackBar(l10n.unknownFailureMessage);
-            }
-          }
+          final l10n = context.l10n;
+          return switch (state.failure) {
+            AuthUserChangesFailure() =>
+              context.showSnackBar(l10n.authFailureMessage),
+            SignOutFailure() =>
+              context.showSnackBar(l10n.signOutFailureMessage),
+            _ => context.showSnackBar(l10n.unknownFailureMessage),
+          };
         },
         child: FlowBuilder(
           onGeneratePages: onGenerateAppPages,

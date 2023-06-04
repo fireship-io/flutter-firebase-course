@@ -1,4 +1,4 @@
-import 'package:shared/shared.dart';
+import 'package:app_core/app_core.dart';
 
 class QuizzesFailure extends Failure {
   const QuizzesFailure._();

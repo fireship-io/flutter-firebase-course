@@ -1,7 +1,7 @@
+import 'package:app_core/app_core.dart';
+import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:quizapp/l10n/l10n.dart';
-import 'package:shared/shared.dart';
-import 'package:ui_toolkit/ui_toolkit.dart';
 
 enum NavBarItem { topics, about, profile }
 
@@ -9,7 +9,7 @@ extension NavBarItemExtensions on NavBarItem {
   bool get isTopics => this == NavBarItem.topics;
 }
 
-class NavBarController extends PageController {
+final class NavBarController extends PageController {
   NavBarController({NavBarItem initialItem = NavBarItem.topics})
       : _notifier = ValueNotifier<NavBarItem>(initialItem),
         super(initialPage: initialItem.index) {

@@ -1,16 +1,16 @@
 import 'dart:io';
 
+import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quizapp/l10n/l10n.dart';
 import 'package:quizapp/login/cubit/login_cubit.dart';
-import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage._();
 
-  static Page<void> page() => const MaterialPage<void>(
+  static Page<dynamic> page() => const MaterialPage<void>(
         key: ValueKey('login_page'),
         child: LoginPage._(),
       );
@@ -40,18 +40,17 @@ class LoginContent extends StatelessWidget {
       listenWhen: (_, current) => current.isFailure,
       listener: (context, state) {
         final l10n = context.l10n;
-        final failure = state.failure;
-        if (failure is AnonymousSignInFailure) {
-          context.showSnackBar(l10n.anonymousSignInFailureMessage);
-        } else if (failure is GoogleSignInFailure) {
-          context.showSnackBar(l10n.googleSignInFailureMessage);
-        } else if (failure is AppleSignInFailure) {
-          context.showSnackBar(l10n.appleSignInFailureMessage);
-        } else if (failure is AppleSignInNotSupportedFailure) {
-          context.showSnackBar(l10n.appleSignInNotSupportedFailureMessage);
-        } else {
-          context.showSnackBar(l10n.unknownFailureMessage);
-        }
+        return switch (state.failure) {
+          AnonymousSignInFailure() =>
+            context.showSnackBar(l10n.anonymousSignInFailureMessage),
+          GoogleSignInFailure() =>
+            context.showSnackBar(l10n.googleSignInFailureMessage),
+          AppleSignInFailure() =>
+            context.showSnackBar(l10n.appleSignInFailureMessage),
+          AppleSignInNotSupportedFailure() =>
+            context.showSnackBar(l10n.appleSignInNotSupportedFailureMessage),
+          _ => context.showSnackBar(l10n.unknownFailureMessage),
+        };
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -77,7 +76,7 @@ class Preamble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       context.l10n.loginPreamble,
-      style: context.textTheme.headline5,
+      style: context.textTheme.headlineSmall,
       textAlign: TextAlign.center,
     );
   }
@@ -155,12 +154,12 @@ class AnonymousSignInButton extends StatelessWidget {
 
 class SignInButton extends StatelessWidget {
   const SignInButton({
-    super.key,
     required this.text,
+    required this.onPressed,
+    super.key,
     this.icon,
     this.color,
     this.processing = false,
-    required this.onPressed,
   });
 
   final String text;

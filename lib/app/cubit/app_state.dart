@@ -14,7 +14,7 @@ extension AppStatusExtensions on AppStatus {
   bool get isFailure => this == AppStatus.failure;
 }
 
-class AppState extends Equatable {
+final class AppState extends Equatable {
   const AppState._({
     required this.status,
     this.user = User.none,

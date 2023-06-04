@@ -1,8 +1,8 @@
+import 'package:app_core/app_core.dart';
+import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:quizapp/l10n/l10n.dart';
 import 'package:quizapp/quiz/cubit/quiz_cubit.dart';
-import 'package:shared/shared.dart';
-import 'package:ui_toolkit/ui_toolkit.dart';
 
 class CompleteView extends StatelessWidget {
   const CompleteView({super.key});
@@ -11,9 +11,9 @@ class CompleteView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: kInsets / 2,
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           CongratsText(),
           Divider(),
           CongratsGif(),

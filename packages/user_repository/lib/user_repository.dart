@@ -1,3 +1,4 @@
+/// User repository
 library user_repository;
 
 export 'src/failures.dart';

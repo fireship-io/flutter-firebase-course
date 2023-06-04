@@ -1,10 +1,20 @@
-import 'package:data_providers/data_providers.dart';
+import 'package:api_client/api_client.dart';
 import 'package:topics_repository/src/failures.dart';
 import 'package:topics_repository/src/models/models.dart';
 
-part 'firebase_topics_repository.dart';
+class TopicsRepository {
+  TopicsRepository({
+    FirebaseFirestore? firestore,
+  }) : _firestore = firestore ?? FirebaseFirestore.instance;
 
-// ignore: one_member_abstracts
-abstract class TopicsRepository {
-  Future<List<Topic>> getTopics();
+  final FirebaseFirestore _firestore;
+
+  Future<List<Topic>> getTopics() async {
+    try {
+      final snapshot = await _firestore.topicsCollection().get();
+      return snapshot.docs.map((doc) => Topic.fromJson(doc.data())).toList();
+    } on FirebaseException {
+      throw TopicsFailure.fromGetTopics();
+    }
+  }
 }

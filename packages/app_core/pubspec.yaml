@@ -1,0 +1,20 @@
+name: app_core
+description: App core package.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  bloc: ^8.1.2
+  crypto: ^3.0.3
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  json_annotation: ^4.8.1
+  provider: ^6.0.5
+  rxdart: ^0.27.7
+
+dev_dependencies:
+  very_good_analysis: ^5.0.0+1

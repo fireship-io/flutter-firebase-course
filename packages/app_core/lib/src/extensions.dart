@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:app_core/src/failure.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:shared/src/failure.dart';
 
 extension StreamExtensions<T> on Stream<T> {
   Stream<T> logOnEach([String prefix = '']) {

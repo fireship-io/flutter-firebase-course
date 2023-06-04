@@ -13,14 +13,14 @@ extension _ThemeDataExtensions on ThemeData {
       ),
       textTheme: GoogleFonts.nunitoTextTheme(
         textTheme.copyWith(
-          bodyText2: const TextStyle(fontSize: 18),
-          bodyText1: const TextStyle(fontSize: 16),
-          button: const TextStyle(
+          bodyMedium: const TextStyle(fontSize: 18),
+          bodyLarge: const TextStyle(fontSize: 16),
+          labelLarge: const TextStyle(
             letterSpacing: 1.5,
             fontWeight: FontWeight.bold,
           ),
-          headline5: const TextStyle(fontWeight: FontWeight.bold),
-          subtitle1: const TextStyle(color: Colors.grey),
+          headlineSmall: const TextStyle(fontWeight: FontWeight.bold),
+          titleMedium: const TextStyle(color: Colors.grey),
         ),
       ),
       primaryTextTheme: GoogleFonts.nunitoTextTheme(primaryTextTheme),

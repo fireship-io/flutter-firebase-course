@@ -2,7 +2,7 @@ part of 'topics_cubit.dart';
 
 enum TopicsStatus { initial, loading, empty, loaded, failure }
 
-class TopicsState extends Equatable {
+final class TopicsState extends Equatable {
   const TopicsState._({
     this.user = User.none,
     this.status = TopicsStatus.initial,

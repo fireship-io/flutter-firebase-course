@@ -1,8 +1,8 @@
+import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quizapp/l10n/l10n.dart';
 import 'package:quizapp/quiz/cubit/quiz_cubit.dart';
-import 'package:ui_toolkit/ui_toolkit.dart';
 
 class StartView extends StatelessWidget {
   const StartView({super.key});
@@ -13,11 +13,11 @@ class StartView extends StatelessWidget {
       buildWhen: (previous, current) => previous.status != current.status,
       builder: (context, state) {
         if (state.isLoaded) {
-          return Padding(
+          return const Padding(
             padding: kInsets,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 QuizTitle(),
                 Divider(),
                 QuizDescription(),
@@ -44,7 +44,7 @@ class QuizTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = context.select((QuizCubit cubit) => cubit.state.quiz.title);
-    return Text(title, style: context.textTheme.headline5);
+    return Text(title, style: context.textTheme.headlineSmall);
   }
 }
 

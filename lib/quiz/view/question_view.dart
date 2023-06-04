@@ -1,13 +1,13 @@
+import 'package:app_core/app_core.dart';
+import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quizapp/l10n/l10n.dart';
 import 'package:quizapp/quiz/cubit/quiz_cubit.dart';
 import 'package:quizzes_repository/quizzes_repository.dart';
-import 'package:shared/shared.dart';
-import 'package:ui_toolkit/ui_toolkit.dart';
 
 class QuestionView extends StatelessWidget {
-  const QuestionView({super.key, required this.step});
+  const QuestionView({required this.step, super.key});
 
   final int step;
 
@@ -15,9 +15,9 @@ class QuestionView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider.value(
       value: step,
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: const [
+        children: [
           QuestionText(),
           QuestionOptions(),
         ],
@@ -78,7 +78,7 @@ class QuestionOptions extends StatelessWidget {
 }
 
 class OptionItem extends StatelessWidget {
-  const OptionItem({super.key, required this.option});
+  const OptionItem({required this.option, super.key});
 
   final Option option;
 
@@ -88,7 +88,7 @@ class OptionItem extends StatelessWidget {
       leading: OptionIcon(option: option),
       title: Text(
         option.value,
-        style: context.textTheme.bodyText1,
+        style: context.textTheme.bodyLarge,
       ),
       tileColor: Colors.black26,
       contentPadding: kInsets / 2,
@@ -98,7 +98,7 @@ class OptionItem extends StatelessWidget {
 }
 
 class OptionIcon extends StatelessWidget {
-  const OptionIcon({super.key, required this.option});
+  const OptionIcon({required this.option, super.key});
 
   final Option option;
 

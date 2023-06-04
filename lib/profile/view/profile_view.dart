@@ -1,9 +1,9 @@
+import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quizapp/app/cubit/app_cubit.dart';
 import 'package:quizapp/l10n/l10n.dart';
 import 'package:quizapp/profile/cubit/profile_cubit.dart';
-import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
 class ProfileView extends StatefulWidget {
@@ -40,9 +40,9 @@ class Profile extends StatelessWidget {
         backgroundColor: QuizColors.deepOrange,
         title: const DisplayName(),
       ),
-      body: Column(
+      body: const Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: const [
+        children: [
           SizedBox(height: 50),
           ProfilePhoto(),
           EmailAddress(),
@@ -116,7 +116,7 @@ class EmailAddress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final email = context.select((ProfileCubit cubit) => cubit.state.email);
-    return Text(email, style: context.textTheme.headline5);
+    return Text(email, style: context.textTheme.headlineSmall);
   }
 }
 
@@ -132,11 +132,11 @@ class TotalCompletedQuizzes extends StatelessWidget {
       children: [
         Text(
           '$totalCompletedQuizzes',
-          style: context.textTheme.headline2,
+          style: context.textTheme.displayMedium,
         ),
         Text(
           context.l10n.totalCompletedQuizzesLabel,
-          style: context.textTheme.subtitle1,
+          style: context.textTheme.titleMedium,
         ),
       ],
     );

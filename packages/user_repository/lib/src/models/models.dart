@@ -1,5 +1,6 @@
-import 'package:data_providers/data_providers.dart' as firebase show User;
-import 'package:shared/shared.dart';
+import 'package:api_client/api_client.dart' as firebase show User;
+import 'package:api_client/api_client.dart';
+import 'package:app_core/app_core.dart';
 
 part 'models.g.dart';
 

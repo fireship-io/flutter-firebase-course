@@ -1,4 +1,4 @@
-import 'package:shared/shared.dart';
+import 'package:app_core/app_core.dart';
 
 class UserFailure extends Failure {
   const UserFailure._();

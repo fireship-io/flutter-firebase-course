@@ -1,0 +1,18 @@
+name: app_ui
+description: App UI package.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_spinkit: ^5.2.0
+  font_awesome_flutter: ^10.4.0
+  google_fonts: ^4.0.4
+  transparent_image: ^2.0.1
+
+dev_dependencies:
+  very_good_analysis: ^5.0.0+1
