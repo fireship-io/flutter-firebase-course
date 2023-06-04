@@ -10,7 +10,7 @@ import 'package:user_repository/user_repository.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage._();
 
-  static Page page() => const MaterialPage<void>(
+  static Page<dynamic> page() => const MaterialPage<void>(
         key: ValueKey('login_page'),
         child: LoginPage._(),
       );
@@ -77,7 +77,7 @@ class Preamble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       context.l10n.loginPreamble,
-      style: context.textTheme.headline5,
+      style: context.textTheme.headlineSmall,
       textAlign: TextAlign.center,
     );
   }
@@ -155,12 +155,12 @@ class AnonymousSignInButton extends StatelessWidget {
 
 class SignInButton extends StatelessWidget {
   const SignInButton({
-    super.key,
     required this.text,
+    required this.onPressed,
+    super.key,
     this.icon,
     this.color,
     this.processing = false,
-    required this.onPressed,
   });
 
   final String text;

@@ -11,9 +11,9 @@ class CompleteView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: kInsets / 2,
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           CongratsText(),
           Divider(),
           CongratsGif(),

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:shared/shared.dart';
 import 'package:user_repository/user_repository.dart';
 
@@ -44,16 +42,16 @@ class AppCubit extends Cubit<AppState> {
   }
 
   void _onUserFailed(UserFailure failure) {
-    final _state = state;
-    emit(AppState.failure(failure: failure, user: _state.user));
+    final currentState = state;
+    emit(AppState.failure(failure: failure, user: currentState.user));
     if (failure.requiresReauthentication) {
       emit(const AppState.unauthenticated());
     } else {
-      emit(_state);
+      emit(currentState);
     }
   }
 
-  late final StreamSubscription _userSubscription;
+  late final StreamSubscription<User> _userSubscription;
   void _watchUser() {
     _userSubscription = _userRepository.watchUser
         .handleFailure(_onUserFailed)

@@ -11,7 +11,7 @@ import 'package:user_repository/user_repository.dart';
 class TopicPage extends StatelessWidget {
   const TopicPage._();
 
-  static Page page({required Topic topic}) => MaterialPage<void>(
+  static Page<void> page({required Topic topic}) => MaterialPage<void>(
         key: const ValueKey('topic_page'),
         child: Provider.value(
           value: topic,
@@ -95,9 +95,9 @@ class QuizList extends StatelessWidget {
 
 class QuizItem extends StatelessWidget {
   const QuizItem({
-    super.key,
     required this.quiz,
     required this.topicId,
+    super.key,
   });
 
   final Quiz quiz;
@@ -116,12 +116,12 @@ class QuizItem extends StatelessWidget {
         child: ListTile(
           title: Text(
             quiz.title,
-            style: context.textTheme.headline6,
+            style: context.textTheme.titleLarge,
           ),
           subtitle: Text(
             quiz.description,
             overflow: TextOverflow.fade,
-            style: context.textTheme.subtitle1,
+            style: context.textTheme.titleMedium,
           ),
           leading: QuizBadge(quizId: quiz.id, topicId: topicId),
         ),
@@ -132,9 +132,9 @@ class QuizItem extends StatelessWidget {
 
 class QuizBadge extends StatelessWidget {
   const QuizBadge({
-    super.key,
     required this.quizId,
     required this.topicId,
+    super.key,
   });
 
   final String quizId;

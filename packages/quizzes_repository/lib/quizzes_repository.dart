@@ -1,3 +1,4 @@
+/// Quizzes repository
 library quizzes_repository;
 
 export 'src/failures.dart';

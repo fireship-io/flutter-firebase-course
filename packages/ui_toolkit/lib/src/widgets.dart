@@ -67,13 +67,13 @@ class NoContent extends StatelessWidget {
 
 class AnimatedProgressBar extends StatelessWidget {
   const AnimatedProgressBar({
-    super.key,
     required this.value,
+    super.key,
   }) : height = 12.0;
 
   const AnimatedProgressBar.mini({
-    super.key,
     required this.value,
+    super.key,
   }) : height = 8.0;
 
   final double value;
@@ -92,7 +92,7 @@ class AnimatedProgressBar extends StatelessWidget {
               Container(
                 height: height,
                 decoration: BoxDecoration(
-                  color: context.theme.backgroundColor,
+                  color: context.theme.colorScheme.background,
                   borderRadius: BorderRadius.all(
                     Radius.circular(height),
                   ),
@@ -127,16 +127,16 @@ extension _NumExtensions on num {
 
 class ActionButton extends StatelessWidget {
   const ActionButton({
-    super.key,
     required this.label,
+    super.key,
     this.backgroundColor,
     this.onPressed,
   }) : _icon = null;
 
   const ActionButton.icon({
-    super.key,
     required this.label,
     required Widget icon,
+    super.key,
     this.backgroundColor,
     this.onPressed,
   }) : _icon = icon;

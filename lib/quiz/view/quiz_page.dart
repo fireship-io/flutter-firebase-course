@@ -16,7 +16,7 @@ class QuizPage extends StatelessWidget {
   });
 
   static const name = '/quizpage';
-  static Page page({
+  static Page<void> page({
     required String quizId,
     required VoidCallback onQuizCompleted,
   }) =>

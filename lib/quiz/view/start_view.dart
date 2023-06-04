@@ -13,11 +13,11 @@ class StartView extends StatelessWidget {
       buildWhen: (previous, current) => previous.status != current.status,
       builder: (context, state) {
         if (state.isLoaded) {
-          return Padding(
+          return const Padding(
             padding: kInsets,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 QuizTitle(),
                 Divider(),
                 QuizDescription(),
@@ -44,7 +44,7 @@ class QuizTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = context.select((QuizCubit cubit) => cubit.state.quiz.title);
-    return Text(title, style: context.textTheme.headline5);
+    return Text(title, style: context.textTheme.headlineSmall);
   }
 }
 

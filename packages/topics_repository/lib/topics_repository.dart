@@ -1,3 +1,4 @@
+/// Topics repository
 library topics_repository;
 
 export 'src/failures.dart';

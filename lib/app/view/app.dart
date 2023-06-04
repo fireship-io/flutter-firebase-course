@@ -9,7 +9,7 @@ import 'package:quizapp/login/login.dart';
 import 'package:ui_toolkit/ui_toolkit.dart';
 import 'package:user_repository/user_repository.dart';
 
-List<Page> onGenerateAppPages(
+List<Page<dynamic>> onGenerateAppPages(
   AppStatus status,
   List<Page<dynamic>> pages,
 ) {
@@ -24,8 +24,8 @@ List<Page> onGenerateAppPages(
 
 class App extends StatelessWidget {
   const App({
-    super.key,
     required this.userRepository,
+    super.key,
   });
 
   final UserRepository userRepository;

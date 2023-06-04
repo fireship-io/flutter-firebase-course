@@ -12,7 +12,7 @@ import 'package:user_repository/user_repository.dart';
 class TopicsPage extends StatelessWidget {
   const TopicsPage._();
 
-  static Page page() => const MaterialPage<void>(
+  static Page<dynamic> page() => const MaterialPage<void>(
         key: ValueKey('topics_page'),
         child: TopicsPage._(),
       );
@@ -63,7 +63,7 @@ class TopicsGrid extends StatelessWidget {
 }
 
 class TopicItem extends StatelessWidget {
-  const TopicItem({super.key, required this.topic});
+  const TopicItem({required this.topic, super.key});
 
   final Topic topic;
 
@@ -120,9 +120,9 @@ class TopicItem extends StatelessWidget {
 
 class TopicProgress extends StatelessWidget {
   const TopicProgress({
-    super.key,
     required this.topic,
     required this.quizCount,
+    super.key,
   });
 
   final Topic topic;
