@@ -8,7 +8,7 @@ if (localPropertiesFile.exists()) {
 
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
-    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+    throw  GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
@@ -55,23 +55,23 @@ android {
         checkReleaseBuilds false
     }
 
-    signingConfigs {
-        if (System.getenv("ANDROID_KEYSTORE_PATH")) {
-            release {
-                storeFile file(System.getenv("ANDROID_KEYSTORE_PATH"))
-                keyAlias System.getenv("ANDROID_KEYSTORE_ALIAS")
-                keyPassword System.getenv("ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
-                storePassword System.getenv("ANDROID_KEYSTORE_PASSWORD")
-            }
-        } else {
-            release {
-                keyAlias keystoreProperties['keyAlias']
-                keyPassword keystoreProperties['keyPassword']
-                storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-                storePassword keystoreProperties['storePassword']
-            }
-        }
-    }
+    // signingConfigs {
+    //     if (System.getenv("ANDROID_KEYSTORE_PATH")) {
+    //         release {
+    //             storeFile file(System.getenv("ANDROID_KEYSTORE_PATH"))
+    //             keyAlias System.getenv("ANDROID_KEYSTORE_ALIAS")
+    //             keyPassword System.getenv("ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
+    //             storePassword System.getenv("ANDROID_KEYSTORE_PASSWORD")
+    //         }
+    //     } else {
+    //         release {
+    //             keyAlias keystoreProperties['keyAlias']
+    //             keyPassword keystoreProperties['keyPassword']
+    //             storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+    //             storePassword keystoreProperties['storePassword']
+    //         }
+    //     }
+    // }
 
     flavorDimensions "default"
     productFlavors { 
@@ -86,15 +86,23 @@ android {
     }
 
     buildTypes {
-        release {
-            signingConfig signingConfigs.release
-            minifyEnabled true
-            useProguard true
-            proguardFiles getDefaultProguardFile('proguard-android.txt')
-        }
-        debug {
+
+         release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
+            shrinkResources false
+            minifyEnabled false
         }
+        // release {
+        //     signingConfig signingConfigs.release
+        //     minifyEnabled true
+        //     useProguard true
+        //     proguardFiles getDefaultProguardFile('proguard-android.txt')
+        // }
+        // debug {
+        //     signingConfig signingConfigs.debug
+        // }
     }
 }
 
