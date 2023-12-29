@@ -51,10 +51,21 @@ class AppView extends StatelessWidget {
       onGenerateTitle: (context) => context.l10n.appTitle,
       theme: QuizTheme.dark(),
       localizationsDelegates: const [
-        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: AppLocalizations.supportedLocales,
+      // localizationsDelegates: const [
+      //   AppLocalizations.delegate,
+      //   GlobalMaterialLocalizations.delegate,
+      // ],
+
+      supportedLocales: const [
+        Locale('en'), // English
+        Locale('bn'), // Spanish
+      ],
+      
+      // supportedLocales: AppLocalizations.supportedLocales,
       home: BlocListener<AppCubit, AppState>(
         listenWhen: (_, current) => current.isFailure,
         listener: (context, state) {
