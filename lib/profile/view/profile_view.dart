@@ -33,14 +33,17 @@ class _ProfileViewState extends State<ProfileView>
 class Profile extends StatelessWidget {
   const Profile({super.key});
 
+ 
+
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: QuizColors.deepOrange,
         title: const DisplayName(),
       ),
-      body: const Column(
+      body:   Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           SizedBox(height: 50),
@@ -49,12 +52,21 @@ class Profile extends StatelessWidget {
           Spacer(),
           TotalCompletedQuizzes(),
           Spacer(),
+          ElevatedButton(
+    child: const Text('English'),
+    onPressed: () {
+        
+    },
+),
           LogOutButton(),
           Spacer(),
         ],
       ),
     );
   }
+}
+
+class FlutterLocalization {
 }
 
 class DisplayName extends StatelessWidget {
