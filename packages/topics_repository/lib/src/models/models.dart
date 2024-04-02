@@ -46,7 +46,7 @@ class Topic extends Equatable {
   final String imageName;
   final List<Quiz> quizzes;
 
-  static const none = Topic(
+  static const empty = Topic(
     id: '',
     title: '',
     description: '',
@@ -61,8 +61,8 @@ class Topic extends Equatable {
 }
 
 extension TopicExtensions on Topic {
-  bool get isNone => this == Topic.none;
-  bool get isNotNone => !isNone;
+  bool get isEmpty => this == Topic.empty;
+  bool get isNotEmpty => !isEmpty;
 
   int get totalQuizzes => quizzes.length;
 

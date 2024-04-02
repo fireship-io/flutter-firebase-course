@@ -27,7 +27,7 @@ List<Page<dynamic>> onGenerateTopicsPages(
 
 class TopicsFlowState extends Equatable {
   const TopicsFlowState._({
-    this.selectedTopic = Topic.none,
+    this.selectedTopic = Topic.empty,
     this.selectedQuizId = '',
   });
 
@@ -36,7 +36,7 @@ class TopicsFlowState extends Equatable {
   final Topic selectedTopic;
   final String selectedQuizId;
 
-  bool get hasTopicSelected => selectedTopic.isNotNone;
+  bool get hasTopicSelected => selectedTopic.isNotEmpty;
   bool get hasQuizSelected => selectedQuizId.isNotEmpty;
 
   @override
