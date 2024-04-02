@@ -4,7 +4,7 @@ import 'package:user_repository/user_repository.dart';
 class ProfileCubit extends Cubit<User> {
   ProfileCubit({required UserRepository userRepository})
       : _userRepository = userRepository,
-        super(User.none) {
+        super(User.empty) {
     _watchUser();
   }
 

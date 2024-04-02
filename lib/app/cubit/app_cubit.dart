@@ -8,7 +8,7 @@ class AppCubit extends Cubit<AppState> {
     required UserRepository userRepository,
   })  : _userRepository = userRepository,
         super(
-          userRepository.user.isNone
+          userRepository.user.isEmpty
               ? const AppState.unauthenticated()
               : AppState.newlyAuthenticated(userRepository.user),
         ) {
@@ -32,7 +32,7 @@ class AppCubit extends Cubit<AppState> {
   }
 
   void _onUserChanged(User user) {
-    if (user.isNone) {
+    if (user.isEmpty) {
       emit(const AppState.unauthenticated());
     } else if (state.isUnauthenticated) {
       emit(AppState.newlyAuthenticated(user));

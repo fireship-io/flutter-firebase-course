@@ -40,7 +40,7 @@ class User extends Equatable {
   @timestamp
   final DateTime? lastSignInAt;
 
-  static const none = User(uid: '');
+  static const empty = User(uid: '');
 
   @override
   List<Object?> get props => [
@@ -59,7 +59,7 @@ class User extends Equatable {
 }
 
 extension UserExtensions on User {
-  bool get isNone => this == User.none;
+  bool get isEmpty => this == User.empty;
 
   int totalCompletedQuizzesByTopic(String topicId) =>
       completedQuizzes[topicId]?.length ?? 0;

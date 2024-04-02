@@ -25,13 +25,13 @@ class UserRepository {
   Stream<User> get watchUser => _user.asBroadcastStream();
 
   /// Gets the current user synchronously.
-  User get user => _user.valueOrNull ?? User.none;
+  User get user => _user.valueOrNull ?? User.empty;
 
   /// Gets the initial `watchUser` emission.
   ///
   /// Returns `User.none` when an error occurs.
   Future<User> getOpeningUser() {
-    return watchUser.first.catchError((Object _) => User.none);
+    return watchUser.first.catchError((Object _) => User.empty);
   }
 
   /// Signs the user in anonymously.
@@ -166,14 +166,14 @@ extension _FirebaseAuthExtensions on FirebaseAuth {
           .switchMap<User>(
             (firebaseUser) async* {
               if (firebaseUser == null) {
-                yield User.none;
+                yield User.empty;
                 return;
               }
 
               yield* firestore.userDoc(firebaseUser.uid).snapshots().map(
                     (snapshot) => snapshot.exists
                         ? User.fromJson(snapshot.data()!)
-                        : User.none,
+                        : User.empty,
                   );
             },
           )

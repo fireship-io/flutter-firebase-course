@@ -17,7 +17,7 @@ extension AppStatusExtensions on AppStatus {
 final class AppState extends Equatable {
   const AppState._({
     required this.status,
-    this.user = User.none,
+    this.user = User.empty,
     this.failure = UserFailure.empty,
   });
 

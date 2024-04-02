@@ -4,7 +4,7 @@ enum TopicsStatus { initial, loading, empty, loaded, failure }
 
 final class TopicsState extends Equatable {
   const TopicsState._({
-    this.user = User.none,
+    this.user = User.empty,
     this.status = TopicsStatus.initial,
     this.topics = const [],
     this.failure = TopicsFailure.empty,
