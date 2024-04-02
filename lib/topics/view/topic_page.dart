@@ -21,10 +21,12 @@ class TopicPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        context.flow<TopicsFlowState>().deselectTopic();
-        return false;
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) {
+        if (!didPop) {
+          context.flow<TopicsFlowState>().deselectTopic();
+        }
       },
       child: Scaffold(
         appBar: AppBar(
@@ -87,7 +89,7 @@ class QuizList extends StatelessWidget {
     final quizzes = context.select((Topic topic) => topic.quizzes);
     return Column(
       children: [
-        for (final quiz in quizzes) QuizItem(quiz: quiz, topicId: topicId)
+        for (final quiz in quizzes) QuizItem(quiz: quiz, topicId: topicId),
       ],
     );
   }

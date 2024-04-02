@@ -169,7 +169,7 @@ class ActionButton extends StatelessWidget {
             onPressed: onPressed,
             style: style,
             child: label,
-          )
+          ),
       ],
     );
   }
