@@ -8,7 +8,7 @@ final class QuizState extends Equatable {
     this.quiz = Quiz.none,
     this.selectedOption = Option.none,
     this.step = 0,
-    this.failure = QuizzesFailure.none,
+    this.failure = QuizzesFailure.empty,
   });
 
   const QuizState.initial() : this._();

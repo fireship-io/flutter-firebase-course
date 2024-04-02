@@ -5,11 +5,11 @@ class QuizzesFailure extends Failure {
 
   factory QuizzesFailure.fromGetQuiz() => const GetQuizFailure();
 
-  static const none = QuizzesNoFailure();
+  static const empty = EmptyQuizzesFailure();
 }
 
-class QuizzesNoFailure extends QuizzesFailure {
-  const QuizzesNoFailure() : super._();
+class EmptyQuizzesFailure extends QuizzesFailure {
+  const EmptyQuizzesFailure() : super._();
 }
 
 class GetQuizFailure extends QuizzesFailure {
