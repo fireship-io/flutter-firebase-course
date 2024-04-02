@@ -13,11 +13,11 @@ class UserFailure extends Failure {
   factory UserFailure.fromSignInWithAppleNotSupported() =>
       const AppleSignInNotSupportedFailure();
 
-  static const none = UserNoFailure();
+  static const empty = EmptyUserFailure();
 }
 
-class UserNoFailure extends UserFailure {
-  const UserNoFailure() : super._();
+class EmptyUserFailure extends UserFailure {
+  const EmptyUserFailure() : super._();
 }
 
 class AuthUserChangesFailure extends UserFailure {
