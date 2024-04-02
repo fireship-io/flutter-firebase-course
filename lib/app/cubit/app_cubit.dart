@@ -44,7 +44,7 @@ class AppCubit extends Cubit<AppState> {
   void _onUserFailed(UserFailure failure) {
     final currentState = state;
     emit(AppState.failure(failure: failure, user: currentState.user));
-    if (failure.requiresReauthentication) {
+    if (failure.needsReauthentication) {
       emit(const AppState.unauthenticated());
     } else {
       emit(currentState);

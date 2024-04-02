@@ -15,7 +15,7 @@ class UserFailure extends Failure {
 
   static const none = UserNoFailure();
 
-  bool get requiresReauthentication {
+  bool get needsReauthentication {
     return this is AuthUserChangesFailure;
   }
 }
