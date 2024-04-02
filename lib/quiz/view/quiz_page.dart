@@ -91,7 +91,7 @@ class _QuizBodyState extends State<QuizBody> {
           listenWhen: (previous, current) =>
               previous.quiz.id != current.quiz.id,
           listener: (_, state) {
-            if (state.quiz.isNone) {
+            if (state.quiz.isEmpty) {
               context.read<VoidCallback>()();
             }
           },

@@ -15,7 +15,7 @@ class QuizzesRepository {
       if (doc.exists) {
         return Quiz.fromJson(doc.data()!);
       }
-      return Quiz.none;
+      return Quiz.empty;
     } on FirebaseException {
       throw QuizzesFailure.fromGetQuiz();
     }

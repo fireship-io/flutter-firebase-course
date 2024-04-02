@@ -69,7 +69,7 @@ class Quiz extends Equatable {
   @JsonKey(defaultValue: <Question>[])
   final List<Question> questions;
 
-  static const none = Quiz(
+  static const empty = Quiz(
     id: '',
     title: '',
     description: '',
@@ -92,5 +92,5 @@ class Quiz extends Equatable {
 }
 
 extension QuizExtensions on Quiz {
-  bool get isNone => this == Quiz.none;
+  bool get isEmpty => this == Quiz.empty;
 }

@@ -5,7 +5,7 @@ enum QuizStatus { initial, loading, empty, loaded, failure }
 final class QuizState extends Equatable {
   const QuizState._({
     this.status = QuizStatus.initial,
-    this.quiz = Quiz.none,
+    this.quiz = Quiz.empty,
     this.selectedOption = Option.empty,
     this.step = 0,
     this.failure = QuizzesFailure.empty,
