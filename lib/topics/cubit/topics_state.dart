@@ -7,7 +7,7 @@ final class TopicsState extends Equatable {
     this.user = User.none,
     this.status = TopicsStatus.initial,
     this.topics = const [],
-    this.failure = TopicsFailure.none,
+    this.failure = TopicsFailure.empty,
   });
 
   const TopicsState.initial() : this._();
