@@ -7,14 +7,14 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  bloc: ^8.1.2
+  bloc: ^8.1.4
   crypto: ^3.0.3
   equatable: ^2.0.5
   flutter:
     sdk: flutter
   json_annotation: ^4.8.1
-  provider: ^6.0.5
+  provider: ^6.1.2
   rxdart: ^0.27.7
 
 dev_dependencies:
-  very_good_analysis: ^5.0.0+1
+  very_good_analysis: ^5.1.0
