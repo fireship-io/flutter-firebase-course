@@ -16,7 +16,7 @@ class Quiz extends Equatable {
   final String title;
   final String description;
 
-  static const none = Quiz(
+  static const empty = Quiz(
     id: '',
     title: '',
     description: '',
