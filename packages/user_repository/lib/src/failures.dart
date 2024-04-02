@@ -14,10 +14,6 @@ class UserFailure extends Failure {
       const AppleSignInNotSupportedFailure();
 
   static const none = UserNoFailure();
-
-  bool get needsReauthentication {
-    return this is AuthUserChangesFailure;
-  }
 }
 
 class UserNoFailure extends UserFailure {
@@ -26,6 +22,9 @@ class UserNoFailure extends UserFailure {
 
 class AuthUserChangesFailure extends UserFailure {
   const AuthUserChangesFailure() : super._();
+
+  @override
+  bool get needsReauthentication => true;
 }
 
 class SignOutFailure extends UserFailure {
