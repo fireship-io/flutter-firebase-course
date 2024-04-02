@@ -1,5 +1,5 @@
-import 'package:api_client/api_client.dart' hide User;
 import 'package:api_client/api_client.dart' as firebase show User;
+import 'package:api_client/api_client.dart' hide User;
 import 'package:app_core/app_core.dart';
 import 'package:user_repository/src/failures.dart';
 import 'package:user_repository/src/models/models.dart';
@@ -132,7 +132,7 @@ class UserRepository {
         'total': FieldValue.increment(1),
         'completedQuizzes': {
           topicId: FieldValue.arrayUnion(<String>[quizId]),
-        }
+        },
       },
       SetOptions(merge: true),
     );
