@@ -5,11 +5,11 @@ class TopicsFailure extends Failure {
 
   factory TopicsFailure.fromGetTopics() => const GetTopicsFailure();
 
-  static const none = TopicsNoFailure();
+  static const empty = EmptyTopicsFailure();
 }
 
-class TopicsNoFailure extends TopicsFailure {
-  const TopicsNoFailure() : super._();
+class EmptyTopicsFailure extends TopicsFailure {
+  const EmptyTopicsFailure() : super._();
 }
 
 class GetTopicsFailure extends TopicsFailure {

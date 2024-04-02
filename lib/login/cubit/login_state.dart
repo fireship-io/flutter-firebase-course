@@ -18,7 +18,7 @@ final class LoginState extends Equatable {
   const LoginState._({
     this.status = LoginStatus.initial,
     this.signInMethod = SignInMethod.none,
-    this.failure = UserFailure.none,
+    this.failure = UserFailure.empty,
   });
 
   const LoginState.initial() : this._();

@@ -13,19 +13,18 @@ class UserFailure extends Failure {
   factory UserFailure.fromSignInWithAppleNotSupported() =>
       const AppleSignInNotSupportedFailure();
 
-  static const none = UserNoFailure();
-
-  bool get requiresReauthentication {
-    return this is AuthUserChangesFailure;
-  }
+  static const empty = EmptyUserFailure();
 }
 
-class UserNoFailure extends UserFailure {
-  const UserNoFailure() : super._();
+class EmptyUserFailure extends UserFailure {
+  const EmptyUserFailure() : super._();
 }
 
 class AuthUserChangesFailure extends UserFailure {
   const AuthUserChangesFailure() : super._();
+
+  @override
+  bool get needsReauthentication => true;
 }
 
 class SignOutFailure extends UserFailure {

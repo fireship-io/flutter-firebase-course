@@ -17,7 +17,7 @@ class Option extends Equatable {
   final String detail;
   final bool? correct;
 
-  static const none = Option(value: '', detail: '', correct: null);
+  static const empty = Option(value: '', detail: '', correct: null);
 
   @override
   List<Object?> get props => [value, detail, correct];
@@ -26,7 +26,7 @@ class Option extends Equatable {
 }
 
 extension OptionExtensions on Option {
-  bool get isNotNone => this != Option.none;
+  bool get isNotEmpty => this != Option.empty;
 }
 
 @JsonSerializable(createToJson: false)
@@ -40,7 +40,7 @@ class Question extends Equatable {
   @JsonKey(defaultValue: <Option>[])
   final List<Option> options;
 
-  static const none = Question(text: '', options: []);
+  static const empty = Question(text: '', options: []);
 
   @override
   List<Object?> get props => [text, options];
@@ -69,7 +69,7 @@ class Quiz extends Equatable {
   @JsonKey(defaultValue: <Question>[])
   final List<Question> questions;
 
-  static const none = Quiz(
+  static const empty = Quiz(
     id: '',
     title: '',
     description: '',
@@ -92,5 +92,5 @@ class Quiz extends Equatable {
 }
 
 extension QuizExtensions on Quiz {
-  bool get isNone => this == Quiz.none;
+  bool get isEmpty => this == Quiz.empty;
 }

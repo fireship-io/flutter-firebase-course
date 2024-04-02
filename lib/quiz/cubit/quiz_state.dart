@@ -5,10 +5,10 @@ enum QuizStatus { initial, loading, empty, loaded, failure }
 final class QuizState extends Equatable {
   const QuizState._({
     this.status = QuizStatus.initial,
-    this.quiz = Quiz.none,
-    this.selectedOption = Option.none,
+    this.quiz = Quiz.empty,
+    this.selectedOption = Option.empty,
     this.step = 0,
-    this.failure = QuizzesFailure.none,
+    this.failure = QuizzesFailure.empty,
   });
 
   const QuizState.initial() : this._();
@@ -57,5 +57,5 @@ extension QuizStateExtensions on QuizState {
   double get progress => step / steps;
 
   Question operator [](int step) =>
-      quiz.questions.isEmpty ? Question.none : quiz.questions[step - 1];
+      quiz.questions.isEmpty ? Question.empty : quiz.questions[step - 1];
 }

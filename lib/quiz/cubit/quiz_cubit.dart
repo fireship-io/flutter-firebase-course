@@ -19,7 +19,7 @@ class QuizCubit extends Cubit<QuizState> {
     try {
       emit(state.fromQuizLoading());
       final quiz = await _quizzesRepository.getQuiz(quizId);
-      if (quiz.isNone) {
+      if (quiz.isEmpty) {
         emit(state.fromQuizEmpty());
         return;
       }
@@ -38,7 +38,7 @@ class QuizCubit extends Cubit<QuizState> {
   }
 
   void unselectOption() {
-    emit(state.copyWith(selectedOption: Option.none));
+    emit(state.copyWith(selectedOption: Option.empty));
   }
 
   void validateAnswer() {
