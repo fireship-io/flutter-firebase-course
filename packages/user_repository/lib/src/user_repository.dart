@@ -21,20 +21,20 @@ class UserRepository {
 
   late final ValueStream<User> _user;
 
-  /// Current user as a stream.
+  /// Current [User] as a stream.
   Stream<User> get watchUser => _user.asBroadcastStream();
 
-  /// Gets the current user synchronously.
+  /// Gets the current [User] synchronously.
   User get user => _user.valueOrNull ?? User.empty;
 
-  /// Gets the initial `watchUser` emission.
+  /// Gets the initial [watchUser] emission.
   ///
-  /// Returns `User.none` when an error occurs.
+  /// Returns [User.empty] when an error occurs.
   Future<User> getOpeningUser() {
     return watchUser.first.catchError((Object _) => User.empty);
   }
 
-  /// Signs the user in anonymously.
+  /// Signs the [User] in anonymously.
   Future<void> signInAnonymously() async {
     try {
       final userCredential = await _firebaseAuth.signInAnonymously();
@@ -45,7 +45,7 @@ class UserRepository {
     }
   }
 
-  /// Signs the user in using google provider.
+  /// Signs the [User] in using google provider.
   Future<void> signInWithGoogle() async {
     try {
       final googleSignInAccount = await _googleSignIn.signIn();
@@ -68,7 +68,7 @@ class UserRepository {
     }
   }
 
-  /// Signs the user in using apple provider.
+  /// Signs the [User] in using apple provider.
   Future<void> signInWithApple() async {
     try {
       // To prevent replay attacks with the credential returned from Apple, we
@@ -108,7 +108,7 @@ class UserRepository {
     }
   }
 
-  /// Logs out the current user.
+  /// Signs out the current [User].
   Future<void> signOut() async {
     try {
       await Future.wait([
@@ -120,7 +120,7 @@ class UserRepository {
     }
   }
 
-  /// Marks a quiz as completed.
+  /// Marks a `Quiz` as completed.
   ///
   /// It also increments the total no of completed quizzes.
   Future<void> markQuizCompleted({
