@@ -57,5 +57,5 @@ extension QuizStateExtensions on QuizState {
   double get progress => step / steps;
 
   Question operator [](int step) =>
-      quiz.questions.isEmpty ? Question.none : quiz.questions[step - 1];
+      quiz.questions.isEmpty ? Question.empty : quiz.questions[step - 1];
 }

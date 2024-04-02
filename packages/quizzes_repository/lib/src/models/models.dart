@@ -40,7 +40,7 @@ class Question extends Equatable {
   @JsonKey(defaultValue: <Option>[])
   final List<Option> options;
 
-  static const none = Question(text: '', options: []);
+  static const empty = Question(text: '', options: []);
 
   @override
   List<Object?> get props => [text, options];
