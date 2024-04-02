@@ -17,7 +17,7 @@ class Option extends Equatable {
   final String detail;
   final bool? correct;
 
-  static const none = Option(value: '', detail: '', correct: null);
+  static const empty = Option(value: '', detail: '', correct: null);
 
   @override
   List<Object?> get props => [value, detail, correct];
@@ -26,7 +26,7 @@ class Option extends Equatable {
 }
 
 extension OptionExtensions on Option {
-  bool get isNotNone => this != Option.none;
+  bool get isNotEmpty => this != Option.empty;
 }
 
 @JsonSerializable(createToJson: false)

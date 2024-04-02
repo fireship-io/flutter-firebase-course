@@ -6,7 +6,7 @@ final class QuizState extends Equatable {
   const QuizState._({
     this.status = QuizStatus.initial,
     this.quiz = Quiz.none,
-    this.selectedOption = Option.none,
+    this.selectedOption = Option.empty,
     this.step = 0,
     this.failure = QuizzesFailure.empty,
   });

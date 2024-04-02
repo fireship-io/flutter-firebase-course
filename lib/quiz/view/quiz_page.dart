@@ -110,7 +110,7 @@ class _QuizBodyState extends State<QuizBody> {
           listenWhen: (previous, current) =>
               previous.selectedOption != current.selectedOption,
           listener: (_, state) {
-            if (state.selectedOption.isNotNone) {
+            if (state.selectedOption.isNotEmpty) {
               context.showScrollControlledBottomSheet<void>(
                 builder: (_) {
                   return BlocProvider.value(

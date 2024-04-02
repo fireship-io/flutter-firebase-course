@@ -38,7 +38,7 @@ class QuizCubit extends Cubit<QuizState> {
   }
 
   void unselectOption() {
-    emit(state.copyWith(selectedOption: Option.none));
+    emit(state.copyWith(selectedOption: Option.empty));
   }
 
   void validateAnswer() {
