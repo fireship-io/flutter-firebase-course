@@ -187,7 +187,7 @@ class SignInButton extends StatelessWidget {
         style: style,
         icon: Icon(icon),
         onPressed: onPressed,
-        label: Expanded(child: child),
+        label: child,
       );
     }
     return TextButton(
