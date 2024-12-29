@@ -2,8 +2,6 @@ import 'package:app_core/app_core.dart';
 
 part 'models.g.dart';
 
-// ignore_for_file: sort_constructors_first
-
 @JsonSerializable(createToJson: false)
 class Option extends Equatable {
   const Option({
@@ -11,6 +9,8 @@ class Option extends Equatable {
     required this.detail,
     required this.correct,
   });
+
+  factory Option.fromJson(Map<String, dynamic> json) => _$OptionFromJson(json);
 
   final String value;
   @JsonKey(defaultValue: '')
@@ -21,8 +21,6 @@ class Option extends Equatable {
 
   @override
   List<Object?> get props => [value, detail, correct];
-
-  factory Option.fromJson(Map<String, dynamic> json) => _$OptionFromJson(json);
 }
 
 extension OptionExtensions on Option {
@@ -36,6 +34,9 @@ class Question extends Equatable {
     required this.options,
   });
 
+  factory Question.fromJson(Map<String, dynamic> json) =>
+      _$QuestionFromJson(json);
+
   final String text;
   @JsonKey(defaultValue: <Option>[])
   final List<Option> options;
@@ -44,9 +45,6 @@ class Question extends Equatable {
 
   @override
   List<Object?> get props => [text, options];
-
-  factory Question.fromJson(Map<String, dynamic> json) =>
-      _$QuestionFromJson(json);
 }
 
 @JsonSerializable(createToJson: false)
@@ -59,6 +57,8 @@ class Quiz extends Equatable {
     required this.video,
     required this.questions,
   });
+
+  factory Quiz.fromJson(Map<String, dynamic> json) => _$QuizFromJson(json);
 
   final String id;
   final String title;
@@ -87,8 +87,6 @@ class Quiz extends Equatable {
         video,
         questions,
       ];
-
-  factory Quiz.fromJson(Map<String, dynamic> json) => _$QuizFromJson(json);
 }
 
 extension QuizExtensions on Quiz {

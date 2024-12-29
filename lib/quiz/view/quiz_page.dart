@@ -118,7 +118,11 @@ class _QuizBodyState extends State<QuizBody> {
                     child: const QuizAnswerDetails(),
                   );
                 },
-              ).whenComplete(() => context.read<QuizCubit>().unselectOption());
+              ).whenComplete(() {
+                if (context.mounted) {
+                  context.read<QuizCubit>().unselectOption();
+                }
+              });
             } else {
               context.popUntil((route) => route.settings.name == QuizPage.name);
             }

@@ -1,5 +1,5 @@
 /// Topics repository
-library topics_repository;
+library;
 
 export 'src/failures.dart';
 export 'src/models/models.dart';

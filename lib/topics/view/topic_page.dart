@@ -23,10 +23,8 @@ class TopicPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvoked: (didPop) {
-        if (!didPop) {
-          context.flow<TopicsFlowState>().deselectTopic();
-        }
+      onPopInvokedWithResult: (_, __) {
+        context.flow<TopicsFlowState>().deselectTopic();
       },
       child: Scaffold(
         appBar: AppBar(
