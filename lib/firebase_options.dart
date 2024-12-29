@@ -65,8 +65,10 @@ class DefaultFirebaseOptions {
     projectId: 'fireship-lessons',
     databaseURL: 'https://fireship-lessons.firebaseio.com',
     storageBucket: 'fireship-lessons.appspot.com',
-    androidClientId: '758773997881-b4g2gerk1isv5ehq4h9s63hgnn433rjc.apps.googleusercontent.com',
-    iosClientId: '758773997881-sk4tfalbk1oqh5f2vv4gbcjqdlm7lq5f.apps.googleusercontent.com',
+    androidClientId:
+        '758773997881-b4g2gerk1isv5ehq4h9s63hgnn433rjc.apps.googleusercontent.com',
+    iosClientId:
+        '758773997881-sk4tfalbk1oqh5f2vv4gbcjqdlm7lq5f.apps.googleusercontent.com',
     iosBundleId: 'io.fireship.quizapp',
   );
 }
