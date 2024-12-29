@@ -2,8 +2,6 @@ import 'package:app_core/app_core.dart';
 
 part 'models.g.dart';
 
-// ignore_for_file: sort_constructors_first
-
 @JsonSerializable(createToJson: false)
 class Quiz extends Equatable {
   const Quiz({
@@ -11,6 +9,8 @@ class Quiz extends Equatable {
     required this.title,
     required this.description,
   });
+
+  factory Quiz.fromJson(Map<String, dynamic> json) => _$QuizFromJson(json);
 
   final String id;
   final String title;
@@ -24,8 +24,6 @@ class Quiz extends Equatable {
 
   @override
   List<Object?> get props => [id, title, description];
-
-  factory Quiz.fromJson(Map<String, dynamic> json) => _$QuizFromJson(json);
 }
 
 @JsonSerializable(createToJson: false)
@@ -37,6 +35,8 @@ class Topic extends Equatable {
     required this.imageName,
     required this.quizzes,
   });
+
+  factory Topic.fromJson(Map<String, dynamic> json) => _$TopicFromJson(json);
 
   final String id;
   final String title;
@@ -56,8 +56,6 @@ class Topic extends Equatable {
 
   @override
   List<Object?> get props => [id, title, description, imageName, quizzes];
-
-  factory Topic.fromJson(Map<String, dynamic> json) => _$TopicFromJson(json);
 }
 
 extension TopicExtensions on Topic {

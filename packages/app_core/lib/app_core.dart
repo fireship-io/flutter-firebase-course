@@ -1,5 +1,5 @@
 /// App core
-library app_core;
+library;
 
 export 'dart:async';
 

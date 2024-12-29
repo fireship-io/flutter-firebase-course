@@ -92,7 +92,7 @@ class AnimatedProgressBar extends StatelessWidget {
               Container(
                 height: height,
                 decoration: BoxDecoration(
-                  color: context.theme.colorScheme.background,
+                  color: context.theme.colorScheme.surface,
                   borderRadius: BorderRadius.all(
                     Radius.circular(height),
                   ),
@@ -154,7 +154,7 @@ class ActionButton extends StatelessWidget {
       minimumSize: Size.zero,
       padding: const EdgeInsets.all(10),
     );
-    return ButtonBar(
+    return OverflowBar(
       alignment: MainAxisAlignment.center,
       children: [
         if (_icon != null)

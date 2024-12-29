@@ -4,8 +4,6 @@ import 'package:app_core/app_core.dart';
 
 part 'models.g.dart';
 
-// ignore_for_file: sort_constructors_first
-
 @JsonSerializable()
 class User extends Equatable {
   const User({
@@ -17,6 +15,8 @@ class User extends Equatable {
     this.totalCompletedQuizzes = 0,
     this.lastSignInAt,
   });
+
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
   factory User.fromFirebaseUser(firebase.User firebaseUser) => User(
         uid: firebaseUser.uid,
@@ -52,8 +52,6 @@ class User extends Equatable {
         totalCompletedQuizzes,
         lastSignInAt,
       ];
-
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserToJson(this);
 }
