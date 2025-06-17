@@ -53,8 +53,9 @@ class QuizDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final description =
-        context.select((QuizCubit cubit) => cubit.state.quiz.description);
+    final description = context.select(
+      (QuizCubit cubit) => cubit.state.quiz.description,
+    );
     return Expanded(child: Text(description));
   }
 }

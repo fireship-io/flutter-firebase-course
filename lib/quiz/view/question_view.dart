@@ -67,7 +67,7 @@ class QuestionOptions extends StatelessWidget {
             itemBuilder: (_, index) {
               return OptionItem(option: options[index]);
             },
-            separatorBuilder: (_, __) => const SizedBox(height: 10),
+            separatorBuilder: (_, _) => const SizedBox(height: 10),
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
           );
@@ -104,8 +104,9 @@ class OptionIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final selectedOption =
-        context.select((QuizCubit cubit) => cubit.state.selectedOption);
+    final selectedOption = context.select(
+      (QuizCubit cubit) => cubit.state.selectedOption,
+    );
     return Icon(
       selectedOption == option
           ? FontAwesomeIcons.circleUser

@@ -19,13 +19,12 @@ class QuizPage extends StatelessWidget {
   static Page<void> page({
     required String quizId,
     required VoidCallback onQuizCompleted,
-  }) =>
-      MaterialPage<void>(
-        key: const ValueKey('quiz_page'),
-        fullscreenDialog: true,
-        name: name,
-        child: QuizPage._(quizId: quizId, onQuizCompleted: onQuizCompleted),
-      );
+  }) => MaterialPage<void>(
+    key: const ValueKey('quiz_page'),
+    fullscreenDialog: true,
+    name: name,
+    child: QuizPage._(quizId: quizId, onQuizCompleted: onQuizCompleted),
+  );
 
   final String quizId;
   final VoidCallback onQuizCompleted;
@@ -111,18 +110,20 @@ class _QuizBodyState extends State<QuizBody> {
               previous.selectedOption != current.selectedOption,
           listener: (_, state) {
             if (state.selectedOption.isNotEmpty) {
-              context.showScrollControlledBottomSheet<void>(
-                builder: (_) {
-                  return BlocProvider.value(
-                    value: context.watch<QuizCubit>(),
-                    child: const QuizAnswerDetails(),
-                  );
-                },
-              ).whenComplete(() {
-                if (context.mounted) {
-                  context.read<QuizCubit>().unselectOption();
-                }
-              });
+              context
+                  .showScrollControlledBottomSheet<void>(
+                    builder: (_) {
+                      return BlocProvider.value(
+                        value: context.watch<QuizCubit>(),
+                        child: const QuizAnswerDetails(),
+                      );
+                    },
+                  )
+                  .whenComplete(() {
+                    if (context.mounted) {
+                      context.read<QuizCubit>().unselectOption();
+                    }
+                  });
             } else {
               context.popUntil((route) => route.settings.name == QuizPage.name);
             }

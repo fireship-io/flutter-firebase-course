@@ -8,9 +8,9 @@ class QuizCubit extends Cubit<QuizState> {
   QuizCubit({
     required UserRepository userRepository,
     required QuizzesRepository quizzesRepository,
-  })  : _userRepository = userRepository,
-        _quizzesRepository = quizzesRepository,
-        super(const QuizState.initial());
+  }) : _userRepository = userRepository,
+       _quizzesRepository = quizzesRepository,
+       super(const QuizState.initial());
 
   final UserRepository _userRepository;
   final QuizzesRepository _quizzesRepository;
@@ -53,8 +53,10 @@ class QuizCubit extends Cubit<QuizState> {
     required String quizId,
     required String topicId,
   }) {
-    final hasCompletedQuiz =
-        _userRepository.user.hasCompletedQuiz(quizId: quizId, topicId: topicId);
+    final hasCompletedQuiz = _userRepository.user.hasCompletedQuiz(
+      quizId: quizId,
+      topicId: topicId,
+    );
     if (!hasCompletedQuiz) {
       unawaited(
         _userRepository.markQuizCompleted(
@@ -73,12 +75,12 @@ extension _TopicsStateExtensions on QuizState {
   QuizState fromQuizEmpty() => copyWith(status: QuizStatus.empty);
 
   QuizState fromQuizLoaded(Quiz quiz) => copyWith(
-        status: QuizStatus.loaded,
-        quiz: quiz,
-      );
+    status: QuizStatus.loaded,
+    quiz: quiz,
+  );
 
   QuizState fromQuizFailure(QuizzesFailure failure) => copyWith(
-        status: QuizStatus.failure,
-        failure: failure,
-      );
+    status: QuizStatus.failure,
+    failure: failure,
+  );
 }

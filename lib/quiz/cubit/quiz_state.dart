@@ -24,12 +24,12 @@ final class QuizState extends Equatable {
 
   @override
   List<Object> get props => [
-        status,
-        quiz,
-        selectedOption,
-        step,
-        failure,
-      ];
+    status,
+    quiz,
+    selectedOption,
+    step,
+    failure,
+  ];
 
   QuizState copyWith({
     QuizStatus? status,

@@ -13,9 +13,9 @@ class TopicsPage extends StatelessWidget {
   const TopicsPage._();
 
   static Page<dynamic> page() => const MaterialPage<void>(
-        key: ValueKey('topics_page'),
-        child: TopicsPage._(),
-      );
+    key: ValueKey('topics_page'),
+    child: TopicsPage._(),
+  );
 
   @override
   Widget build(BuildContext context) {

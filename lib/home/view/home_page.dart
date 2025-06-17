@@ -9,9 +9,9 @@ class HomePage extends StatelessWidget {
   const HomePage._();
 
   static Page<void> page() => const MaterialPage<void>(
-        key: ValueKey('home_page'),
-        child: HomePage._(),
-      );
+    key: ValueKey('home_page'),
+    child: HomePage._(),
+  );
 
   @override
   Widget build(BuildContext context) {

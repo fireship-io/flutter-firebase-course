@@ -11,8 +11,8 @@ extension NavBarItemExtensions on NavBarItem {
 
 final class NavBarController extends PageController {
   NavBarController({NavBarItem initialItem = NavBarItem.topics})
-      : _notifier = ValueNotifier<NavBarItem>(initialItem),
-        super(initialPage: initialItem.index) {
+    : _notifier = ValueNotifier<NavBarItem>(initialItem),
+      super(initialPage: initialItem.index) {
     _notifier.addListener(_listener);
   }
 
@@ -47,8 +47,9 @@ class BottomNavBar extends StatelessWidget {
         onTap: (index) {
           context.read<NavBarController>().item = NavBarItem.values[index];
         },
-        currentIndex: context
-            .select((NavBarController controller) => controller.item.index),
+        currentIndex: context.select(
+          (NavBarController controller) => controller.item.index,
+        ),
         items: [
           BottomNavigationBarItem(
             label: l10n.topicsLabel,

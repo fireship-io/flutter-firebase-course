@@ -24,28 +24,28 @@ final class LoginState extends Equatable {
   const LoginState.initial() : this._();
 
   const LoginState.signingInAnonymously()
-      : this._(
-          status: LoginStatus.signingIn,
-          signInMethod: SignInMethod.anonymous,
-        );
+    : this._(
+        status: LoginStatus.signingIn,
+        signInMethod: SignInMethod.anonymous,
+      );
 
   const LoginState.signingInWithGoogle()
-      : this._(
-          status: LoginStatus.signingIn,
-          signInMethod: SignInMethod.google,
-        );
+    : this._(
+        status: LoginStatus.signingIn,
+        signInMethod: SignInMethod.google,
+      );
 
   const LoginState.signingInWithApple()
-      : this._(
-          status: LoginStatus.signingIn,
-          signInMethod: SignInMethod.apple,
-        );
+    : this._(
+        status: LoginStatus.signingIn,
+        signInMethod: SignInMethod.apple,
+      );
 
   const LoginState.failure(UserFailure failure)
-      : this._(
-          status: LoginStatus.failure,
-          failure: failure,
-        );
+    : this._(
+        status: LoginStatus.failure,
+        failure: failure,
+      );
 
   final LoginStatus status;
   final SignInMethod signInMethod;

@@ -9,9 +9,9 @@ class UserRepository {
     FirebaseAuth? firebaseAuth,
     FirebaseFirestore? firestore,
     GoogleSignIn? googleSignIn,
-  })  : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance,
-        _firestore = firestore ?? FirebaseFirestore.instance,
-        _googleSignIn = googleSignIn ?? GoogleSignIn.standard() {
+  }) : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance,
+       _firestore = firestore ?? FirebaseFirestore.instance,
+       _googleSignIn = googleSignIn ?? GoogleSignIn.standard() {
     _user = _firebaseAuth.authUserChanges(_firestore);
   }
 
@@ -59,8 +59,9 @@ class UserRepository {
         idToken: googleSignInAuth.idToken,
       );
 
-      final userCredential =
-          await _firebaseAuth.signInWithCredential(oauthCredential);
+      final userCredential = await _firebaseAuth.signInWithCredential(
+        oauthCredential,
+      );
       final firebaseUser = userCredential.user;
       unawaited(_updateUserData(firebaseUser));
     } on FirebaseAuthException {
@@ -95,8 +96,9 @@ class UserRepository {
 
       // If the nonce we generated earlier does not match the nonce
       // in `appleCredential.identityToken`, sign in will fail.
-      final userCredential =
-          await _firebaseAuth.signInWithCredential(oauthCredential);
+      final userCredential = await _firebaseAuth.signInWithCredential(
+        oauthCredential,
+      );
       final firebaseUser = userCredential.user;
       unawaited(_updateUserData(firebaseUser));
     } on SignInWithAppleNotSupportedException {
@@ -144,7 +146,9 @@ class UserRepository {
     }
     final uid = firebaseUser.uid;
     final user = User.fromFirebaseUser(firebaseUser);
-    return _firestore.userDoc(uid).set(
+    return _firestore
+        .userDoc(uid)
+        .set(
           user.toJson(),
           SetOptions(
             mergeFields: [
@@ -162,7 +166,7 @@ class UserRepository {
 extension _FirebaseAuthExtensions on FirebaseAuth {
   ValueStream<User> authUserChanges(FirebaseFirestore firestore) =>
       authStateChanges()
-          .onErrorResumeWith((_, __) => null)
+          .onErrorResumeWith((_, _) => null)
           .switchMap<User>(
             (firebaseUser) async* {
               if (firebaseUser == null) {
@@ -170,7 +174,10 @@ extension _FirebaseAuthExtensions on FirebaseAuth {
                 return;
               }
 
-              yield* firestore.userDoc(firebaseUser.uid).snapshots().map(
+              yield* firestore
+                  .userDoc(firebaseUser.uid)
+                  .snapshots()
+                  .map(
                     (snapshot) => snapshot.exists
                         ? User.fromJson(snapshot.data()!)
                         : User.empty,
