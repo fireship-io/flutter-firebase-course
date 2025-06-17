@@ -60,10 +60,12 @@ class AppView extends StatelessWidget {
         listener: (context, state) {
           final l10n = context.l10n;
           return switch (state.failure) {
-            AuthUserChangesFailure() =>
-              context.showSnackBar(l10n.authFailureMessage),
-            SignOutFailure() =>
-              context.showSnackBar(l10n.signOutFailureMessage),
+            AuthUserChangesFailure() => context.showSnackBar(
+              l10n.authFailureMessage,
+            ),
+            SignOutFailure() => context.showSnackBar(
+              l10n.signOutFailureMessage,
+            ),
             _ => context.showSnackBar(l10n.unknownFailureMessage),
           };
         },

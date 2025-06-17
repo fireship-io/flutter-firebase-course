@@ -6,12 +6,12 @@ part 'app_state.dart';
 class AppCubit extends Cubit<AppState> {
   AppCubit({
     required UserRepository userRepository,
-  })  : _userRepository = userRepository,
-        super(
-          userRepository.user.isEmpty
-              ? const AppState.unauthenticated()
-              : AppState.newlyAuthenticated(userRepository.user),
-        ) {
+  }) : _userRepository = userRepository,
+       super(
+         userRepository.user.isEmpty
+             ? const AppState.unauthenticated()
+             : AppState.newlyAuthenticated(userRepository.user),
+       ) {
     _watchUser();
   }
 

@@ -8,9 +8,9 @@ class TopicsCubit extends Cubit<TopicsState> {
   TopicsCubit({
     required UserRepository userRepository,
     required TopicsRepository topicsRepository,
-  })  : _userRepository = userRepository,
-        _topicsRepository = topicsRepository,
-        super(const TopicsState.initial()) {
+  }) : _userRepository = userRepository,
+       _topicsRepository = topicsRepository,
+       super(const TopicsState.initial()) {
     _watchUser();
   }
 
@@ -62,12 +62,12 @@ extension _TopicsStateExtensions on TopicsState {
   TopicsState fromTopicsEmpty() => copyWith(status: TopicsStatus.empty);
 
   TopicsState fromTopicsLoaded(List<Topic> topics) => copyWith(
-        status: TopicsStatus.loaded,
-        topics: topics,
-      );
+    status: TopicsStatus.loaded,
+    topics: topics,
+  );
 
   TopicsState fromTopicsFailure(TopicsFailure failure) => copyWith(
-        status: TopicsStatus.failure,
-        failure: failure,
-      );
+    status: TopicsStatus.failure,
+    failure: failure,
+  );
 }

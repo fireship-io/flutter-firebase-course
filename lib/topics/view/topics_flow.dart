@@ -63,16 +63,16 @@ class TopicsFlowState extends Equatable {
 
 extension TopicsFlowControllerExtensions on FlowController<TopicsFlowState> {
   void deselectTopic() => update(
-        (state) => state.withTopicDeselected(),
-      );
+    (state) => state.withTopicDeselected(),
+  );
 
   void selectTopic(Topic topic) => update(
-        (state) => state.withTopicSelected(topic),
-      );
+    (state) => state.withTopicSelected(topic),
+  );
 
   void selectQuiz(String quizId) => update(
-        (state) => state.withQuizSelected(quizId),
-      );
+    (state) => state.withQuizSelected(quizId),
+  );
 }
 
 class TopicsFlow extends StatefulWidget {

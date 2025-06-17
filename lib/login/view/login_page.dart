@@ -11,9 +11,9 @@ class LoginPage extends StatelessWidget {
   const LoginPage._();
 
   static Page<dynamic> page() => const MaterialPage<void>(
-        key: ValueKey('login_page'),
-        child: LoginPage._(),
-      );
+    key: ValueKey('login_page'),
+    child: LoginPage._(),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +41,18 @@ class LoginContent extends StatelessWidget {
       listener: (context, state) {
         final l10n = context.l10n;
         return switch (state.failure) {
-          AnonymousSignInFailure() =>
-            context.showSnackBar(l10n.anonymousSignInFailureMessage),
-          GoogleSignInFailure() =>
-            context.showSnackBar(l10n.googleSignInFailureMessage),
-          AppleSignInFailure() =>
-            context.showSnackBar(l10n.appleSignInFailureMessage),
-          AppleSignInNotSupportedFailure() =>
-            context.showSnackBar(l10n.appleSignInNotSupportedFailureMessage),
+          AnonymousSignInFailure() => context.showSnackBar(
+            l10n.anonymousSignInFailureMessage,
+          ),
+          GoogleSignInFailure() => context.showSnackBar(
+            l10n.googleSignInFailureMessage,
+          ),
+          AppleSignInFailure() => context.showSnackBar(
+            l10n.appleSignInFailureMessage,
+          ),
+          AppleSignInNotSupportedFailure() => context.showSnackBar(
+            l10n.appleSignInNotSupportedFailureMessage,
+          ),
           _ => context.showSnackBar(l10n.unknownFailureMessage),
         };
       },
