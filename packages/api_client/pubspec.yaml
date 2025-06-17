@@ -9,14 +9,14 @@ environment:
 dependencies:
   app_core:
     path: ../app_core
-  cloud_firestore: ^5.6.0
-  firebase_auth: ^5.3.4
-  firebase_core: ^3.9.0
+  cloud_firestore: ^5.6.9
+  firebase_auth: ^5.6.0
+  firebase_core: ^3.14.0
   flutter:
     sdk: flutter
-  google_sign_in: ^6.2.2
-  sign_in_with_apple: ^6.1.4
+  google_sign_in: ^6.3.0
+  sign_in_with_apple: ^7.0.1
 
 dev_dependencies:
-  very_good_analysis: ^7.0.0
+  very_good_analysis: ^9.0.0
 
