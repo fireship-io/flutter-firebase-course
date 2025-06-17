@@ -12,18 +12,18 @@ class TopicPage extends StatelessWidget {
   const TopicPage._();
 
   static Page<void> page({required Topic topic}) => MaterialPage<void>(
-        key: const ValueKey('topic_page'),
-        child: Provider.value(
-          value: topic,
-          child: const TopicPage._(),
-        ),
-      );
+    key: const ValueKey('topic_page'),
+    child: Provider.value(
+      value: topic,
+      child: const TopicPage._(),
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult: (canPop, __) {
+      onPopInvokedWithResult: (canPop, _) {
         if (!canPop) {
           context.flow<TopicsFlowState>().deselectTopic();
         }

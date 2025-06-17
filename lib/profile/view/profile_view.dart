@@ -62,8 +62,9 @@ class DisplayName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final displayName =
-        context.select((ProfileCubit cubit) => cubit.state.displayName);
+    final displayName = context.select(
+      (ProfileCubit cubit) => cubit.state.displayName,
+    );
     return Text(
       displayName.isNotEmpty
           ? displayName
@@ -79,8 +80,9 @@ class ProfilePhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final photoURL =
-        context.select((ProfileCubit cubit) => cubit.state.photoURL);
+    final photoURL = context.select(
+      (ProfileCubit cubit) => cubit.state.photoURL,
+    );
     return photoURL.isNotEmpty
         ? Stack(
             alignment: AlignmentDirectional.center,
@@ -93,7 +95,7 @@ class ProfilePhoto extends StatelessWidget {
                   width: _kProfilePhotoSize,
                   height: _kProfilePhotoSize,
                   fit: BoxFit.cover,
-                  imageErrorBuilder: (_, __, ___) {
+                  imageErrorBuilder: (_, _, _) {
                     return ColoredBox(
                       color: context.theme.canvasColor,
                       child: const Icon(
@@ -125,8 +127,9 @@ class TotalCompletedQuizzes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final totalCompletedQuizzes = context
-        .select((ProfileCubit cubit) => cubit.state.totalCompletedQuizzes);
+    final totalCompletedQuizzes = context.select(
+      (ProfileCubit cubit) => cubit.state.totalCompletedQuizzes,
+    );
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
