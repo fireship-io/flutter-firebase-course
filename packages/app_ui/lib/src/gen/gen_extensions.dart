@@ -11,19 +11,21 @@ extension AssetGenImageExtensions on AssetImage {
     final completer = Completer<Uint8List>();
     final listener = ImageStreamListener(
       (imageInfo, _) async {
-        final byteData =
-            await imageInfo.image.toByteData(format: ui.ImageByteFormat.png);
+        final byteData = await imageInfo.image.toByteData(
+          format: ui.ImageByteFormat.png,
+        );
         completer.complete(byteData?.buffer.asUint8List());
       },
       onError: completer.completeError,
     );
     imageStream.addListener(listener);
-    return completer.future
-        .whenComplete(() => imageStream.removeListener(listener));
+    return completer.future.whenComplete(
+      () => imageStream.removeListener(listener),
+    );
   }
 }
 
-final _covers = [
+final List<AssetGenImage> _covers = [
   Assets.covers.angular,
   Assets.covers.cloudFunctions,
   Assets.covers.defaultCover,
